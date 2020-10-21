@@ -12,7 +12,6 @@ class SignIn extends Component {
 
     }
     handleSubmit = (e) => {
-       console.log('trigger')
        e.preventDefault()
        console.log(this.state)
     }
