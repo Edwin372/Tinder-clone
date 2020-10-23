@@ -1,24 +1,51 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
+import moment from 'moment'
 
-function PostDetail(props) {
-    const id = props.match.params.id
+const postDetails = (props) => {
+   const { post, auth } = props;
+   if ( !auth.uid) return <Redirect to='/signin' /> 
+  if (post) {
     return (
-        <div>
-            <div className="container section post-detail">
-               <div className="card z-depth-8">
-                  <div className="card-content">
-                      <span className="card-title">Post title - {id} </span>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nulla deserunt quas dicta aliquid eligendi atque recusandae odio sit amet veniam, unde placeat neque in ad voluptates aperiam laudantium sunt?</p>
-                      <div className="card-action gret lighten-4 grey-text">
-                          <div>Posted by me</div>
-                          <div>Today</div>
-                      </div>
-                  </div>
-               </div>
-            
-            </div>
+      <div className="container section post-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title">{post.title}</span>
+            <p>{post.content}</p>
+          </div>
+          <div className="card-action grey lighten-4 grey-text">
+            <div>Posted by {post.author}</div>
+            <div>{moment(post.createdAt).calendar()}</div>
+          </div>
         </div>
+      </div>
     )
+  } else {
+    return (
+      <div className="container center">
+        <p>Loading post...</p>
+      </div>
+    )
+  }
 }
 
-export default PostDetail
+const mapStateToProps = (state, ownProps) => {
+  // console.log(state);
+  const id = ownProps.match.params.id;
+  const posts = state.firestore.data.posts;
+  const post = posts ? posts[id] : null
+  return {
+    post: post,
+    auth: state.firebase.auth
+  }
+}
+
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'posts' }
+  ])
+)(postDetails)
