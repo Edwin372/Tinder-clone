@@ -6,7 +6,7 @@ export default function ProjectList({posts}) {
         <div className="project-list section">
            {posts && posts.map((post) => {
                return (
-                   <PostSummary post={post}/>
+                   <PostSummary id={post.id} post={post}/>
                )
            })}
         </div>

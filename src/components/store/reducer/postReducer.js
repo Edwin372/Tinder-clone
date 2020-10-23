@@ -1,14 +1,18 @@
 const initState = {
-        posts: [
-            {id: 0,title:'test1',content:'blahblah blah blah'},
-            {id: 1,title:'test2',content:'blahblah blah blah'},
-            {id: 2,title:'test3',content:'blahblah blah blah'},
-            {id: 3,title:'test4',content:'blahblah blah blah'}
-        ]
+       
 }
 
-const projectReducer = (state = initState, action) => {
-    return state
+const postReducer = (state = initState, action) => {
+    switch (action.type) {
+        case 'CREATE_POST_SUCCESS':
+          console.log('create post success');
+          return state;
+        case 'CREATE_POST_ERROR':
+          console.log('create post error');
+          return state;
+        default:
+          return state;
+    }
 }
 
-export default projectReducer
+export default postReducer
