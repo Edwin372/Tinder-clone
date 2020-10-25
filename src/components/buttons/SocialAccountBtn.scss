@@ -1,17 +1,10 @@
 .social-account-btn {
-    width: 449px;
-    height: 88px;
+    background: transparent;
+    font-family: Ovo;
+    margin-bottom: 26px;
     border: none;
     outline: none;
-    background: #A7CBB6;
-    border-radius: 16px;
-    font-family: Ovo;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 27px;
-    line-height: 30px;
-    text-align: center;
-    margin-bottom: 26px
+    cursor: pointer;
 }
 
 #facebook-btn::before {
