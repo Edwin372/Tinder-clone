@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authAction'
 import { Redirect } from 'react-router-dom'
-
+import StyledInput from '../inputs/StyledInput.jsx'
+import StyledButton from '../buttons/StyledButton.jsx'
+import bigLogo from '../../svg/big-logo.svg'
+import SocialAccountBtn from '../buttons/SocialAccountBtn.jsx'
+import './SignIn.scss'
 class SignIn extends Component {
   state = {
     email: '',
@@ -22,23 +26,21 @@ class SignIn extends Component {
     if (auth.uid) return <Redirect to='/' /> 
     return (
       <div className="container">
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Sign In</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id='email' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Login</button>
-            <div className="center red-text">
-              { authError ? <p>{authError}</p> : null }
-            </div>
-          </div>
-        </form>
+        <img src={bigLogo} alt="big-logo"/>
+        <div className="form-container">
+          <form className="white" onSubmit={this.handleSubmit}>
+            <StyledInput label="User name/Email" type="email" id='email' onChange={this.handleChange}  />
+            <StyledInput label="Password" type="password" id='password' onChange={this.handleChange}  />
+            <StyledButton text="Login"/>
+              <div className="center red-text">
+                { authError ? <p id="error-text">{authError}</p> : null }
+              </div>
+          </form>
+          <SocialAccountBtn onClick={() => {}} id={"facebook-btn"} />
+          <SocialAccountBtn onClick={() => {}} id={"google-btn"}/>
+
+        </div>
+       
       </div>
     )
   }

@@ -1,0 +1,25 @@
+.social-account-btn {
+    width: 449px;
+    height: 88px;
+    border: none;
+    outline: none;
+    background: #A7CBB6;
+    border-radius: 16px;
+    font-family: Ovo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 26px
+}
+
+#facebook-btn::before {
+    content: url('../../svg/facebook.svg');
+    display: block;
+}
+
+#google-btn::before {
+    content: url('../../svg/google.svg');
+    display: block;
+}

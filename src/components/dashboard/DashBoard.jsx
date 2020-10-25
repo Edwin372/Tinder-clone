@@ -4,16 +4,16 @@ import Notifications from './Notification'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
-import { Redirect } from 'react-router-dom'
-
+import Navbar from '../layout/NavBar.jsx'
 
 
 class Dashboard extends Component {
   render() {
-    const { posts, auth } = this.props;
-    if (!auth.uid) return <Redirect to='/signin' /> 
+    const { posts } = this.props;
 
     return (
+      <>
+      <Navbar/>
       <div className="dashboard container">
         <div className="row">
           <div className="col s12 m6">
@@ -24,6 +24,7 @@ class Dashboard extends Component {
           </div>
         </div>
       </div>
+      </>
     )
   }
 }
