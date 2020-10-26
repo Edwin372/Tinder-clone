@@ -1,0 +1,29 @@
+.signup-container {
+    display: flex;
+    padding-top: 56px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background:#F9F1F1;
+    padding-bottom: 160px;
+   form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .sign-up-input-container {
+        width: 78%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+        margin-bottom:56px;
+        .signup-input-col {
+            display: flex;
+            flex-direction: column;
+          }
+      }
+     
+   }
+}

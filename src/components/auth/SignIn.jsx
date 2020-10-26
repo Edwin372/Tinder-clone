@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signIn } from '../../store/actions/authAction'
 import { Redirect } from 'react-router-dom'
-
+import StyledInput from '../inputs/StyledInput.jsx'
+import StyledButton from '../buttons/StyledButton.jsx'
+import bigLogo from '../../svg/bigLogo.svg'
+import smallLogo from '../../svg/smallLogo.svg'
+import SocialAccountBtn from '../buttons/SocialAccountBtn.jsx'
+import './SignIn.scss'
 class SignIn extends Component {
   state = {
     email: '',
@@ -21,25 +26,23 @@ class SignIn extends Component {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to='/' /> 
     return (
-      <div className="container">
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Sign In</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id='email' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Login</button>
+        <div className="container">
+          <img src={smallLogo} alt="small-logo" id="small-logo"/>
+          <img src={bigLogo} alt="big-logo"/>
+          <div className="form-container">
+          <form className="white" onSubmit={this.handleSubmit}>
+            <StyledInput label="Email" type="email" id='email' onChange={this.handleChange}  />
+            <StyledInput label="Password" type="password" id='password' onChange={this.handleChange}  />
+            <StyledButton text="Login"/>
+            <p>Don't have an account?<a href="/signup-options"> Click here</a> to sign up</p>
             <div className="center red-text">
-              { authError ? <p>{authError}</p> : null }
+              { authError ? <p id="error-text">{authError}</p> : null }
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
+          <SocialAccountBtn onClick={() => {}} id={"facebook-btn"} />
+          <SocialAccountBtn onClick={() => {}} id={"google-btn"}/>
+           </div>
+         </div>
     )
   }
 }
