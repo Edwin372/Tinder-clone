@@ -50,3 +50,18 @@ export const signIn = (credentials) => {
       });
     }
   }
+
+  export const sendEmailVerification = () => {
+    return (dispatch, getState, {getFirebase}) => {
+      const firebase = getFirebase();
+  
+      firebase.auth().currentUser.sendEmailVerification()
+      .then( () => {
+            console.log('verification sent')
+      }).then(() => {
+        dispatch({ type: 'VERIFICATION_SUCCESS' });
+      }).catch((err) => {
+        dispatch({ type: 'VERIFICATION_ERR', err});
+      });
+    }
+  }

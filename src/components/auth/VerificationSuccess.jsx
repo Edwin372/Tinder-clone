@@ -3,6 +3,7 @@ import VerificationSuccessImg from '../../svg/verificationSuccess.svg'
 import VerificationBtn from '../buttons/VerificationBtn.jsx'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import './VerificationSuccess.scss'
 
  function VerificationSuccess({auth}) {
     if(auth.emailVerified) return (<Redirect to="/"/>)
