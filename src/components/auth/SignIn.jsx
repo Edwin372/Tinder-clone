@@ -34,9 +34,10 @@ class SignIn extends Component {
             <StyledInput label="Email" type="email" id='email' onChange={this.handleChange}  />
             <StyledInput label="Password" type="password" id='password' onChange={this.handleChange}  />
             <StyledButton text="Login"/>
-              <div className="center red-text">
-                { authError ? <p id="error-text">{authError}</p> : null }
-              </div>
+            <p>Don't have an account?<a href="/signup-options"> Click here</a> to sign up</p>
+            <div className="center red-text">
+              { authError ? <p id="error-text">{authError}</p> : null }
+            </div>
           </form>
           <SocialAccountBtn onClick={() => {}} id={"facebook-btn"} />
           <SocialAccountBtn onClick={() => {}} id={"google-btn"}/>
