@@ -7,6 +7,9 @@ import SignUp from './components/auth/SignUp.jsx'
 import CreatePost from './components/post/CreatePost.jsx'
 import ProtectedRoute from './components/auth/ProtectedRoute.jsx'
 import SignUpOptions from './components/auth/SignUpOptions.jsx'
+import VerificationSuccess from './components/auth/VerificationSuccess.jsx'
+import Verification from './components/auth/Verification.jsx'
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +20,9 @@ function App() {
           <Route path="/signin" component={SignIn}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/signup-options" component={SignUpOptions}/>
+          <Route path="/verify" component={Verification}/>
+          <Route path="/verify-action" component={VerificationSuccess}/>
+          
           <ProtectedRoute path="/post/:id" component={PostDetail}/>
           <ProtectedRoute path="/create-post" component={CreatePost}/>
 

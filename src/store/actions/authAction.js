@@ -28,18 +28,21 @@ export const signIn = (credentials) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
       const firebase = getFirebase();
       const firestore = getFirestore();
-      console.log(newUser)
   
       firebase.auth().createUserWithEmailAndPassword(
         newUser.email, 
         newUser.password
-      ).then(resp => {
-        console.log(resp);
+      ).then(async (resp) => {
+        await firebase.auth().currentUser.sendEmailVerification()
         return firestore.collection('users').doc(resp.user.uid).set({
           username: newUser.username,
           dob: newUser.dob,
           initials: newUser.username[0],
         });
+      }).then(resp => {
+        console.log( firebase.auth().currentUser)
+        // console.log(firebase.auth().currentUser.sendEmailVerification)
+        
       }).then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });
       }).catch((err) => {

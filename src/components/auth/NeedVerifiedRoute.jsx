@@ -3,9 +3,8 @@ import { Redirect, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
-function ProtectedRoute({path , component, auth}) {
-    console.log(auth)
-    if (!auth.uid || !auth.emailVerified) return <Redirect to='/signin' /> 
+function NeedVerifiedRoute({path , component, auth}) {
+    if (!auth.uid || !auth.emailVerified) return <Redirect to='/verify' /> 
     
     return (
         <Route path={path} component={component}/>
@@ -18,4 +17,4 @@ const mapStateToProps = (state) => {
     }
   }
 
-  export default connect(mapStateToProps)(ProtectedRoute)
+  export default connect(mapStateToProps)(NeedVerifiedRoute)

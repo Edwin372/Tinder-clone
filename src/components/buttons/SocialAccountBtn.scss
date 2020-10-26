@@ -22,3 +22,7 @@
     display: block;
 }
 
+#verify-btn::before {
+    content: url('../../svg/verificationBtn.svg');
+    display: block;
+}

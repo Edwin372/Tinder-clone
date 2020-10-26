@@ -3,11 +3,14 @@ import './SignUpOptions.scss'
 import SocialAccountBtn from '../buttons/SocialAccountBtn.jsx'
 import SignUp from '../../svg/signUp.svg'
 import Logo from '../../svg/logo.svg'
-// import {NavLink} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-export default class SignUpOptions extends Component {
-    
+class SignUpOptions extends Component {
+   
     render() {
+        const { auth } = this.props;
+        if (auth.uid) return <Redirect to='/' /> 
         return (
             <div id="sign-up-options">
                 <img src={Logo} alt=""/>
@@ -20,3 +23,11 @@ export default class SignUpOptions extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+      auth: state.firebase.auth
+    }
+  }
+
+export default connect(mapStateToProps)(SignUpOptions)
