@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 
 function NeedVerifiedRoute({path , component, auth}) {
-    if (!auth.uid || !auth.emailVerified) return <Redirect to='/verify' /> 
+    if (!auth.emailVerified) return <Redirect to='/verify' /> 
     
     return (
         <Route path={path} component={component}/>

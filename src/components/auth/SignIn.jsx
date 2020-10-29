@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signIn } from '../../store/actions/authAction'
+import { signIn, signInWithSocialAccount } from '../../store/actions/authAction'
 import { Redirect } from 'react-router-dom'
 import StyledInput from '../inputs/StyledInput.jsx'
 import StyledButton from '../buttons/StyledButton.jsx'
@@ -24,6 +24,7 @@ class SignIn extends Component {
   }
   render() {
     const { authError, auth } = this.props;
+    console.log(authError)
     if (auth.uid) return <Redirect to='/' /> 
     return (
         <div className="container">
@@ -39,8 +40,8 @@ class SignIn extends Component {
               { authError ? <p id="error-text">{authError}</p> : null }
             </div>
           </form>
-          <SocialAccountBtn onClick={() => {}} id={"facebook-btn"} />
-          <SocialAccountBtn onClick={() => {}} id={"google-btn"}/>
+          <SocialAccountBtn onClick={() => {this.props.signInWithSocialAccount('facebook')}} id={"facebook-btn"} />
+          <SocialAccountBtn onClick={() => {this.props.signInWithSocialAccount('google')}} id={"google-btn"}/>
            </div>
          </div>
     )
@@ -56,7 +57,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (creds) => dispatch(signIn(creds))
+    signIn: (creds) => dispatch(signIn(creds)),
+    signInWithSocialAccount: (provider) => dispatch(signInWithSocialAccount(provider))
   }
 }
 

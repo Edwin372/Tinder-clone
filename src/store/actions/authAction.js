@@ -37,7 +37,7 @@ export const signIn = (credentials) => {
         return firestore.collection('users').doc(resp.user.uid).set({
           username: newUser.username,
           dob: newUser.dob,
-          initials: newUser.username[0],
+          displayName: newUser.username,
         });
       }).then(resp => {
         console.log( firebase.auth().currentUser)
@@ -63,5 +63,18 @@ export const signIn = (credentials) => {
       }).catch((err) => {
         dispatch({ type: 'VERIFICATION_ERR', err});
       });
+    }
+  }
+
+  export const signInWithSocialAccount =  (provider) => {
+    return (dispatch, getState, {getFirebase}) => {
+      const firebase = getFirebase();
+     firebase.login({ provider: provider, type: 'popup' })
+      .then(function(result) {
+        dispatch({ type: `SIGNUP_WITH_${provider.toUpperCase()}_SUCCESS` });
+      }).catch(function(error) {
+        dispatch({ type:  `SIGNUP_WITH_${provider.toUpperCase()}_ERROR`, error });
+      });
+      
     }
   }
