@@ -73,7 +73,6 @@ export const signIn = (credentials) => {
       .then(function(result) {
         dispatch({ type: `SIGNUP_WITH_${provider.toUpperCase()}_SUCCESS` });
       }).catch(function(error) {
-        var errorMessage = error.message;
         dispatch({ type:  `SIGNUP_WITH_${provider.toUpperCase()}_ERROR`, error });
       });
       
