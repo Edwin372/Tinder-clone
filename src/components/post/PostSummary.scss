@@ -1,0 +1,83 @@
+.post-sum-container {
+    display: flex;
+    flex-direction:row;
+    margin-top: 71px;
+    .post-img {
+        width:198.94px;
+        height: 197.74px;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+    p {
+        margin-bottom: 5px;
+        margin-top: 3px;
+    }
+    .post-sum-content {
+        width: 531px;
+        margin-left: 30px;
+        .post-author-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .post-author{
+                p {
+                    font-family: Arbutus Slab;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #000000;
+                }
+            }
+            .favorite-button {
+                background: transparent;
+                border: none;
+                outline: none
+            }
+           
+        }
+        
+        .title {
+            color: black;
+            text-decoration: none;
+            font-family: 'Roboto Condensed';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+        }
+        .subtitle {
+            font-family: 'Arbutus Slab';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 21px;
+            color: #677079;
+        }
+        .post-info-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items:baseline;
+            .post-date {
+                font-family: 'Arbutus Slab';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 17px;
+                line-height: 21px;
+                color: #000000;
+            }
+            .view-and-tag-container {
+                span, p {
+                    font-family: 'Arbutus Slab';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 17px;
+                    line-height: 21px;
+                    color: #000000;
+                }
+            }
+        }
+    }
+
+}

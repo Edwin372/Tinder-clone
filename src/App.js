@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import DashBoard from './components/dashboard/DashBoard.jsx'
+import DashBoard from './components/pages/DashBoard.jsx'
 import PostDetail from './components/post/PostDetail.jsx'
 import SignIn from './components/auth/SignIn.jsx'
 import SignUp from './components/auth/SignUp.jsx'
@@ -22,7 +22,6 @@ function App() {
           <Route path="/signup-options" component={SignUpOptions}/>
           <Route path="/verify" component={Verification}/>
           <Route path="/verify-action" component={VerificationSuccess}/>
-          
           <ProtectedRoute path="/post/:id" component={PostDetail}/>
           <ProtectedRoute path="/create-post" component={CreatePost}/>
 

@@ -27,7 +27,7 @@ class SignIn extends Component {
     console.log(authError)
     if (auth.uid) return <Redirect to='/' /> 
     return (
-        <div className="container">
+        <div className="signin-container">
           <img src={smallLogo} alt="small-logo" id="small-logo"/>
           <img src={bigLogo} alt="big-logo"/>
           <div className="form-container">

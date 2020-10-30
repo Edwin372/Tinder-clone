@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 import { connect } from 'react-redux'
+import navBarLogo from '../../svg/navBarLogo.svg'
+import './NavBar.scss'
 
 const Navbar = (props) => {
-    const { auth, profile } = props;
+  const { auth, profile } = props;
   const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
 
   return (
-    <nav className="nav-wrapper grey darken-3">
-      <div className="container">
-        <Link to='/' className="brand-logo">The Nerd</Link>
+    <nav className="nav-bar">
+        <Link to='/' className="brand-logo">
+           <img id="logo" src={navBarLogo} alt="small-logo"/>
+        </Link>
         {links}
-      </div>
     </nav>
   )
 }

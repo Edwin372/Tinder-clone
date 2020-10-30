@@ -1,11 +1,12 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import './SignedOutLinks.scss'
 
 export default function  SignedOutLink () { 
     return (
-        <ul className="right">
-            <li><NavLink to="/signup-options">Sign Up</NavLink></li>
-            <li><NavLink to="/signin">Log In</NavLink></li>
-        </ul>
+        <div className="signedout-container">
+             <NavLink to="/signin"  id="signin-link">Sign In</NavLink>
+            <NavLink to="/signup-options" id="signup-link">Sign Up</NavLink>
+        </div>
     )
 }
