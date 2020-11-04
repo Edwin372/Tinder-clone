@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import PostList from '../post/PostList'
-import Notifications from './Notification'
+// import Notifications from './Notification'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import Navbar from '../layout/NavBar.jsx'
+import quote from '../../svg/quote.svg'
+import './DashBoard.scss'
 
 
 class Dashboard extends Component {
@@ -12,25 +14,22 @@ class Dashboard extends Component {
     const { posts } = this.props;
 
     return (
-      <>
-      <Navbar/>
-      <div className="dashboard container">
-        <div className="row">
-          <div className="col s12 m6">
-            <PostList posts={posts} />
+      <div id="home">
+        <Navbar/>
+        <div id="dashboard-container">
+          <div id="quote-container">
+              <img src={quote} alt="quote"/>
           </div>
-          <div className="col s12 m5 offset-m1">
-            <Notifications />
+          <div className="row">
+              <PostList posts={posts} />
           </div>
         </div>
       </div>
-      </>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state);
   return {
     posts: state.firestore.ordered.posts,
     auth: state.firebase.auth

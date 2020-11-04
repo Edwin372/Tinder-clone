@@ -1,27 +1,35 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { signOut } from '../../store/actions/authAction'
+// import { NavLink } from 'react-router-dom'
+// import { connect } from 'react-redux'
+// import { signOut } from '../../store/actions/authAction'
+import './SignedInLinks.scss'
 
 const SignedInLinks = (props) => {
    console.log(props.profile)
   return (
     <div>
-      <ul className="right">
-        <li><NavLink to='/create-post'>New Project</NavLink></li>
-        <li><button onClick={props.signOut}>Log Out</button></li>
-        <li><NavLink to='/' className="btn btn-floating pink lighten-1">
+      <div className="signedin-container">
+        <a to='/create-post'>New Project</a>
+        <button onClick={props.signOut}>Log Out</button>
+        <a to='/' className="btn btn-floating pink lighten-1">
           {props.profile.displayName}
-        </NavLink></li>
-      </ul>
+        </a>
+      </div>
     </div>
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signOut: () => dispatch(signOut())
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     signOut: () => dispatch(signOut())
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(SignedInLinks)
+// const mapStateToProps = (state) => {
+//   return {
+    
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks)
+export default SignedInLinks

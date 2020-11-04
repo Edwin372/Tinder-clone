@@ -1,0 +1,27 @@
+.post-list-container {
+    margin-left: 108px;
+    overflow-y: scroll;
+    max-height: 850px;
+   
+    a {
+        text-decoration: none
+    }
+}
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

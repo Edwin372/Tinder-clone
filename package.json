@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "firebase": "^7.24.0",
+    "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.0",
@@ -16,15 +17,19 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
+    "react-select": "^3.1.0",
     "redux": "^4.0.0",
     "redux-firestore": "^0.14.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "storybook": "^6.0.27"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +45,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@storybook/addon-actions": "^6.0.27",
+    "@storybook/addon-essentials": "^6.0.27",
+    "@storybook/addon-links": "^6.0.27",
+    "@storybook/node-logger": "^6.0.27",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.27",
+    "babel-loader": "^8.1.0",
+    "react-is": "^17.0.1"
   }
 }

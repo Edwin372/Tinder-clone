@@ -11,8 +11,12 @@ import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/firebaseConfig'
 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
 const store = createStore(rootReducer,
-  compose(
+  composeEnhancer(
+
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
     reactReduxFirebase(fbConfig, {userProfile: 'users', useFirestoreForProfile: true, attachAuthIsReady: true}), // redux binding for firebase
     reduxFirestore(fbConfig) // redux bindings for firestore
