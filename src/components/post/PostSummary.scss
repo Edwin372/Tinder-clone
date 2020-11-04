@@ -1,11 +1,11 @@
 .post-sum-container {
     display: flex;
     flex-direction:row;
-    margin-top: 71px;
+    margin-bottom: 71px;
     .post-img {
         width:198.94px;
         height: 197.74px;
-        object-fit: contain;
+        object-fit: cover;
         border-radius: 20px;
     }
     p {
@@ -20,6 +20,9 @@
             flex-direction: row;
             justify-content: space-between;
             .post-author{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 p {
                     font-family: Arbutus Slab;
                     font-style: normal;
@@ -27,6 +30,15 @@
                     font-size: 16px;
                     line-height: 20px;
                     color: #000000;
+                    margin-left: 12px;
+                    margin-bottom: 0px;
+                }
+                img {
+                    height: 31px;
+                    width: 31px;
+                    border-radius: 100%;
+                    object-fit: cover;
+
                 }
             }
             .favorite-button {
@@ -68,6 +80,9 @@
                 color: #000000;
             }
             .view-and-tag-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
                 span, p {
                     font-family: 'Arbutus Slab';
                     font-style: normal;
