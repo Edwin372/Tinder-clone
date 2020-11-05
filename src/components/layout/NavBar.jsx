@@ -1,8 +1,8 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import navBarLogo from '../../svg/navBarLogo.svg'
 import './NavBar.scss'
 
@@ -12,9 +12,9 @@ const Navbar = (props) => {
 
   return (
     <nav className="nav-bar">
-        {/* <Link to='/' className="brand-logo"> */}
+        <Link to='/' className="brand-logo">
            <img id="logo" src={navBarLogo} alt="small-logo"/>
-        {/* </Link> */}
+        </Link>
         {links}
     </nav>
   )
@@ -26,5 +26,7 @@ const Navbar = (props) => {
 //     profile: state.firebase.profile
 //   }
 // }
+
+// export default connect(mapStateToProps)(Navbar)
 
 export default Navbar

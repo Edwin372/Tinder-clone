@@ -3,7 +3,7 @@ import React from 'react'
 import Navbar from '../components/layout/NavBar.jsx'
 
 export default {
-  title: 'Example/Test',
+  title: 'Example/Navbar',
   component: Navbar,
   
 };
