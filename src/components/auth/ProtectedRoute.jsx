@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 
 function ProtectedRoute({path , component, auth}) {
-    console.log(auth)
     if (!auth.uid || !auth.emailVerified) return <Redirect to='/signin' /> 
     
     return (
