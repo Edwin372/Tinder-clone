@@ -30,6 +30,7 @@ export default function PostSummary({post}) {
                               <img src={view} alt="view-num"/>
                               <span>{(post.view > 1000) ? (Math.floor(post.view/1000)) + 'K' : post.view}</span>
                          </div>
+                         
                          <p>{post.tags}</p>
                     </div>
                </div>
