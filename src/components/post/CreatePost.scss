@@ -1,0 +1,45 @@
+.title-field input{
+     margin-left: 80px;
+     font-size: 15px;
+}
+// .title-field input:focus{
+//     border-bottom: 1px solid black;
+// }
+
+.sub-title input{
+    margin-left: 55px;
+}
+.white div{
+    margin-bottom: 10px;
+    input{
+    width : 700px;
+    border: 0;
+    outline: 0;
+    }
+    input:focus{
+    border-bottom: 1px solid black;
+    }
+    textarea{
+    margin-left: 30px;
+    width : 300px;
+    border: 0;
+    outline: 0;
+    }
+    textarea:focus{
+    border-bottom: 1px solid black;
+    }
+}
+h5 {
+    margin-left: 270px;
+    font-size: 30px;
+    font-weight: 10px;
+}
+
+.container{
+   margin-left: 170px;
+}
+
+.create-post-btn{
+    margin-left: 370px;
+    font-size: 18px;
+}
