@@ -12,7 +12,6 @@ export default function TrendingPostSummary({post}) {
         <div className="trend-post-sum-container">
           <div className="top-trending">
                 <span>{post.trending}</span>
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ruda&display=swap" rel="stylesheet"></link>
             </div>
           <div className="post-sum-content">
                <div className="post-author-container">
