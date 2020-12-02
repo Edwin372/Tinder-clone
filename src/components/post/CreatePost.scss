@@ -15,6 +15,7 @@
     width : 700px;
     border: 0;
     outline: 0;
+    font-family: Arial;
     }
     input:focus{
     border-bottom: 1px solid black;
@@ -33,6 +34,7 @@ h5 {
     margin-left: 270px;
     font-size: 30px;
     font-weight: 10px;
+    font-family: Arial;
 }
 
 .container{
@@ -42,4 +44,5 @@ h5 {
 .create-post-btn{
     margin-left: 370px;
     font-size: 18px;
+    // font-family: ;
 }
