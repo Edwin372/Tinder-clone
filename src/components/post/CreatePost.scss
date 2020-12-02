@@ -32,6 +32,13 @@ h5 {
     font-family: Arial;
     text-align: center;
 }
+.title-field input{
+    margin-left: 48px;
+    font-size: 15px;
+}
+// .title-field input:focus{
+//     border-bottom: 1px solid black;
+// }
 
 .container{
    margin: 0 auto;
@@ -47,5 +54,44 @@ h5 {
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
+}
+
+
+.sub-title input{
+   margin-left: 28px;
+}
+.white div{
+   margin-bottom: 10px;
+   input{
+   width : 700px;
+   border: 0;
+   outline: 0;
+   }
+   input:focus{
+    border-bottom: 1px solid black;
+    }
+    textarea{
+    font-family: 'Roboto', sans-serif;;
+    margin-left: 28px;
+    width: 986px;
+    height: 15px;
+    border: 0;
+    outline: 0;
+    font-style: normal;
+    size: 16px;
+    line-height: 25px;
+    }
+    textarea:focus{
+    border-bottom: 1px solid rgb(150, 150, 150);
+    }
+}
+h5 {
+   margin-left: 370px;
+   font-size: 30px;
+   margin-top: 50px;
+}
+
+.container{
+  margin-left: 100px;
 }
 

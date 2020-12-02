@@ -14,7 +14,7 @@ class CreatePost extends Component {
       this.setState({
         [e.target.id]: e.target.value
       })
-
+    
     }
     handleSubmit = (e) => {
        e.preventDefault()
@@ -33,11 +33,20 @@ class CreatePost extends Component {
                         <label htmlFor="subtitle">Subtitle:</label>
                         <textarea  type="text" id ="Subtitle" rows="1" cols="110" onChange={this.handleChange} placeholder ="day la phu de"/>
                     </div>
-                    <div className="content-field">
-                        <label htmlFor="content">Post content</label>
-                        <textarea id="content" className="materialize-textarea" onChange={this.handleChange} ></textarea>
                     </div>
+                    <div className="content-field">
+                        <label htmlFor="content">Content:</label>
+                        <textarea id="content" onChange={this.handleChange} ></textarea>
+                        
+                        
+                    </div>
+                    {/* <div className="input-field">
+                        <button  className="btn pink lighten-1 z-depth-0">Publish</button>
+                    </div> */}
                 </form>    
+                
+                
+                
                 <button className="create-post-btn" >POST</button>
             </div>
         )
