@@ -1,34 +1,33 @@
-.title-field input{
+.title-field textarea{
      margin-left: 80px;
-     font-size: 15px;
+     font-size: 17px;
+     font-weight: bold;
 }
-// .title-field input:focus{
+// .title-field textarea:focus{
 //     border-bottom: 1px solid black;
 // }
 
-.sub-title input{
+.sub-title textarea{
     margin-left: 55px;
 }
 .white div{
-    margin-bottom: 10px;
-    input{
-    width : 700px;
-    border: 0;
-    outline: 0;
-    font-family: Arial;
-    }
-    input:focus{
-    border-bottom: 1px solid black;
-    }
+    margin-bottom: 15px;
+    margin-top: 10px;
     textarea{
-    margin-left: 30px;
-    width : 300px;
     border: 0;
     outline: 0;
+    padding: 0;
+    position: absolute;
     }
     textarea:focus{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black; 
     }
+    label{
+        font-family: arial;
+    }
+} 
+.is-focused{
+    outline-style: solid;
 }
 h5 {
     margin-left: 270px;
