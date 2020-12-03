@@ -1,37 +1,17 @@
-.title-field textarea{ 
-     font-size: 17px;
-     font-weight: bold;
-}
-.white div{
+.create-signature{
+    color: black;
+    text-decoration: none;
+    font-family: 'Arbutus Slab';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
     display: flex;
-    flex-direction: column;
-    margin: 15px;
-    width: 100;
-    flex-grow: 1;
-    flex-shrink: 1;
-    textarea{
-    margin-left: 100px;
-    border: 0;
-    outline: 0;
-    padding: 0;
-    position: absolute;
-    }
-    textarea:focus{
-    border-bottom: 1px solid black; 
-    }
-    label{
-        font-family: arial;
-    }
-} 
-.is-focused{
-    outline-style: solid;
+    align-items: center;
+    height: 150px;
+    margin-left: 420px;
 }
-h5 {
-    font-size: 30px;
-    font-weight: 10px;
-    font-family: Arial;
-    text-align: center;
-}
+
 .title-field input{
     margin-left: 48px;
     font-size: 15px;
@@ -59,8 +39,9 @@ h5 {
 
 .sub-title input{
    margin-left: 28px;
+   margin-bottom: -5px;
 }
-.white div{
+.white{
    margin-bottom: 10px;
    input{
    width : 700px;
@@ -68,30 +49,64 @@ h5 {
    outline: 0;
    }
    input:focus{
-    border-bottom: 1px solid black;
-    }
-    textarea{
-    font-family: 'Roboto', sans-serif;;
-    margin-left: 28px;
-    width: 986px;
-    height: 15px;
-    border: 0;
-    outline: 0;
-    font-style: normal;
-    size: 16px;
-    line-height: 25px;
-    }
-    textarea:focus{
-    border-bottom: 1px solid rgb(150, 150, 150);
-    }
+   border-bottom: 1px solid black;
+   }
+//     .content-field{
+//         display: flex;
+//     }
+//     label{
+//         // font-family: ;
+//         font-style: normal;
+//         font-weight: normal;
+//         font-size: 18px;
+//         line-height: 21px;
+//         margin-top: 22px;
+//     }
+//     #editorjs{
+//          // font-family: Roboto;
+//          font-style: normal;
+//          font-weight: normal;
+//          font-size: 16px;
+//          line-height: 25px;
+//          width: 986px;
+//          padding-top: 1px;
+//          padding-bottom: 25px;
+//     }
+//     hr{ 
+//         width: 700px;
+        
+
+//     }
+//     // textarea{
+//     //     // font-family: ;
+//     //     margin-left: 27px;
+//     //     width: 986px;
+//     //     font-size: 16px;
+//     //     // line-height: 25px;
+//     //     height: 20px;
+//     //     border: 0;
+//     //     outline: 0;
+//     //     margin-top: 16px;
+//     //     resize:none;
+//     //     white-space: normal;
+        
+//     //     }
+//     //     textarea:focus{
+//     //     border-bottom: 1px solid rgb(146, 145, 145); 
+//     //    }
 }
 h5 {
    margin-left: 370px;
    font-size: 30px;
-   margin-top: 50px;
+
 }
 
 .container{
   margin-left: 100px;
+  display: flex;
 }
 
+::selection {
+    background: black;
+    color: white;
+}

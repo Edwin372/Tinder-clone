@@ -3,28 +3,42 @@ import { connect } from 'react-redux'
 import { createPost } from '../../store/actions/postAction'
 import '../buttons/CreatePostBtn.jsx'
 import './CreatePost.scss'
-
+import EditorJS from '@editorjs/editorjs';
+import ImageTool from '@editorjs/image';
 
 class CreatePost extends Component {
     state= {
         
     }
-
+    componentDidMount() {
+        const editor = new EditorJS({
+            holder: 'editorjs',
+            tools: {
+                image: ImageTool,
+              },
+          });
+    }
     handleChange = (e) => {
       this.setState({
         [e.target.id]: e.target.value
       })
-    
     }
     handleSubmit = (e) => {
        e.preventDefault()
        this.props.createPost(this.state)
     }
+    // textAreaAdjust() {
+    //     document.getElementById("content").style.height = "1px";
+    //     document.getElementById("content").style.height =(20+document.getElementById("content").scrollHeight)+"px";
+    //   }
+    
     render() {
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Create your own signature</h5>
+                    <div className="create-signature">
+                    <label>Create your own signature</label>
+                    </div>
                     <div className="title-field">
                         <label htmlFor="title">Title</label>
                         <textarea  rows="1" cols="83" type="text" id="title" onChange={this.handleChange} />
@@ -33,21 +47,16 @@ class CreatePost extends Component {
                         <label htmlFor="subtitle">Subtitle:</label>
                         <textarea  type="text" id ="Subtitle" rows="1" cols="110" onChange={this.handleChange} placeholder ="day la phu de"/>
                     </div>
-                    </div>
-                    <div className="content-field">
-                        <label htmlFor="content">Content:</label>
-                        <textarea id="content" onChange={this.handleChange} ></textarea>
-                        
-                        
-                    </div>
+                    {/* Content */}
+                    <label htmlFor="content">Content:</label>
+                    <div id="editorjs"></div>
+                    <hr></hr>
+                    
+                    
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}
                 </form>    
-                
-                
-                
-                <button className="create-post-btn" >POST</button>
             </div>
         )
     }
