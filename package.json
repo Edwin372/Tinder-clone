@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@editorjs/editorjs": "^2.19.0",
+    "@editorjs/embed": "^2.4.0",
+    "@editorjs/header": "^2.6.1",
+    "@editorjs/image": "^2.6.0",
+    "@editorjs/list": "^1.6.1",
+    "@editorjs/simple-image": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -56,5 +62,9 @@
     "@storybook/react": "^6.0.27",
     "babel-loader": "^8.1.0",
     "react-is": "^17.0.1"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Edwin372/Tinder-clone.git",
+  "author": "Dat Nguyen <nthdat18@apcs.vn>",
+  "license": "MIT"
 }
