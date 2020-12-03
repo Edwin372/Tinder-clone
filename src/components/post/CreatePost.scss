@@ -1,0 +1,51 @@
+.title-field textarea{ 
+     font-size: 17px;
+     font-weight: bold;
+}
+.white div{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 100;
+    flex-grow: 1;
+    flex-shrink: 1;
+    textarea{
+    margin-left: 100px;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    position: absolute;
+    }
+    textarea:focus{
+    border-bottom: 1px solid black; 
+    }
+    label{
+        font-family: arial;
+    }
+} 
+.is-focused{
+    outline-style: solid;
+}
+h5 {
+    font-size: 30px;
+    font-weight: 10px;
+    font-family: Arial;
+    text-align: center;
+}
+
+.container{
+   margin: 0 auto;
+   max-width: 960px;
+   display: flex;
+   flex-direction: column;
+}
+
+.white{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+}
+

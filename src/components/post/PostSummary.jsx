@@ -5,6 +5,7 @@ import view from '../../svg/view.svg'
 import favorite from '../../svg/favorite.svg'
 import defaultAvatar from '../../images/defaultAvatar.png'
 import './PostSummary.scss'
+import {CreatePostBtn} from '../buttons/CreatePostBtn.jsx'
 
 
 export default function PostSummary({post}) {
