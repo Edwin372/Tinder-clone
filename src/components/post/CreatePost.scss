@@ -1,19 +1,16 @@
-.title-field textarea{
-     margin-left: 80px;
+.title-field textarea{ 
      font-size: 17px;
      font-weight: bold;
 }
-// .title-field textarea:focus{
-//     border-bottom: 1px solid black;
-// }
-
-.sub-title textarea{
-    margin-left: 55px;
-}
 .white div{
-    margin-bottom: 15px;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    width: 100;
+    flex-grow: 1;
+    flex-shrink: 1;
     textarea{
+    margin-left: 100px;
     border: 0;
     outline: 0;
     padding: 0;
@@ -30,13 +27,25 @@
     outline-style: solid;
 }
 h5 {
-    margin-left: 270px;
     font-size: 30px;
     font-weight: 10px;
     font-family: Arial;
+    text-align: center;
 }
 
 .container{
-   margin-left: 170px;
+   margin: 0 auto;
+   max-width: 960px;
+   display: flex;
+   flex-direction: column;
+}
+
+.white{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
 }
 
