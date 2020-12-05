@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Navbar from '../components/layout/NavBar.jsx'
+import testImage6 from '../images/testImage6.jpg'
 
 export default {
   title: 'Example/Navbar',
@@ -16,7 +17,8 @@ signedInNavbar.args = {
       uid: '12313123'
   }, 
   profile: {
-      displayName: 'hello'
+      displayName: 'Dit con me may Tran Hoai Chau',
+      avatar: testImage6
   }
 }
 
