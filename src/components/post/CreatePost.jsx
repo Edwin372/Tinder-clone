@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createPost } from '../../store/actions/postAction'
-import '../buttons/CreatePostBtn.jsx'
+// import { Redirect } from 'react-router-dom'
 import './CreatePost.scss'
 import EditorJS from '@editorjs/editorjs';
 import ImageTool from '@editorjs/image';
+import CodeTool from '@editorjs/code';
+import Underline from '@editorjs/underline';
+import '../buttons/CreatePostBtn.jsx'
 
 class CreatePost extends Component {
     state= {
@@ -14,8 +17,14 @@ class CreatePost extends Component {
         const editor = new EditorJS({
             holder: 'editorjs',
             tools: {
+                code: CodeTool,
+                underline: Underline,
                 image: ImageTool,
               },
+            config: {
+                minHeight: 0+"px",
+            } 
+
           });
     }
     handleChange = (e) => {
@@ -27,11 +36,6 @@ class CreatePost extends Component {
        e.preventDefault()
        this.props.createPost(this.state)
     }
-    // textAreaAdjust() {
-    //     document.getElementById("content").style.height = "1px";
-    //     document.getElementById("content").style.height =(20+document.getElementById("content").scrollHeight)+"px";
-    //   }
-    
     render() {
         return (
             <div className='container'>
@@ -40,19 +44,19 @@ class CreatePost extends Component {
                     <label>Create your own signature</label>
                     </div>
                     <div className="title-field">
-                        <label htmlFor="title">Title</label>
-                        <textarea  rows="1" cols="83" type="text" id="title" onChange={this.handleChange} />
+                        <label htmlFor="title">Title:</label>
+                        <input style={{fontWeight: "bold" } } type="text" id="title" onChange={this.handleChange} />
                     </div>
                     <div className="sub-title">
                         <label htmlFor="subtitle">Subtitle:</label>
-                        <textarea  type="text" id ="Subtitle" rows="1" cols="110" onChange={this.handleChange} placeholder ="day la phu de"/>
+                        <div type="text" className ="Subtitle"  contentEditable data-placeholder="Đây là phụ đề" ></div>
                     </div>
                     {/* Content */}
+                    <div className="content-field">
                     <label htmlFor="content">Content:</label>
                     <div id="editorjs"></div>
-                    <hr></hr>
-                    
-                    
+                    </div>
+                    <button className="create-post-btn" >POST</button>
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}
@@ -75,3 +79,8 @@ const mapDispatchToProps = dispatch => {
   
   export default connect(null, mapDispatchToProps)(CreatePost)
   
+  
+
+
+
+
