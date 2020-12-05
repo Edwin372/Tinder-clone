@@ -1,35 +1,53 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { signOut } from '../../store/actions/authAction'
-import './SignedInLinks.scss'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { signOut } from "../../store/actions/authAction";
+import "./SignedInLinks.scss";
+import magnifier from "../../svg/magnifier.svg";
+import bell from "../../svg/bell.svg";
+import defaultAvatar from "../../images/defaultAvatar.png";
 
 const SignedInLinks = (props) => {
-   console.log(props.profile)
+  const handleName = (name) => {
+    let finalName = name.split(" ");
+    return finalName[finalName.length - 1];
+  };
+  console.log(props.profile);
   return (
     <div>
       <div className="signedin-container">
-        <NavLink to='/create-post'>New Project</NavLink>
-        <button onClick={props.signOut}>Log Out</button>
-        <NavLink to='/' className="btn btn-floating pink lighten-1">
-          {props.profile.displayName}
-        </NavLink>
+        <button id="magnifier" className="signin-navbar-button">
+          <img src={magnifier} alt="magnifier icon" />
+        </button>
+        <button
+          id="bell"
+          onClick={props.signOut}
+          className="signin-navbar-button"
+        >
+          <img src={bell} alt="bell icon" />
+        </button>
+        <span id="displayName">{handleName(props.profile.displayName)}</span>
+        <button id="avatar-button" className="signin-navbar-button">
+          <img
+            id="avatar-image"
+            src={props.profile.avatar || defaultAvatar}
+            alt="avatar-image"
+          />
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => dispatch(signOut())
-  }
-}
+    signOut: () => dispatch(signOut()),
+  };
+};
 
 const mapStateToProps = (state) => {
-  return {
-    
-  }
-}
+  return {};
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks)
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);
 // export default SignedInLinks
