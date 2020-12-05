@@ -6,10 +6,10 @@ import "./SignedInLinks.scss";
 import magnifier from "../../svg/magnifier.svg";
 import bell from "../../svg/bell.svg";
 import defaultAvatar from "../../images/defaultAvatar.png";
-import Pencil from "../../svg/pencil.svg";
-import Layers from "../../svg/layers.svg";
-import SignoutIcon from "../../svg/signoutIcon.svg";
-import HumanLogo from "../../svg/humanLogo.svg";
+import pencil from "../../svg/pencil.svg";
+import layers from "../../svg/layers.svg";
+import signoutIcon from "../../svg/signoutIcon.svg";
+import humanLogo from "../../svg/humanLogo.svg";
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
@@ -53,7 +53,7 @@ const SignedInLinks = (props) => {
               <button className="dropdown-button">
                 <img
                   id="pencil-image"
-                  src={Pencil}
+                  src={pencil}
                   alt="pencil-logo"
                   className="dropdown-logo"
                 />
@@ -62,7 +62,7 @@ const SignedInLinks = (props) => {
               <button className="dropdown-button">
                 <img
                   id="layers-image"
-                  src={Layers}
+                  src={layers}
                   alt="layers-logo"
                   className="dropdown-logo"
                 />
@@ -71,7 +71,7 @@ const SignedInLinks = (props) => {
               <button className="dropdown-button">
                 <img
                   id="humanLogo-image"
-                  src={HumanLogo}
+                  src={humanLogo}
                   alt="humanLogo-logo"
                   className="dropdown-logo"
                 />
@@ -80,7 +80,7 @@ const SignedInLinks = (props) => {
               <button id="sign-out-button" className="dropdown-button">
                 <img
                   id="signout-image"
-                  src={SignoutIcon}
+                  src={signoutIcon}
                   alt="signoutIcon-logo"
                   className="dropdown-logo"
                 />
