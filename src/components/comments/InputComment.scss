@@ -1,0 +1,29 @@
+.input-comment {
+
+    .line {
+        position: relative;
+        width: 688.4px;
+        height: 0px;
+        border: 1px solid #000000;
+    }
+    .comment-logo {
+        margin-top: 10px;
+        flex-direction: row;
+        position: relative;
+        display: flex;
+        .comment-text {
+            width: 110px;
+            font-size: 18px;
+            font-family: 'Rowdies'
+        }
+        .comment-logo{
+            width: 30px;
+            height: 30px;
+            padding-top: 2px;
+        }
+    }
+    .input-of-user {
+        display: flex;
+        flex-direction: row;
+    }
+}
