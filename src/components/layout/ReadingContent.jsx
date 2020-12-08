@@ -29,17 +29,29 @@ const ReadingContent = (props) => {
         src={post.image}
         alt="title-image"
       />
-      <p className="reading-content-body-title"></p>
-      <p className="reading-content-body-paragraph"></p>
       <div id="reading-content-body">
         {post.contents.map((item, index) => (
           <div key={index}>
             <p className="reading-content-body-title" key={index}>
               {item.title}
             </p>
-            {item.content.map((pItem, index) => (
-              <p className="reading-content-body-paragraph">{pItem}</p>
-            ))}
+            {item.content.map((pItem, index) => {
+              if (typeof pItem === `string`) {
+                return (
+                  <p className="reading-content-body-paragraph" key={index}>
+                    {pItem}
+                  </p>
+                );
+              } else {
+                return (
+                  <img
+                    className="reading-content-image paragraph-image"
+                    src={pItem.img}
+                    alt="paragraph-image"
+                  />
+                );
+              }
+            })}
           </div>
         ))}
       </div>

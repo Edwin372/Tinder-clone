@@ -41,7 +41,7 @@
         flex-direction: column;
         align-items: flex-start;
         width: 131.6123046875px;
-        font-size: 14px;
+        font-size: 20px;
         #author-name {
           cursor: pointer;
           margin-top: 0px;
@@ -57,18 +57,34 @@
   #reading-content-preheader {
     width: 800px;
     #reading-content-title {
-      font-size: 32px;
+      font-size: 40px;
       margin-top: 15px;
       font-family: "Rowdies";
       margin-bottom: 0px;
       align-self: flex-start;
     }
     #reading-content-subtitle {
-      font-size: 16px;
+      font-size: 30px;
       color: #677079;
-      margin-top: 26px;
-      margin-bottom: 0px;
+      margin-top: 20px;
+      margin-bottom: 25px;
       align-self: flex-start;
+      word-wrap: break-word;
+    }
+  }
+  #reading-content-body {
+    margin-top: 22.57px;
+    width: 1000px;
+    text-align: justify;
+    .reading-content-body-title {
+      font-size: 30px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-weight: bold;
+    }
+    .reading-content-body-paragraph {
+      margin-top: 10px;
+      font-size: 20px;
     }
   }
   .reading-content-image {
@@ -78,18 +94,7 @@
     border-radius: 5%;
     margin-bottom: 0px;
   }
-  #reading-content-body {
-    margin-top: 22.57px;
-    width: 800px;
-    .reading-content-body-title {
-      font-size: 25px;
-      margin-bottom: 0px;
-      margin-top: 0px;
-      font-weight: bold;
-    }
-    .reading-content-body-paragraph {
-      margin-top: 10px;
-      font-size: 16px;
-    }
+  .paragraph-image {
+    width: 100%;
   }
 }
