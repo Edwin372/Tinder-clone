@@ -1,0 +1,54 @@
+.user-comment {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    .user-name-date {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 5px;
+        .name-date {
+            display: flex;
+            flex-direction: column;
+            height: 45px;
+            .name {
+                font-family: 'Roboto';
+                font-weight: 700;
+                font-size: 14px;
+                padding-left: 6px;
+                margin-top: initial;
+            }
+            .date {
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 14px;
+                padding-left: 6px;
+                margin-top: -3px;
+            }
+        }
+    }
+    .comment-content {
+        width: 640px;
+        border-radius: 10px;
+        background-color: #FFE8BE;
+        border-color: #FFE8BE;
+        padding-left: 10px;
+        margin-left: 51px;
+        resize: both;
+        overflow: auto;
+        resize: none;
+        .text-style {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 14px;
+            text-align: justify;
+            margin-right: 10px;
+        }
+    }
+    .comment-img {
+        padding-top: 5px;
+        margin-left: 51px;
+        height: 200px;
+        width: 200px;
+        border-radius: 10px;
+    }
+}

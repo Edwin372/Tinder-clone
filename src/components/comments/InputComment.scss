@@ -24,6 +24,43 @@
     }
     .input-of-user {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        .ava-and-name {
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 5px;
+            p {
+                font-family: 'Roboto';
+                font-weight: 700;
+                font-size: 14px;
+                padding-left: 6px;
+                margin-top: initial;
+            }
+        }
+        .textarea-and-addImageIcon
+        {
+            display: flex;
+            flex-direction: row;
+            padding-left: 51px;   
+            .input-text {
+                resize: none;
+                width: 598px;
+                height: 41px;
+                border-radius: 10px;
+                background-color: #FFE8BE;
+                border-color: #FFE8BE;
+            }
+            #addImageIcon {
+                padding-left: 10px;
+            }
+        }
+        .importedImage {
+            position: relative;
+            width: 135px;
+            height: 125px;
+            margin-top: 3px;
+            border-radius: 10px;
+            margin-left: 51px;
+        }
     }
 }
