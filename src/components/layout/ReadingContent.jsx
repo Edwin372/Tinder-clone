@@ -13,19 +13,9 @@ const ReadingContent = (props) => {
       <div id="reading-content-header">
         <button id="save-icon-button" onClick={() => saveToggle(!save)}>
           {save ? (
-            <img
-              id="save-on-icon"
-              src={saveOn}
-              alt="saveIcon"
-              className={`saving-icon ${save ? "visible" : "hidden"}`}
-            />
+            <img id="save-on-icon" src={saveOn} alt="saveIcon" />
           ) : (
-            <img
-              id="save-icon"
-              src={saveIcon}
-              alt="saveIcon"
-              className={`saving-icon ${save ? "hidden" : "visible"}`}
-            />
+            <img id="save-icon" src={saveIcon} alt="saveIcon" />
           )}
         </button>
         <div id="author-info">
