@@ -1,5 +1,10 @@
 .input-comment {
-
+    .comment-avatar {
+        width: 44px;
+        height: 44px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
     .line {
         position: relative;
         width: 688.4px;
@@ -29,6 +34,7 @@
             display: flex;
             flex-direction: row;
             padding-bottom: 5px;
+            
             p {
                 font-family: 'Roboto';
                 font-weight: 700;
@@ -41,18 +47,35 @@
         {
             display: flex;
             flex-direction: row;
-            padding-left: 51px;   
+            padding-left: 51px;  
+            width: 643px; 
+            position: relative;
             .input-text {
                 resize: none;
-                width: 598px;
-                height: 41px;
+                width: 100%;
+                height: 21px;
                 border-radius: 10px;
                 background-color: #FFE8BE;
                 border-color: #FFE8BE;
+                font-size: 14px;
+                padding: 10px;
+                padding-right: 50px;
+                font-size: 14px;
+                outline: none;
+                line-height: 21px;
+                font-weight: 400;
+                font-family: 'Roboto', sans-serif;
             }
-            #addImageIcon {
-                padding-left: 10px;
+            #comment-image-btn {
+                position: absolute;
+                right: 2px;
+                top: 4px;
+                border: none;
+                outline: none;
+                background: transparent;
+                cursor: pointer;
             }
+            
         }
         .importedImage {
             position: relative;

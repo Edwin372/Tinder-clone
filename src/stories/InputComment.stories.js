@@ -16,7 +16,7 @@ export default {
   inputComment.args = {
     user: { 
       name: "Tran Cao Tung",
-      ava: avatar,
+      avatar: avatar,
       inputImage: importedImg,
     }
   }

@@ -13,11 +13,9 @@ export default {
 
   export const userComment = Template.bind({});
   userComment.args = {
-    user: { 
-      name: "Tung Tran",
-      ava: avatar,
-      dateComment: "July 16th 2019",
-      commentContent: "Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay ha ",
-      commentImage: imgg,
-    }
+    name: "Tung Tran",
+    avatar: avatar,
+    dateComment: "July 16th 2019",
+    commentContent: "Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay hay qua Bai nay hay qua Bai nay hay qua Bai nay hay qua ai nay ha ",
+    commentImage: imgg,
   }
