@@ -1,7 +1,13 @@
 .user-comment {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 24px;
+    .comment-avatar {
+        width: 44px;
+        height: 44px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
     .user-name-date {
         display: flex;
         flex-direction: row;
@@ -27,15 +33,17 @@
         }
     }
     .comment-content {
-        width: 640px;
+        max-width: 640px;
         border-radius: 10px;
         background-color: #FFE8BE;
         border-color: #FFE8BE;
         padding-left: 10px;
         margin-left: 51px;
         resize: both;
-        overflow: auto;
         resize: none;
+        width: fit-content;
+        background: #CFD0D0;
+        word-wrap:break-word;
         .text-style {
             font-family: 'Roboto';
             font-weight: 400;
@@ -49,6 +57,7 @@
         margin-left: 51px;
         height: 200px;
         width: 200px;
-        border-radius: 10px;
+        border-radius: 20px;
+
     }
 }

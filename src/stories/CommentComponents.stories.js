@@ -1,5 +1,7 @@
 import React from 'react'
 import CommentBox from '../components/comments/Commentbox.jsx'
+import sampleImage from '../images/testImage.jpg'
+
 
 export default {
     title: 'Example/Commentbox',
@@ -11,8 +13,8 @@ const Template  = (args) => (
 );
 
 export const commentBox = Template.bind({});
-CommentBox.args = {
-  post: { 
-   
-  }
+commentBox.args = {
+  // user: {
+  //   avatar: sampleImage
+  // },
 };

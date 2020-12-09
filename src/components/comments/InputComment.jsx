@@ -4,9 +4,21 @@ import TextareaAutosize from 'react-autosize-textarea'
 import commentIcon from '../../svg/commentLogo.svg'
 import addImgIcon from '../../svg/addImgaeIcon.svg'
 import defaultimg from '../../images/defaultImage.png'
+import defaultAvatar from '../../images/defaultAvatar.png'
 
 
-export default function InputComment({user}) {
+export default function InputComment({user, handlePostNewComment}) {
+    function handleEnterPress(e) {
+        let key = window.event.keyCode;
+        let isShift = !!window.event.shiftKey;
+        
+        if (key === 13 && !isShift && e.target.value !== '') {
+            e.preventDefault();
+            handlePostNewComment(e);
+            e.target.value = ''
+        }
+       
+    }
     return (
         <div className="input-comment">
             <div className="line"></div>
@@ -16,14 +28,15 @@ export default function InputComment({user}) {
             </div>
             <div className="input-of-user">
                 <div className="ava-and-name">
-                    <img src={user.ava} alt="avatar" ></img>
+                    <img className="comment-avatar" src={user.avatar || defaultAvatar} alt="avatar" ></img>
                     <p>{user.name}</p>
                 </div>
                 <div className="textarea-and-addImageIcon">
-                    <TextareaAutosize className="input-text"></TextareaAutosize>
-                    <img src={addImgIcon} id="addImageIcon"></img>
+                    <TextareaAutosize className="input-text" placeholder="Write your comment here ..." onKeyPress={(e) => handleEnterPress(e)}></TextareaAutosize>
+                    <button id ="comment-image-btn">
+                        <img src={addImgIcon} id="image-btn"></img>
+                    </button> 
                 </div>
-                <img src={user.inputImage || defaultimg} className="importedImage"></img>
             </div>
         </div>
     )
