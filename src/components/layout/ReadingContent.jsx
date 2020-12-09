@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import defaultImage from "../../images/defaultAvatar.png";
 import saveIcon from "../../svg/save.svg";
 import "./ReadingContent.scss";
 import testImage from "../../images/testImage1.jpeg";
+import saveOn from "../../svg/saveOn.svg";
 
 const ReadingContent = (props) => {
   const { profile, post } = props;
+  let [save, saveToggle] = useState(false);
   return (
     <div id="reading-content-container">
       <div id="reading-content-header">
-        <button id="save-icon-button">
-          <img id="save-icon" src={saveIcon} alt="saveIcon"></img>
+        <button id="save-icon-button" onClick={() => saveToggle(!save)}>
+          {save ? (
+            <img
+              id="save-on-icon"
+              src={saveOn}
+              alt="saveIcon"
+              className={`saving-icon ${save ? "visible" : "hidden"}`}
+            />
+          ) : (
+            <img
+              id="save-icon"
+              src={saveIcon}
+              alt="saveIcon"
+              className={`saving-icon ${save ? "hidden" : "visible"}`}
+            />
+          )}
         </button>
         <div id="author-info">
           <img id="author-ava" src={profile.avatar}></img>
