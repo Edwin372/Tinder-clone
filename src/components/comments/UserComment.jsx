@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import TextareaAutosize from 'react-autosize-textarea'
 import './UserComment.scss'
+import likeBtnIcon from '../../svg/likeButton.svg'
 
 export default function UserComment(props) {
     return (
@@ -12,11 +13,18 @@ export default function UserComment(props) {
                     <p className="date"> {props.dateComment} </p>
                 </div>
             </div>
-            <div className="comment-content">
-                <div className="text-style">{
-                  props.commentContent.split('\n').map((line, index) => <p key={index}>{line}</p>)
-                }</div>
+            <div className="comment-content-container">
+                <div className="comment-content">
+                    <div className="text-style">{
+                      props.commentContent.split('\n').map((line, index) => <p key={index}>{line}</p>)
+                    }</div>
+
+                </div>
+                <button className="like-btn">
+                        <img src={likeBtnIcon} alt=""/>
+                </button>
             </div>
+            
             {props.commentImage ? <img src = {props.commentImage} className="comment-img"></img>: null}
            
         </div>

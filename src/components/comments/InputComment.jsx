@@ -36,6 +36,7 @@ export default function InputComment({user, handlePostNewComment}) {
                     <button id ="comment-image-btn">
                         <img src={addImgIcon} id="image-btn"></img>
                     </button> 
+                 
                 </div>
             </div>
         </div>

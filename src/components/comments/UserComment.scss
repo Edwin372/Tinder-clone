@@ -2,6 +2,20 @@
     display: flex;
     flex-direction: column;
     margin-top: 24px;
+    .like-btn {
+        border: none;
+        outline: none;
+        background: transparent;
+        width: fit-content;
+        // margin-top: 5px;
+        margin-left: -2px;
+        padding: 5px;
+        cursor: pointer;
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
     .comment-avatar {
         width: 44px;
         height: 44px;
@@ -32,26 +46,30 @@
             }
         }
     }
-    .comment-content {
-        max-width: 640px;
-        border-radius: 10px;
-        background-color: #FFE8BE;
-        border-color: #FFE8BE;
-        padding-left: 10px;
+    .comment-content-container {
+        display: flex;
+        flex-direction: column;
         margin-left: 51px;
-        resize: both;
-        resize: none;
-        width: fit-content;
-        background: #CFD0D0;
-        word-wrap:break-word;
-        .text-style {
-            font-family: 'Roboto';
-            font-weight: 400;
-            font-size: 14px;
-            text-align: justify;
-            margin-right: 10px;
+        .comment-content {
+            max-width: 640px;
+            border-radius: 10px;
+            border-color: #FFE8BE;
+            padding-left: 10px;
+            resize: both;
+            resize: none;
+            width: fit-content;
+            background: #CFD0D0;
+            word-wrap:break-word;
+            .text-style {
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 14px;
+                text-align: justify;
+                margin-right: 10px;
+            }
         }
     }
+   
     .comment-img {
         padding-top: 5px;
         margin-left: 51px;
