@@ -1,0 +1,47 @@
+#root{
+    margin-top: 0;
+}
+.container{
+    margin-top: 0;
+    display:  inline-block;
+}
+.title{
+    label{
+        font-family: 'Arbutus Slab';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 17px;
+        line-height: 21px;
+        letter-spacing: 0.04em;
+    }
+}
+.tag-dropdown{
+    margin-top: 17.27px;
+    background: #FFFFFF;
+    .css-yk16xz-control{
+        border-color: black;
+        min-height: 0px;
+        border-width: 2px;
+    }
+    .css-g1d714-ValueContainer{
+        font-family: 'Rosario', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center
+    }
+    .css-b8ldur-Input{
+        font-family: 'Rosario', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center
+    }
+    .css-tlfecz-indicatorContainer{
+        color: black;
+    }
+}
