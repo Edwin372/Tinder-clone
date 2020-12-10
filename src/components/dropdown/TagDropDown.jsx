@@ -21,7 +21,7 @@ const options=[
 const customStyles = {
     valueContainer: (styles) => ({...styles, fontFamily:"'Rosario', sans-serif", marginTop:'0px',width:'300px', padding: '1px 10px'}),
     input: (styles) => ({...styles, fontFamily:"'Rosario', sans-serif",height:'23.87px',margin:'0px'}),
-    multiValue: (styles) => ({...styles, borderRadius:'8px', margin:'2px',height:'19.87px'}),
+    multiValue: (styles) => ({...styles, borderRadius:'8px', margin:'2px',height:'15.87px'}),
     multiValueLabel: (styles) => ({...styles, padding:'0'}),
     control: (styles) => ({
         ...styles,
@@ -44,7 +44,8 @@ const customStyles = {
         width: '337.93px',
         height: '28.83px',
         padding: '1.65px',
-        marginLeft:'12px'
+        marginLeft:'12px',
+        fontFamily:"'Rosario', sans-serif"
       };
     },
 };
