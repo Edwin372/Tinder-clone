@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextareaAutosize from "react-autosize-textarea";
 import "./UserComment.scss";
 import likeBtnIcon from "../../svg/likeButton.svg";
-import LikeButton from "./Likebutton.jsx";
+import LikeButton from "../buttons/Likebutton.jsx";
 
 export default function UserComment(props) {
   const [haveLiked, likeAction] = useState(false);
