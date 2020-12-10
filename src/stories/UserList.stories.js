@@ -15,5 +15,5 @@ const Template  = (args) =><UserList {...args} />;
 
 export const userList = Template.bind({});
 userList.args = {
-    posts : ['Chaudeptrai1','Chaudeptrai1','Chaudeptrai2','Chaudeptrai3','Chaudeptrai4','Chaudeptrai5']
-};
+  posts : ['chaudeptrai1','chaudeptrai1','chaudeptrai2','chaudeptrai3','chaudeptrai4','chaudeptrai5']
+}

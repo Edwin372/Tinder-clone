@@ -5,11 +5,19 @@ import { Link } from 'react-router-dom'
 import './UserList.scss'
 
 const UserList=({posts}) =>{
-    const [text,setText]=useState('+ See more');
+    const [text,setText]=useState('See less');
     posts=posts.filter((item, index) => posts.indexOf(item) === index)
     let tempt = [];
     console.log(text);
-    if(text == '+ See more' )
+    let icon; 
+        if(text == 'See more')
+        {
+            icon ='+ ';
+        }   
+        else{
+            icon ='';
+        }
+    if(text == 'See more' )
     {
         tempt = posts.slice(0,3);
     }
@@ -29,7 +37,12 @@ const UserList=({posts}) =>{
             )
            })}  
             </div>
-            <button className="expand" onClick ={() => setText(text =='+ See more' ? 'See less' : '+ See more')}>{text}</button>
+            <button className="expand" onClick ={() => setText(text =='See less' ? 'See more' : 'See less')}>
+            <span>
+                <span className='icon'>{icon}</span>
+                {text}
+            </span>
+            </button>
         </div>
     )
 }
