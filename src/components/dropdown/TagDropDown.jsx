@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import Select from 'react-select';
+import Select, {components} from 'react-select';
 import makeAnimated from 'react-select/animated';
 import './TagDropDown.scss'
+import dropdownIndicator from '../../svg/dropdownIndicator.svg'
+import dropdownMini from '../../svg/dropdownMini.svg'
 
 const animatedComponents = makeAnimated();
 const options=[
@@ -17,17 +19,44 @@ const options=[
     {value: 'tai nam gau gan', label: '#Tai Nam Gau Gan'},
 ]
 const customStyles = {
-    dropdownIndicator: (styles) => ({...styles, color:'black' }),
-    clearIndicator: (styles) => ({...styles, color:'black' }),
-    noOptionsMessage: (styles) => ({...styles, color:'black',  }),
-    menu: (styles) => ({...styles, backgroundColor:'#D3F4E1', marginTop:'0', borderRadius: '0', }),
-    indicatorSeparator: (styles) => ({...styles, backgroundColor:'black',  }),
+    valueContainer: (styles) => ({...styles, fontFamily:"'Rosario', sans-serif", marginTop:'0px',width:'300px', padding: '1px 10px'}),
+    input: (styles) => ({...styles, fontFamily:"'Rosario', sans-serif",height:'23.87px',margin:'0px'}),
+    multiValue: (styles) => ({...styles, borderRadius:'8px', margin:'2px',height:'19.87px'}),
+    multiValueLabel: (styles) => ({...styles, padding:'0'}),
+    control: (styles) => ({
+        ...styles,
+        border: '1px solid #000000',
+        borderRadius: '0',
+        minHeight: 'fit-content',
+        width:'350.84px',
+        backgroundColor: '#FFFFFF',
+        boxSizing: 'border-box'
+      }),
+    clearIndicator: (styles) => ({...styles, color:'black', padding:'0',width: '21.37px', height:'26,87px'}),
+    noOptionsMessage: (styles) => ({...styles, color:'black'}),
+    menu: (styles) => ({...styles, backgroundColor:'#D3F4E1', marginTop:'0', borderRadius: '0', width: '350.84px'}),
+    indicatorSeparator: (styles) => ({...styles, backgroundColor:'white' }),
     option: (styles) => {
       return {
         ...styles,
         backgroundColor: '#D3F4E1',
+        width: '349.93px',
+        height: '28.83px',
+        padding: '1.65px',
       };
     },
+};
+const DropdownIndicator = props => {
+    return (
+      components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <div class="parent">
+        <img class="image1" src={dropdownIndicator} alt="dropdownIndicator-icon"/>
+        <img class="image2" src={dropdownMini} alt="dropdownMini-icon"/>
+        </div>
+      </components.DropdownIndicator>
+      )
+    );
   };
 export default class TagDropDown extends Component {
     render() {
@@ -37,10 +66,10 @@ export default class TagDropDown extends Component {
                     <label>DISCOVER SOME INTERESTING TOPIC</label>
                 </div>
                 <div className="tag-dropdown">
-                    <Select
+                    <Select 
                         styles={customStyles}
                         closeMenuOnSelect={false}
-                        components={animatedComponents}
+                        components={animatedComponents,{DropdownIndicator}}
                         isMulti
                         options={options}
                         placeholder=""

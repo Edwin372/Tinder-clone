@@ -3,7 +3,6 @@
 }
 .container{
     margin-top: 0;
-    display:  inline-block;
 }
 .title{
     label{
@@ -18,30 +17,35 @@
 .tag-dropdown{
     margin-top: 17.27px;
     background: #FFFFFF;
-    .css-yk16xz-control{
-        border-color: black;
-        min-height: 0px;
-        border-width: 2px;
-    }
-    .css-g1d714-ValueContainer{
-        font-family: 'Rosario', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
-        display: flex;
-        align-items: center
-    }
-    .css-b8ldur-Input{
-        font-family: 'Rosario', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 22px;
-        display: flex;
-        align-items: center
+    
+    .css-1pahdxg-control{
+        width: 350.84px;
     }
     .css-tlfecz-indicatorContainer{
-        color: black;
+        padding: 0px;
     }
+    .css-1gtu0rj-indicatorContainer{
+        padding: 0px;
+    }
+    .parent {
+        position: relative;
+        top: -2px;
+        left: 0;
+        height: 24.86px;
+      }
+      .image1 {
+        position: relative;
+        top: 1px;
+        left: 2px;
+        width: 21.37px;
+        height: 26.87px;
+      }
+      
+      .image2 {
+        position: absolute;
+        top: 11.4px;
+        left: 9.01px;
+        width: 6.98px;
+        height: 4.88px;
+      }
 }
