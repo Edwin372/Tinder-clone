@@ -55,17 +55,30 @@
       border-radius: 10px;
       border-color: #ffe8be;
       padding-left: 10px;
-      resize: both;
-      resize: none;
       width: fit-content;
       background: #cfd0d0;
       word-wrap: break-word;
+      padding-top: 2px;
+      padding-bottom: 2px;
       .text-style {
         font-family: "Roboto";
         font-weight: 400;
         font-size: 14px;
         text-align: justify;
         margin-right: 10px;
+      }
+    }
+  }
+  .content-and-edit {
+    display: flex;
+    #edit-button {
+      border: none;
+      outline: none;
+      background: transparent;
+      cursor: pointer;
+      #dotdotdot-img {
+        width: 23px;
+        height: 5.82px;
       }
     }
   }
