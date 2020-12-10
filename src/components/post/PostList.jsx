@@ -6,7 +6,6 @@ import './PostList.scss'
 const postList = ({posts, style}) => {
   return (
     <div>
-    <div> People</div>
     <div className="post-list-container">
       { posts && posts.map(post => {
         return (
