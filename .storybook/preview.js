@@ -71,6 +71,10 @@ addDecorator((story) => (
         rel="stylesheet"
       />
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></link>
+       <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" 
+        rel="stylesheet"
+      />
       {story()}
     </MemoryRouter>
   </Provider>

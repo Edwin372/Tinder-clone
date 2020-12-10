@@ -1,0 +1,38 @@
+.user{
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    button{
+        background-color: #BAC1C1;
+        margin-left: auto;
+        height: 28px;
+        border-radius: 5px;
+        outline: 0;
+        border:0;
+        box-shadow: 2px 2px 2px #BAC1C1;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+    }
+    .useravatar{
+    height : 60px;
+    width  : 60px;
+    border-radius: 100%;
+    object-fit: cover;
+    }
+    .userName{
+    display:flex;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    }
+    .icon{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    }
+}
+
+
