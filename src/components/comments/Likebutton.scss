@@ -1,0 +1,17 @@
+.like-btn-container {
+  display: flex;
+}
+.like-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: fit-content;
+  // margin-top: 5px;
+  margin-left: -2px;
+  padding: 5px;
+  cursor: pointer;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
