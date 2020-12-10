@@ -5,18 +5,18 @@ import testImage1 from '../images/testImage1.jpeg'
 import testImage2 from '../images/testImage2.jpg'
 import testImage from '../images/testImage.jpg'
 
-import PostList from '../components/post/PostList.jsx'
+import PostResultList from '../components/postResultList/PostResultList.jsx'
 
 export default {
-  title: 'Post list',
-  component: PostList,
+  title: 'Example/Post result list',
+  component: PostResultList,
   
 };
 
-const Template = (args) => <PostList {...args} />;
+const Template = (args) => <PostResultList {...args} />;
 
-export const postList = Template.bind({});
-postList.args = {
+export const postResultList = Template.bind({});
+postResultList.args = {
     posts : [
         { 
             title: "Fate/stay night: Heaven's Feel III is Comminggggggg !!!!!!!",
