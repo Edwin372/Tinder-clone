@@ -1,0 +1,93 @@
+@startuml class diagram
+skinparam classAttributeIconSize 0
+interface User {
+    -day_of_birth: date
+    -avatar
+    -display_name: string
+    -bio: string
+    +getuserInfo()
+    +createComment()
+    +removeComment()
+    +editComment()
+    +like()
+    +contribute()
+}
+
+
+class reader {
+    <<contructor>> reader()
+    +follow()
+    +readPost()
+    +createFavouriteList()
+    +removeFavouriteList()
+    +updateFavouriteList()
+}
+
+class publisher {
+    <<contructor>> publisher()
+    +createPost()
+    +updatePost()
+    +removePost()
+    +createSeries()
+    +updateSeries()
+    +removeSeries()
+    +acceptContribution()
+    +contribute()
+    +removePost()
+    +tagGenreToPost()
+    
+}
+
+class post {
+    <<constructor>> post()
+    -title:string
+    -subtitle:string
+    -author[]:string
+    -timestamps:date
+    -content[]:string
+    -view:int
+    -deleted:bool
+    +sortByGenre()
+    +sortByName()
+    +sortByDate()
+}
+
+
+class genre {   
+    -name: string
+    
+}
+
+class comment {
+    <<constructor>> comment()
+    -content:string
+    -timestamps:date
+    -delete:bool
+    -user:string
+    -series: string
+    -post: string
+    -parent: string
+
+}
+class series {
+    <<constructor>> series()
+    -name: string
+
+}
+class notification {
+     <<constructor>> serinotificationes()
+    -content:string
+    -receiver:string
+    -author:string
+    -timestamps: string
+}
+
+user <|-- publisher
+user "..n" *-- "..n" notification
+user <|-- reader
+user "..n" *- "..1" comment
+publisher *- post
+user *- series
+genre o- post
+
+@enduml
