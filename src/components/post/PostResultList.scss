@@ -19,8 +19,12 @@
     outline: none;
     width: 81px;
     height: 25px;
-    font-family: 'Roboto Condensed';
+    font-family: 'Roboto';
     align-self: center;
+    cursor: pointer;
+    span {
+      font-family: 'Roboto condensed';
+    }
    }
 
 }

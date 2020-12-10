@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import defaultImage from "../../images/defaultAvatar.png";
-import saveIcon from "../../svg/save.svg";
 import "./ReadingContent.scss";
 import testImage from "../../images/testImage1.jpeg";
-import saveOn from "../../svg/saveOn.svg";
+import SaveBtn from '../buttons/SaveButton.jsx'
+
 
 const ReadingContent = (props) => {
   const { profile, post } = props;
@@ -11,13 +11,7 @@ const ReadingContent = (props) => {
   return (
     <div id="reading-content-container">
       <div id="reading-content-header">
-        <button id="save-icon-button" onClick={() => saveToggle(!save)}>
-          {save ? (
-            <img id="save-on-icon" src={saveOn} alt="saveIcon" />
-          ) : (
-            <img id="save-icon" src={saveIcon} alt="saveIcon" />
-          )}
-        </button>
+        <SaveBtn save={save} saveToggle={saveToggle}/>
         <div id="author-info">
           <img id="author-ava" src={profile.avatar}></img>
           <div id="author-name-date">
