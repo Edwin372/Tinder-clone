@@ -30,19 +30,21 @@ const customStyles = {
         minHeight: 'fit-content',
         width:'350.84px',
         backgroundColor: '#FFFFFF',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        boxShadow:'0'
       }),
     clearIndicator: (styles) => ({...styles, color:'black', padding:'0',width: '21.37px', height:'26,87px'}),
     noOptionsMessage: (styles) => ({...styles, color:'black'}),
-    menu: (styles) => ({...styles, backgroundColor:'#D3F4E1', marginTop:'0', borderRadius: '0', width: '350.84px'}),
+    menu: (styles) => ({...styles, backgroundColor:'#D3F4E1', marginTop:'0', borderRadius: '0', width: '350.84px', boxShadow:'0'}),
     indicatorSeparator: (styles) => ({...styles, backgroundColor:'white' }),
     option: (styles) => {
       return {
         ...styles,
         backgroundColor: '#D3F4E1',
-        width: '349.93px',
+        width: '337.93px',
         height: '28.83px',
         padding: '1.65px',
+        marginLeft:'12px'
       };
     },
 };
