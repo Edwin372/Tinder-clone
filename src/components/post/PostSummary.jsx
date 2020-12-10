@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import moment from 'moment'
 import defaultImage from '../../images/defaultImage.jpg'
 import view from '../../svg/view.svg'
@@ -6,9 +6,11 @@ import favorite from '../../svg/favorite.svg'
 import defaultAvatar from '../../images/defaultAvatar.png'
 import './PostSummary.scss'
 import {CreatePostBtn} from '../buttons/CreatePostBtn.jsx'
+import SaveBtn from '../buttons/SaveButton.jsx'
 
 
 export default function PostSummary({post}) {
+   const [save, saveToggle] = useState(false);
    return (
         <div className="post-sum-container">
            <img src={post.image || defaultImage} alt="cover_image" className="post-img"/>
@@ -18,9 +20,7 @@ export default function PostSummary({post}) {
                        <img src={post.avatar || defaultAvatar} alt="avatar"/>
                        <p className="">{post.author}</p>
                     </div>
-                   <button className="favorite-button">
-                        <img src={favorite} alt="favourite-icon"/>
-                   </button>
+                   <SaveBtn save={save} saveToggle={saveToggle} />
                </div>
                <p className="title">{post.title}</p>
                <p className="subtitle">{(post.subtitle.length < 120) ?post.subtitle : post.subtitle.slice(0,120) + '...' }</p>

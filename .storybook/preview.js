@@ -70,6 +70,7 @@ addDecorator((story) => (
         href="https://fonts.googleapis.com/css2?family=Castoro&display=swap"
         rel="stylesheet"
       />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></link>
       {story()}
     </MemoryRouter>
   </Provider>

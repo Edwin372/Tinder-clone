@@ -53,9 +53,9 @@ const DropdownIndicator = props => {
     return (
       components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
-        <div class="parent">
-        <img class="image1" src={dropdownIndicator} alt="dropdownIndicator-icon"/>
-        <img class="image2" src={dropdownMini} alt="dropdownMini-icon"/>
+        <div className="parent">
+        <img className="image1" src={dropdownIndicator} alt="dropdownIndicator-icon"/>
+        <img className="image2" src={dropdownMini} alt="dropdownMini-icon"/>
         </div>
       </components.DropdownIndicator>
       )
