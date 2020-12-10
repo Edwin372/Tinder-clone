@@ -5,7 +5,9 @@ import './PostList.scss'
 
 const postList = ({posts, style}) => {
   return (
-    <div style={{...style}} className="post-list-container">
+    <div>
+    <div> People</div>
+    <div className="post-list-container">
       { posts && posts.map(post => {
         return (
           <Link to={'/post/' + post.id} key={post.id}>
@@ -13,6 +15,8 @@ const postList = ({posts, style}) => {
           </Link>
         )
       })}  
+    </div>
+    <button>+See more</button>
     </div>
   )
 }
