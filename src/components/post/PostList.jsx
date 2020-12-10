@@ -5,7 +5,6 @@ import './PostList.scss'
 
 const postList = ({posts, style}) => {
   return (
-    <div>
     <div className="post-list-container">
       { posts && posts.map(post => {
         return (
@@ -14,8 +13,6 @@ const postList = ({posts, style}) => {
           </Link>
         )
       })}  
-    </div>
-    <button>+See more</button>
     </div>
   )
 }
