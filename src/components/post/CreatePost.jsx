@@ -21,10 +21,7 @@ class CreatePost extends Component {
                 underline: Underline,
                 image: ImageTool,
               },
-            config: {
-                minHeight: 0+"px",
-            } 
-
+              
           });
     }
     handleChange = (e) => {
