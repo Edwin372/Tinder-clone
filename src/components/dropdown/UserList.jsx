@@ -26,7 +26,7 @@ const UserList=({posts}) =>{
         tempt= posts;
     }
     return (
-        <div className="container">
+        <div className="UserListcontainer">
             <div className ="title">People</div>
             <div className = 'List'>
             {tempt.map(post => {

@@ -1,9 +1,3 @@
-img{
-    height : 60px;
-    width  : 60px;
-    border-radius: 100%;
-    object-fit: scale-down;
-}
 .user{
     width: 100%;
     display: flex;
@@ -20,9 +14,13 @@ img{
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
     }
-}
-
-.userName{
+    .useravatar{
+    height : 60px;
+    width  : 60px;
+    border-radius: 100%;
+    object-fit: cover;
+    }
+    .userName{
     display:flex;
     align-items: center;
     padding-left: 10px;
@@ -30,8 +28,11 @@ img{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     color: black;
-}
-.icon{
+    }
+    .icon{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    }
 }
+
+

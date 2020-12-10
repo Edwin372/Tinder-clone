@@ -17,7 +17,7 @@ const User = ({post}) => {
         }
         return (
         <span className="user">
-            <img src={ireneImage|| defaultAvatar} alt="avatar"/>
+            <img className='useravatar' src={ireneImage|| defaultAvatar} alt="avatar"/>
             <div className ="userName"> {post}</div>
             <button onClick ={() =>setText(text =='Follow'? 'Following': 'Follow')}> 
             <span>
