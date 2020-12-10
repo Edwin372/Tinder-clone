@@ -1,6 +1,6 @@
 @startuml class diagram
 skinparam classAttributeIconSize 0
-interface User {
+class user {
     -day_of_birth: date
     -avatar
     -display_name: string
@@ -21,6 +21,8 @@ class reader {
     +createFavouriteList()
     +removeFavouriteList()
     +updateFavouriteList()
+    +createHightLight()
+    +removeHightLight()
 }
 
 class publisher {
@@ -39,6 +41,7 @@ class publisher {
 }
 
 class post {
+    
     <<constructor>> post()
     -title:string
     -subtitle:string
@@ -56,6 +59,10 @@ class post {
 class genre {   
     -name: string
     
+}
+
+class imageStorage {
+    images[]: string
 }
 
 class comment {
@@ -86,8 +93,8 @@ user <|-- publisher
 user "..n" *-- "..n" notification
 user <|-- reader
 user "..n" *- "..1" comment
-publisher *- post
-user *- series
-genre o- post
+publisher "..n"*-"..n" post
+user "..n"*-"..1" series
+genre "n.."*-"..n" post
 
 @enduml
