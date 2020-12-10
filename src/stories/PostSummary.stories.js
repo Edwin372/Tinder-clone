@@ -5,7 +5,7 @@ import testImage4 from '../images/testImage4.jpg'
 import PostSummary from '../components/post/PostSummary.jsx';
 
 export default {
-  title: 'Example/Post summary',
+  title: ' Post summary',
   component: PostSummary,
   
 };

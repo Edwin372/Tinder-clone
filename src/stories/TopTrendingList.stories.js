@@ -4,7 +4,7 @@ import testImage5 from '../images/testImage5.jpg'
 import TopTrendingList from '../components/post/TopTrendingList.jsx'
 
 export default {
-  title: 'Example/Top Trending List',
+  title: ' Top Trending List',
   component: TopTrendingList,
   
 };

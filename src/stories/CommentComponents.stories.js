@@ -4,7 +4,7 @@ import sampleImage from '../images/testImage.jpg'
 
 
 export default {
-    title: 'Example/Commentbox',
+    title: ' Commentbox',
     component: CommentBox,
 }
 

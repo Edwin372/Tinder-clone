@@ -3,7 +3,7 @@ import testImage5 from '../images/testImage5.jpg'
 import TrendingPostSummary from '../components/post/TrendingPostSummary.jsx';
 
 export default {
-  title: 'Example/Trending Post Summary',
+  title: ' Trending Post Summary',
   component: TrendingPostSummary,
   
 };

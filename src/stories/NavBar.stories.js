@@ -4,7 +4,7 @@ import Navbar from '../components/layout/NavBar.jsx'
 import testImage6 from '../images/testImage6.jpg'
 
 export default {
-  title: 'Example/Navbar',
+  title: ' Navbar',
   component: Navbar,
   
 };

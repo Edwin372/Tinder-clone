@@ -4,7 +4,7 @@ import avatar from "../svg/avatar.svg";
 import img from "../images/testImage6.jpg";
 
 export default {
-  title: "Example/UserComment",
+  title: " UserComment",
   component: UserComment,
 };
 

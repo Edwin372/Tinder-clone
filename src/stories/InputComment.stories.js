@@ -5,7 +5,7 @@ import importedImg from '../images/testImage6.jpg'
 import avatar from '../svg/avatar.svg'
 
 export default {
-    title: 'Example/InputComment',
+    title: ' InputComment',
     component: InputComment, 
     
 };

@@ -4,7 +4,7 @@ import babyPhoto from "../images/testImage6.jpg";
 import wibuImage from "../images/testImage2.jpg";
 import ireneImage from "../images/ireneImage.jpg";
 export default {
-  title: "Example/Reading Content",
+  title: " Reading Content",
   component: ReadingContent,
 };
 

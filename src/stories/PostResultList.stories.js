@@ -8,7 +8,7 @@ import testImage from '../images/testImage.jpg'
 import PostResultList from '../components/post/PostResultList.jsx'
 
 export default {
-  title: 'Example/Post result list',
+  title: ' Post result list',
   component: PostResultList,
   
 };
