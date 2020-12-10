@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import TextareaAutosize from "react-autosize-textarea";
 import "./UserComment.scss";
 import likeBtnIcon from "../../svg/likeButton.svg";
+import LikeButton from "./Likebutton.jsx";
 
 export default function UserComment(props) {
+  const [haveLiked, likeAction] = useState(false);
   return (
     <div className="user-comment">
       <div className="user-name-date">
@@ -24,9 +26,11 @@ export default function UserComment(props) {
         {props.commentImage ? (
           <img src={props.commentImage} className="comment-img"></img>
         ) : null}
-        <button className="like-btn">
-          <img src={likeBtnIcon} alt="" />
-        </button>
+        <LikeButton
+          likeCount={50}
+          like={haveLiked}
+          onClick={() => likeAction(!haveLiked)}
+        />
       </div>
     </div>
   );
