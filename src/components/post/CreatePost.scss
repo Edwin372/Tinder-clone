@@ -132,7 +132,30 @@
         .codex-editor__redactor.reset-this{
             padding-bottom: 70px;
         }
-
+    .cdx-button{
+        margin-left: 26px;
+        width: 624px;
+        height: 17.28px;
+        display: center;
+    }
+    .image-tool__image{
+        width: 1000px;
+        margin-left: 15px;
+    }
+    .image-tool__image-picture{
+        width: 100%;
+        align-self: center;
+        border-radius: 5%;
+    }
+    .image-tool__caption{
+        margin-left: 185px;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+    }
+    .cdx-input{
+        text-align: center;
+    }
     ::selection {
         background: black; 
         color: white;
