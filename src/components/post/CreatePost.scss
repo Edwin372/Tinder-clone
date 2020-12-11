@@ -139,14 +139,22 @@
         display: center;
     }
     .image-tool__image{
-        width: 555px;
-        margin-left: 195px;
+        width: 1000px;
+        margin-left: 15px;
+    }
+    .image-tool__image-picture{
+        width: 100%;
+        align-self: center;
+        border-radius: 5%;
     }
     .image-tool__caption{
-        margin-left: 145px;
+        margin-left: 185px;
         font-family: 'Roboto', sans-serif;
         font-style: normal;
         font-weight: normal;
+    }
+    .cdx-input{
+        text-align: center;
     }
     ::selection {
         background: black; 
