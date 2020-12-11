@@ -7,8 +7,8 @@ import EditorJS from '@editorjs/editorjs';
 import ImageTool from '@editorjs/image';
 import CodeTool from '@editorjs/code';
 import Underline from '@editorjs/underline';
-import '../buttons/CreatePostBtn.jsx'
-
+import '../buttons/CreatePostBtn.jsx';
+import {storage} from '../../config/firebaseConfig.js';
 class CreatePost extends Component {
     state= {
         
@@ -19,14 +19,37 @@ class CreatePost extends Component {
             tools: {
                 code: CodeTool,
                 underline: Underline,
-                image: ImageTool,
-              },
-              
-          });
+                image: {
+                    class: ImageTool,
+                    config: {
+                        uploader: {
+                            async uploadByFile(file) {
+                                var storageRef = storage.ref();
+                                var imagesRef = storageRef.child('EditorJS').child('images/'+ file.name);
+                                var metadata = {
+                                    contentType: 'image/jpeg'
+                                };
+                                var uploadTask = await imagesRef.put(file, metadata);
+                                console.log("Uploaded successfully!", uploadTask);
+                                const downloadURL = await uploadTask.ref.getDownloadURL();
+                                console.log(downloadURL);
+                                return {
+                                    success: 1,
+                                    file: {
+                                        url: downloadURL
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        });
     }
     handleChange = (e) => {
       this.setState({
-        [e.target.id]: e.target.value
+        [e.target.id]: e.target.value,
       })
     }
     handleSubmit = (e) => {

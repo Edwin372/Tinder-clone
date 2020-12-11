@@ -138,6 +138,16 @@
         height: 17.28px;
         display: center;
     }
+    .image-tool__image{
+        width: 555px;
+        margin-left: 195px;
+    }
+    .image-tool__caption{
+        margin-left: 145px;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+    }
     ::selection {
         background: black; 
         color: white;
