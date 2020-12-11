@@ -8,6 +8,7 @@ import ImageTool from '@editorjs/image';
 import CodeTool from '@editorjs/code';
 import Underline from '@editorjs/underline';
 import '../buttons/CreatePostBtn.jsx'
+
 class CreatePost extends Component {
     state= {
         
