@@ -1,9 +1,10 @@
-.UserListcontainer{
+.user-list-container{
+    position: relative;
     display: flex;
     width: 750px;
     flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 23px;
+    z-index: 0;
     .expand{
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
@@ -32,12 +33,20 @@
     padding-left:10px;
     margin-bottom: 18px;
     }
-    .List{
-    width: 98%;
+    #user-list{
+        width: 98%;
+        max-height: 500px;
+        overflow: scroll;
         .route-link{
         text-decoration: none;
         }
     }
+    .expand {
+        position: sticky;
+        bottom: 0;
+        left: 43%;
+    }
+   
 }
 
 

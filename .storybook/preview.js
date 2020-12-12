@@ -8,6 +8,8 @@ import fbConfig from "../src/config/firebaseConfig";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import { reduxFirestore, getFirestore } from "redux-firestore";
 import thunk from "redux-thunk";
+import StoryRouter from 'storybook-react-router';
+
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -23,6 +25,8 @@ const store = createStore(
     reduxFirestore(fbConfig) // redux bindings for firestore
   )
 );
+ 
+addDecorator(StoryRouter());
 addDecorator((story) => (
   <Provider store={store}>
     <MemoryRouter initialEntries={["/"]}>

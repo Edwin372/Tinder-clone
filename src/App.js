@@ -14,7 +14,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        
         <Switch>
           <Route exact path="/" component={DashBoard}/>
           <Route path="/signin" component={SignIn}/>
@@ -24,7 +23,6 @@ function App() {
           <Route path="/verify-action" component={VerificationSuccess}/>
           <ProtectedRoute path="/post/:id" component={PostDetail}/>
           <ProtectedRoute path="/create-post" component={CreatePost}/>
-
         </Switch>
       </div>
     </BrowserRouter>

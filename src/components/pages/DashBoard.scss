@@ -1,6 +1,5 @@
 #home {
     #dashboard-container {
-        padding-top: 80px;
         #quote-container {
             height: 579px;
             display: flex;
@@ -10,4 +9,8 @@
         }
     }
     
+}
+
+.page-container {
+    padding-top: 80px;
 }

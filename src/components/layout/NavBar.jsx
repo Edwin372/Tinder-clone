@@ -8,7 +8,7 @@ import './NavBar.scss'
 
 const Navbar = (props) => {
   const { auth, profile } = props;
-  const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+  const links = (auth && auth.uid) ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
 
   return (
     <nav className="nav-bar">
@@ -20,13 +20,13 @@ const Navbar = (props) => {
   )
 }
 
-// const mapStateToProps = (state) => {
-//   return{
-//     auth: state.firebase.auth,
-//     profile: state.firebase.profile
-//   }
-// }
+const mapStateToProps = (state) => {
+  return{
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
+  }
+}
 
-// export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps)(Navbar)
 
-export default Navbar
+// export default Navbar

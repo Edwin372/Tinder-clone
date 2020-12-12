@@ -1,5 +1,6 @@
 #post-result-list {
    display: flex;
+   position: relative;
    flex-direction: column;
    width: 760px;
    #post-result-title {
@@ -21,9 +22,11 @@
     height: 25px;
     font-family: 'Roboto';
     align-self: center;
+    position: sticky;
     cursor: pointer;
     span {
-      font-family: 'Roboto condensed';
+      font-family: 'Roboto';
+      font-weight: 900;
     }
    }
 

@@ -1,0 +1,39 @@
+#search-component-container {
+    position: relative;
+    width:fit-content;
+    height: fit-content;
+    #search-input {
+        height: 40px;
+        border-radius: 50px;
+        border: none;
+        outline: none;
+        background: #7e9b8a;
+        transition: all 0.5s;
+    }
+    #search-btn {
+        position: absolute;
+        border: none;
+        outline: none;
+        background: transparent;
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        cursor: pointer;
+        img {
+            width: 40px
+        }
+    }
+    .shown {
+        opacity: 1;
+        width: 375px;
+        padding-left: 20px; 
+        padding-right: 50px
+    }
+    .hide {
+        opacity: 0;
+        padding: 0px;
+        width: 40px;
+       
+    }
+
+}
