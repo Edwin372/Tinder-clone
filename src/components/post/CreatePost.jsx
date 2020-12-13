@@ -9,6 +9,13 @@ import CodeTool from '@editorjs/code';
 import Underline from '@editorjs/underline';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
+
+class extendedImageBlock extends ImageTool {
+    removed() {
+        console.log('removed');
+    }
+}
+
 class CreatePost extends Component {
     state= {
         
@@ -20,7 +27,7 @@ class CreatePost extends Component {
                 code: CodeTool,
                 underline: Underline,
                 image: {
-                    class: ImageTool,
+                    class: extendedImageBlock,
                     config: {
                         uploader: {
                             async uploadByFile(file) {
