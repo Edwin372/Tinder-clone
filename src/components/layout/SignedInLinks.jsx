@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authAction";
 import "./SignedInLinks.scss";
-import magnifier from "../../svg/magnifier.svg";
 import bell from "../../svg/bell.svg";
 import defaultAvatar from "../../images/defaultAvatar.png";
 import pencil from "../../svg/pencil.svg";
 import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
+import SearchInput from '../search/SearchInput.jsx'
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
@@ -21,17 +21,15 @@ const SignedInLinks = (props) => {
   return (
     <div>
       <div className="signedin-container">
-        <button id="magnifier" className="signin-navbar-button">
-          <img src={magnifier} alt="magnifier icon" />
-        </button>
+        <SearchInput/>
         <button
           id="bell"
-          onClick={props.signOut}
+         
           className="signin-navbar-button"
         >
           <img src={bell} alt="bell icon" />
         </button>
-        <span id="displayName">{handleName(props.profile.displayName)}</span>
+        <span id="displayName">{handleName(props.auth.displayName)}</span>
         <button
           id="avatar-button"
           className="signin-navbar-button"
@@ -40,8 +38,8 @@ const SignedInLinks = (props) => {
           <div>
             <img
               id="avatar-image"
-              src={props.profile.avatar || defaultAvatar}
-              alt="avatar-image"
+              src={props.auth.avatar || defaultAvatar}
+              alt="avatar"
               className="dropdown-logo"
             />
             <div
@@ -77,12 +75,13 @@ const SignedInLinks = (props) => {
                 />
                 View profile
               </button>
-              <button id="sign-out-button" className="dropdown-button">
+              <button id="sign-out-button" className="dropdown-button"  onClick={props.signOut}>
                 <img
                   id="signout-image"
                   src={signoutIcon}
                   alt="signoutIcon-logo"
                   className="dropdown-logo"
+                 
                 />
                 Sign out
               </button>
@@ -101,7 +100,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    auth: state.firebase.auth
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);

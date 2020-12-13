@@ -16,7 +16,7 @@ class Dashboard extends Component {
     return (
       <div id="home">
         <Navbar/>
-        <div id="dashboard-container">
+        <div id="dashboard-container" className="page-container">
           <div id="quote-container">
               <img src={quote} alt="quote"/>
           </div>

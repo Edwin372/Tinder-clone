@@ -1,165 +1,171 @@
-.container{
-    margin-left: 100px;
-    margin-top: 100px;
-}
 
-.create-signature{
-    color: black;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 35px;
-    line-height: 46px;
-    margin-left: 320px;
-}
-
-.title-field {
-    margin-top: 132.5px;
-    display: absolute;
-    label{
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-size: 18px;
-        line-height: 21px;
-    }
-    #title{
-    color: black;
-    font-size: 18px;
-    line-height: 25px;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    margin-left: 53px;
-    width : 986px;
-    border: 0;
-    outline: 0;
-    text-align: justify;
-    text-transform: capitalize;
-    }
-    #title:focus{
-    border-bottom: 1px solid black;
-    }
-}
-
-.sub-title{
+#create-post-container {
     display: flex;
-    margin-top: 21px;
-    label{
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
-    }
-    .Subtitle {
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        font-weight: normal;
-        margin-left: 29px;
-        outline: 0;
-        line-height: 21px;
-        resize: none;
-        width : 986px;
-        font-size: 16px;
-        }
-        .Subtitle:focus{
-        border-bottom: 1px solid black; 
-        }
-    div:empty:before
-    {
-        content: attr(data-placeholder);
-        color: #757677;
-        font-family: 'Roboto', sans-serif;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 21px;
-    }
-}
-
-.content-field{
-    display: flex;
-    margin-top: 21px;
-    label{
-        color: black;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 21px;
-    }
-    .codex-editor__redactor{ 
-        padding-bottom: 58px !important; 
-    }
-    .ce-block:first-of-type{
-        margin-top: -35px;
-    }
-    .ce-paragraph.cdx-block{
-        margin-left: 25px;
-        line-height: 20px;
-        outline: none;
-        padding: 1px ;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        text-align: justify;
-        width: 986px;
-    }
-    .ce-paragraph.cdx-block:focus{
-            border-bottom: 1px solid #7c7c7c; 
-    }
-    .ce-toolbar__content {
-        max-width: 605px;
-    }
-    .ce-block__content{
-        margin: 34px auto;
-    }
-    .codex-editor--narrow .ce-toolbar__plus{ 
-        left: -50px; 
-    }
-    .codex-editor--narrow .ce-toolbar__actions{
-        margin-right: -380px;
-    }
-    .ce-code__textarea{
-        background-color: beige;
-        color: black;
-        margin-left: 12px;
-        width: 350px;
-        margin-top: -2px;
-        line-height: 1.6em;
-        min-height: 100px;
-    }
-        .codex-editor__redactor.reset-this{
-            padding-bottom: 70px;
-        }
-    .cdx-button{
-        margin-left: 26px;
-        width: 624px;
-        height: 17.28px;
-        display: center;
-    }
-    .image-tool__image{
-        width: 1000px;
-        margin-left: 15px;
-    }
-    .image-tool__image-picture{
+    width: 100%;
+    .create-post-form {
         width: 100%;
-        align-self: center;
-        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        .create-signature{
+            color: black;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 35px;
+            line-height: 46px;   
+        }
+        .title-field {
+            margin-top: 130px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            #title{
+            color: black;
+            font-size: 18px;
+            line-height: 25px;
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            margin-left: 53px;
+            width : 986px;
+            border: 0;
+            outline: 0;
+            text-align: justify;
+            text-transform: capitalize;
+            background: transparent;
+            }
+            #title:focus{
+            border-bottom: 1px solid black;
+            }
+        }
+        
+        .sub-title{
+            display: flex;
+            margin-top: 21px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            .Subtitle {
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                margin-left: 29px;
+                outline: 0;
+                line-height: 21px;
+                resize: none;
+                width : 986px;
+                font-size: 16px;
+                }
+                .Subtitle:focus{
+                border-bottom: 1px solid black; 
+                }
+            div:empty:before
+            {
+                content: attr(data-placeholder);
+                color: #757677;
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 21px;
+            }
+        }
+        
+        .content-field{
+            display: flex;
+            margin-top: 21px;
+            width: 1080px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            .codex-editor__redactor{ 
+                padding-bottom: 58px !important; 
+            }
+            .ce-block:first-of-type{
+                margin-top: -35px;
+            }
+            .ce-paragraph.cdx-block{
+                margin-left: 25px;
+                line-height: 20px;
+                outline: none;
+                padding: 1px ;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                text-align: justify;
+                width: 986px;
+            }
+            .ce-paragraph.cdx-block:focus{
+                    border-bottom: 1px solid #7c7c7c; 
+            }
+            .ce-toolbar__content {
+                max-width: 605px;
+            }
+            .ce-block__content{
+                margin: 34px auto;
+            }
+            .codex-editor--narrow .ce-toolbar__plus{ 
+                left: -50px; 
+            }
+            .codex-editor--narrow .ce-toolbar__actions{
+                margin-right: -380px;
+            }
+            .ce-code__textarea{
+                background-color: beige;
+                color: black;
+                margin-left: 12px;
+                width: 350px;
+                margin-top: -2px;
+                line-height: 1.6em;
+                min-height: 100px;
+            }
+                .codex-editor__redactor.reset-this{
+                    padding-bottom: 70px;
+                }
+            .cdx-button{
+                margin-left: 26px;
+                width: 624px;
+                height: 17.28px;
+                display: center;
+            }
+            .image-tool__image{
+                width: 1000px;
+                margin-left: 15px;
+            }
+            .image-tool__image-picture{
+                width: 100%;
+                align-self: center;
+                border-radius: 5%;
+            }
+            .image-tool__caption{
+                margin-left: 185px;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+            }
+            .cdx-input{
+                text-align: center;
+            }
+            ::selection {
+                background: black; 
+                color: white;
+            }
+        }
     }
-    .image-tool__caption{
-        margin-left: 185px;
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: normal;
-    }
-    .cdx-input{
-        text-align: center;
-    }
-    ::selection {
-        background: black; 
-        color: white;
-    }
+    
+    
 }
-
-

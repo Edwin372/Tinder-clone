@@ -72,7 +72,7 @@ export default class TagDropDown extends Component {
                     <Select 
                         styles={customStyles}
                         closeMenuOnSelect={false}
-                        components={animatedComponents,{DropdownIndicator}}
+                        components={animatedComponents, {DropdownIndicator}}
                         isMulti
                         options={options}
                         placeholder=""

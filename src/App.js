@@ -4,17 +4,17 @@ import DashBoard from './components/pages/DashBoard.jsx'
 import PostDetail from './components/post/PostDetail.jsx'
 import SignIn from './components/auth/SignIn.jsx'
 import SignUp from './components/auth/SignUp.jsx'
-import CreatePost from './components/post/CreatePost.jsx'
+import CreatePost from './components/pages/CreatePostPage.jsx'
 import ProtectedRoute from './components/auth/ProtectedRoute.jsx'
 import SignUpOptions from './components/auth/SignUpOptions.jsx'
 import VerificationSuccess from './components/auth/VerificationSuccess.jsx'
 import Verification from './components/auth/Verification.jsx'
+import SearchResult from './components/pages/SearchResultPage.jsx'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        
         <Switch>
           <Route exact path="/" component={DashBoard}/>
           <Route path="/signin" component={SignIn}/>
@@ -24,7 +24,7 @@ function App() {
           <Route path="/verify-action" component={VerificationSuccess}/>
           <ProtectedRoute path="/post/:id" component={PostDetail}/>
           <ProtectedRoute path="/create-post" component={CreatePost}/>
-
+          <ProtectedRoute path="/search-result" component={SearchResult}/>
         </Switch>
       </div>
     </BrowserRouter>

@@ -2,7 +2,7 @@ import React from 'react'
 import DeleteBtn from '../components/buttons/DeleteBtn'
 
 export default{
-    title:'delete button',
+    title:'Delete button',
     component: DeleteBtn
 };
 
