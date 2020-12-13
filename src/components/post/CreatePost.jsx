@@ -58,18 +58,18 @@ class CreatePost extends Component {
     }
     render() {
         return (
-            <div className='container'>
-                <form onSubmit={this.handleSubmit} className="white">
+            <div id='create-post-container'>
+                <form onSubmit={this.handleSubmit} className="create-post-form">
                     <div className="create-signature">
                     <label>Create your own signature</label>
                     </div>
                     <div className="title-field">
                         <label htmlFor="title">Title:</label>
-                        <input style={{fontWeight: "bold" } } type="text" id="title" onChange={this.handleChange} />
+                        <input style={{fontWeight: "bold" } } type="text" id="title" placeholder="Title" onChange={this.handleChange} />
                     </div>
                     <div className="sub-title">
                         <label htmlFor="subtitle">Subtitle:</label>
-                        <div type="text" className ="Subtitle"  contentEditable data-placeholder="Đây là phụ đề" ></div>
+                        <div type="text" className ="Subtitle"  contentEditable data-placeholder="Subtitle" ></div>
                     </div>
                     {/* Content */}
                     <div className="content-field">
