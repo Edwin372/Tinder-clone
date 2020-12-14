@@ -8,8 +8,7 @@ import fbConfig from "../src/config/firebaseConfig";
 import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 import { reduxFirestore, getFirestore } from "redux-firestore";
 import thunk from "redux-thunk";
-import StoryRouter from 'storybook-react-router';
-
+import StoryRouter from "storybook-react-router";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -25,7 +24,7 @@ const store = createStore(
     reduxFirestore(fbConfig) // redux bindings for firestore
   )
 );
- 
+
 addDecorator(StoryRouter());
 addDecorator((story) => (
   <Provider store={store}>
@@ -71,12 +70,16 @@ addDecorator((story) => (
         rel="stylesheet"
       />
       <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Rowdies:wght@300;400;700&display=swap"
+        rel="stylesheet"
+      ></link>
+
+      <link
         href="https://fonts.googleapis.com/css2?family=Castoro&display=swap"
         rel="stylesheet"
       />
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"></link>
-       <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" 
+      <link
+        href="https://fonts.googleapis.com/css2?family=Ledger&display=swap"
         rel="stylesheet"
       />
       {story()}

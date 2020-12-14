@@ -55,11 +55,11 @@
       border-radius: 10px;
       border-color: #ffe8be;
       padding-left: 10px;
-      resize: both;
-      resize: none;
       width: fit-content;
       background: #cfd0d0;
       word-wrap: break-word;
+      padding-top: 2px;
+      padding-bottom: 2px;
       .text-style {
         font-family: "Roboto";
         font-weight: 400;
@@ -69,11 +69,26 @@
       }
     }
   }
+  .content-and-edit {
+    .user-comment-image:hover + .hide {
+      display: flex;
+    }
+    display: flex;
+    .hide {
+      display: none;
+      align-items: center;
+    }
+    .hide:hover {
+      display: flex;
+      align-items: center;
+    }
+  }
 
   .comment-img {
     padding-top: 5px;
     height: auto;
-    width: 300px;
+    width: auto;
+    max-width: 640px;
     border-radius: 20px;
     object-fit: cover;
   }
