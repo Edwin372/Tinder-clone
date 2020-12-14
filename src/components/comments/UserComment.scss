@@ -71,26 +71,24 @@
   }
   .content-and-edit {
     .user-comment-image:hover + .hide {
-      display: block;
+      display: flex;
     }
     display: flex;
     .hide {
-      border: none;
-      outline: none;
-      background: transparent;
-      cursor: pointer;
-      #dotdotdot-img {
-        width: 23px;
-        height: 5.82px;
-      }
       display: none;
+      align-items: center;
+    }
+    .hide:hover {
+      display: flex;
+      align-items: center;
     }
   }
 
   .comment-img {
     padding-top: 5px;
     height: auto;
-    width: 300px;
+    width: 100%;
+    max-width: 640px;
     border-radius: 20px;
     object-fit: cover;
   }

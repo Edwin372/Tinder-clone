@@ -4,6 +4,7 @@ import "./UserComment.scss";
 import likeBtnIcon from "../../svg/likeButton.svg";
 import Dotdotdot from "../../svg/dotdotdot.svg";
 import LikeButton from "../buttons/Likebutton.jsx";
+import DropDownOption from "../buttons/DropDownOption.jsx";
 
 export default function UserComment(props) {
   const [haveLiked, likeAction] = useState(false);
@@ -19,20 +20,37 @@ export default function UserComment(props) {
       <div className="comment-content-container">
         <div className="content-and-edit">
           <div className="user-comment-image">
-            <div className="comment-content">
-              {props.commentContent.split("\n").map((line, index) => (
-                <p className="text-style" key={index}>
-                  {line}
-                </p>
-              ))}
-            </div>
+            {props.commentContent ? (
+              <div className="comment-content">
+                {props.commentContent.split("\n").map((line, index) => (
+                  <p className="text-style" key={index}>
+                    {line}
+                  </p>
+                ))}
+              </div>
+            ) : null}
             {props.commentImage ? (
               <img src={props.commentImage} className="comment-img"></img>
             ) : null}
           </div>
-          <button id="edit-button " className="hide">
-            <img id="dotdotdot-img" src={Dotdotdot} alt="edit-button" />
-          </button>
+          <div className="hide">
+            <DropDownOption
+              buttons={[
+                {
+                  name: "Delete",
+                  handleClick: () => {
+                    console.log("Delete");
+                  },
+                },
+                {
+                  name: "Edit",
+                  handleClick: () => {
+                    console.log("Edit");
+                  },
+                },
+              ]}
+            />
+          </div>
         </div>
         <LikeButton
           likeCount={50}
