@@ -70,8 +70,11 @@
     }
   }
   .content-and-edit {
+    .user-comment-image:hover + .hide {
+      display: block;
+    }
     display: flex;
-    #edit-button {
+    .hide {
       border: none;
       outline: none;
       background: transparent;
@@ -80,6 +83,7 @@
         width: 23px;
         height: 5.82px;
       }
+      display: none;
     }
   }
 

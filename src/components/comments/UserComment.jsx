@@ -3,6 +3,7 @@ import TextareaAutosize from "react-autosize-textarea";
 import "./UserComment.scss";
 import likeBtnIcon from "../../svg/likeButton.svg";
 import Dotdotdot from "../../svg/dotdotdot.svg";
+import LikeButton from "../buttons/Likebutton.jsx";
 
 export default function UserComment(props) {
   const [haveLiked, likeAction] = useState(false);
@@ -29,7 +30,7 @@ export default function UserComment(props) {
               <img src={props.commentImage} className="comment-img"></img>
             ) : null}
           </div>
-          <button id="edit-button">
+          <button id="edit-button " className="hide">
             <img id="dotdotdot-img" src={Dotdotdot} alt="edit-button" />
           </button>
         </div>
