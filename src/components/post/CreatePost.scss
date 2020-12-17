@@ -54,7 +54,7 @@
                 font-size: 18px;
                 line-height: 21px;
             }
-            .Subtitle {
+            .subtitle {
                 color: black;
                 font-family: 'Roboto', sans-serif;
                 font-weight: normal;
@@ -64,8 +64,10 @@
                 resize: none;
                 width : 986px;
                 font-size: 16px;
+                border: none;
+                background: transparent;
                 }
-                .Subtitle:focus{
+                .subtitle:focus{
                 border-bottom: 1px solid black; 
                 }
             div:empty:before

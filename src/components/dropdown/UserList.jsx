@@ -1,5 +1,5 @@
 import React, {useState } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import User from './UserListItem'
 import { Link } from 'react-router-dom'
 import './UserList.scss'

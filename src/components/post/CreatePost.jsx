@@ -18,10 +18,10 @@ class extendedImageBlock extends ImageTool {
 
 class CreatePost extends Component {
     state= {
-        
+        editor: {}
     }
     componentDidMount() {
-        const editor = new EditorJS({
+        var editor = new EditorJS({
             holder: 'editorjs',
             tools: {
                 code: CodeTool,
@@ -51,12 +51,15 @@ class CreatePost extends Component {
                     }
                 }
             }
-
         });
+       
     }
+    
     handleChange = (e) => {
       this.setState({
         [e.target.id]: e.target.value,
+      }, () => {
+          console.log(this.state)
       })
     }
     handleSubmit = (e) => {
@@ -76,14 +79,14 @@ class CreatePost extends Component {
                     </div>
                     <div className="sub-title">
                         <label htmlFor="subtitle">Subtitle:</label>
-                        <div type="text" className ="Subtitle"  contentEditable data-placeholder="Subtitle" ></div>
+                        <input type="text" className ="subtitle" id="subtitle" contentEditable data-placeholder="Subtitle" onChange={this.handleChange} />
                     </div>
                     {/* Content */}
                     <div className="content-field">
                     <label htmlFor="content">Content:</label>
                     <div id="editorjs"></div>
                     </div>
-                    <button className="create-post-btn" >POST</button>
+                    <button className="create-post-btn">POST</button>
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}

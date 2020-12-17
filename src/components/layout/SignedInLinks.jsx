@@ -10,6 +10,7 @@ import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
 import SearchInput from '../search/SearchInput.jsx'
+// import {NavLink} from 
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
@@ -48,7 +49,7 @@ const SignedInLinks = (props) => {
                 boolDropDown ? "visible" : "hidden"
               }`}
             >
-              <button className="dropdown-button">
+              <button className="dropdown-button" onClick={() => {}}>
                 <img
                   id="pencil-image"
                   src={pencil}

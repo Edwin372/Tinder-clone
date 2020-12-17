@@ -7,6 +7,15 @@
             align-items: center;
             background: #DBFFEA;
         }
+        #posts-section {
+            #post-list-section {
+                padding-left: 108px;
+                padding-right: 108px;
+                display: flex;;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
     }
     
 }

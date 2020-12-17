@@ -12959,6 +12959,11 @@ react-draggable@^4.0.3:
     classnames "^2.2.5"
     prop-types "^15.6.0"
 
+react-editor-js@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/react-editor-js/-/react-editor-js-1.7.0.tgz#60a3192b97d1ffd8d438dd1230ca75adbf7aa7de"
+  integrity sha512-lyLc4G3vbPx5IdPNC19HhRBFvrdlYERJiCwOP0KJteoRcabKZkegQONK+AiQiFl/7cBGWxPM2wCbnr+dUkEBbw==
+
 react-element-to-jsx-string@^14.3.1:
   version "14.3.2"
   resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-14.3.2.tgz#c0000ed54d1f8b4371731b669613f2d4e0f63d5c"
