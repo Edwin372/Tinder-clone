@@ -9,7 +9,6 @@ import CodeTool from '@editorjs/code';
 import Underline from '@editorjs/underline';
 import InlineCode from '@editorjs/inline-code';
 import Header from '@editorjs/header'
-
 import List from '@editorjs/list';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
