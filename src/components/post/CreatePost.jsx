@@ -14,9 +14,16 @@ import List from '@editorjs/list';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
 
+
+
 class extendedImageBlock extends ImageTool {
     removed() {
-        console.log('removed');
+        var deleteRef = storage.refFromURL(this.data.file.url)
+        deleteRef.delete().then(function() {
+            console.log("Deleted Successful")
+          }).catch(function(error) {
+            //error occurred!
+          });
     }
 }
 
@@ -40,7 +47,6 @@ const editorJsTools = {
     image: {
         class: extendedImageBlock,
         config: {
-           
             uploader: {
                 async uploadByFile(file) {
                     var storageRef = storage.ref();
