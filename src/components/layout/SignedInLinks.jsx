@@ -30,7 +30,7 @@ const SignedInLinks = (props) => {
         >
           <img src={bell} alt="bell icon" />
         </button>
-        <span id="displayName">{handleName(props.auth.displayName)}</span>
+        {/* <span id="displayName">{handleName(props.auth.displayName)}</span> */}
         <button
           id="avatar-button"
           className="signin-navbar-button"
