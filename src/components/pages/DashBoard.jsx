@@ -6,7 +6,78 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import Navbar from '../layout/NavBar.jsx'
 import quote from '../../svg/quote.svg'
+import TopTrendingList from '../post/TopTrendingList.jsx'
+import testImage5 from '../../images/testImage5.jpg'
+import TagDropDown from '../dropdown/TagDropDown.jsx'
 import './DashBoard.scss'
+
+const falseTopTrendingData = [
+  { 
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 1,
+      avatar: testImage5
+  }, 
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 2,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 3,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 4,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 5,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 6,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 7,
+      avatar: testImage5
+  },
+  {
+      title: "5 Types Of Coffee You Must Try, Úm ba la cà na xí muội",
+      subtitle: "5 loại cà phê bao gồm Cà Na, Xí muội, Úm ba la xì bùa bla bla. Đọc đi mày sẽ thích ...",
+      author: 'Tung',
+      view: 12434,
+      trending: 8,
+      avatar: testImage5
+  }
+]
+
 
 
 class Dashboard extends Component {
@@ -20,8 +91,12 @@ class Dashboard extends Component {
           <div id="quote-container">
               <img src={quote} alt="quote"/>
           </div>
-          <div className="row">
-              <PostList posts={posts} />
+          <div id="posts-section" >
+              <TopTrendingList posts={falseTopTrendingData}/>
+              <div id="post-list-section">
+                <PostList posts={posts} />
+                <TagDropDown/>
+              </div>
           </div>
         </div>
       </div>

@@ -2,10 +2,8 @@ import React, {useState} from 'react'
 import moment from 'moment'
 import defaultImage from '../../images/defaultImage.jpg'
 import view from '../../svg/view.svg'
-import favorite from '../../svg/favorite.svg'
 import defaultAvatar from '../../images/defaultAvatar.png'
 import './PostSummary.scss'
-import {CreatePostBtn} from '../buttons/CreatePostBtn.jsx'
 import SaveBtn from '../buttons/SaveButton.jsx'
 
 
@@ -23,7 +21,9 @@ export default function PostSummary({post}) {
                    <SaveBtn save={save} saveToggle={saveToggle} />
                </div>
                <p className="title">{post.title}</p>
-               <p className="subtitle">{(post.subtitle.length < 120) ?post.subtitle : post.subtitle.slice(0,120) + '...' }</p>
+               {
+                    post.subtitle ? <p className="subtitle">{(post.subtitle.length < 120) ?post.subtitle : post.subtitle.slice(0,120) + '...' }</p> : null
+               }
                <div className="post-info-container">
                   <p className="post-date">{moment(post.createdAt).calendar()}</p>
                     <div className="view-and-tag-container">
