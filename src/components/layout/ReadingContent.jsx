@@ -1,22 +1,56 @@
 import React, { useState } from "react";
 import defaultImage from "../../images/defaultAvatar.png";
+import EditorJS from 'react-editor-js'
 import "./ReadingContent.scss";
 import testImage from "../../images/testImage1.jpeg";
 import SaveBtn from '../buttons/SaveButton.jsx'
+import ImageTool from '@editorjs/image';
+import CodeTool from '@editorjs/code';
+import Underline from '@editorjs/underline';
+import InlineCode from '@editorjs/inline-code';
+import Header from '@editorjs/header'
+import List from '@editorjs/list';
+import defaultAvatar from "../../images/defaultAvatar.png";
+import { connect } from 'react-redux'
+import moment from 'moment';
+import NavBar from './NavBar.jsx'
+const editorJsTools = {
+  code: CodeTool,
+  underline: Underline,
+  paragraph: {
+      config: {
+        placeholder: 'Tell your story...'
+      }
+  },
+  inlineCode: {
+      class: InlineCode,
+      shortcut: 'CMD+SHIFT+M',
+  },
+  list: {
+      class: List,
+      inlineToolbar: true,
+  },
+  header: Header,
+  image: {
+      class: ImageTool,
+  }
+}
 
 
 const ReadingContent = (props) => {
-  const { profile, post } = props;
+  const {  post  } = props.location.state;
   let [save, saveToggle] = useState(false);
   return (
-    <div id="reading-content-container">
+    <div>
+      <NavBar/>
+      <div id="reading-content-container">
       <div id="reading-content-header">
         <SaveBtn save={save} saveToggle={saveToggle}/>
         <div id="author-info">
-          <img id="author-ava" src={profile.avatar}></img>
+          <img id="author-ava" src={props.auth.avatar || defaultAvatar} alt="avatar"></img>
           <div id="author-name-date">
-            <a id="author-name">{profile.displayName}</a>
-            <p id="post-date">{post.postDate}</p>
+            <a href="" id="author-name">{props.auth.displayName}</a>
+            <p id="post-date">{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
           </div>
         </div>
       </div>
@@ -26,37 +60,31 @@ const ReadingContent = (props) => {
       </div>
       <img
         className="reading-content-image"
-        src={post.image}
-        alt="title-image"
+        src={post.titleImage}
+        alt="title"
       />
       <div id="reading-content-body">
-        {post.contents.map((item, index) => (
-          <div key={index}>
-            <p className="reading-content-body-title" key={index}>
-              {item.title}
-            </p>
-            {item.content.map((pItem, index) => {
-              if (typeof pItem === `string`) {
-                return (
-                  <p className="reading-content-body-paragraph" key={index}>
-                    {pItem}
-                  </p>
-                );
-              } else {
-                return (
-                  <img
-                    className="reading-content-image paragraph-image"
-                    src={pItem.img}
-                    alt="paragraph-image"
-                  />
-                );
-              }
-            })}
-          </div>
-        ))}
+          <EditorJS 
+            id="editorjs" 
+            holder="editorjs"
+            data={post.postContentData}
+            tools={editorJsTools}
+            readOnly
+          >
+            <div id="editorjs" />
+          </EditorJS>
+      </div>
       </div>
     </div>
+    
   );
 };
 
-export default ReadingContent;
+
+const mapStateToProps = (state) => {
+  return{
+    auth: state.firebase.auth,
+  }
+}
+
+export default connect(mapStateToProps)(ReadingContent)

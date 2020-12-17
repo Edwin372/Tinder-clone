@@ -13,8 +13,6 @@ import List from '@editorjs/list';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
 
-
-
 class extendedImageBlock extends ImageTool {
     removed() {
         var deleteRef = storage.refFromURL(this.data.file.url)
@@ -27,6 +25,7 @@ class extendedImageBlock extends ImageTool {
 }
 
 const editorJsTools = {
+
     code: CodeTool,
     underline: Underline,
     paragraph: {
@@ -90,8 +89,6 @@ class CreatePost extends Component {
 
        const postContentData = await this.state.editor.save();
        this.props.createPost({title: title || title, subtitle: subtitle || subtitle, postContentData})
-
-
     }
 
 
