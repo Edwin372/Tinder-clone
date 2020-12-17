@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
+import EditorJS from 'react-editor-js'
 import { connect } from 'react-redux'
 import { createPost } from '../../store/actions/postAction'
 // import { Redirect } from 'react-router-dom'
 import './CreatePost.scss'
-import EditorJS from '@editorjs/editorjs';
 import ImageTool from '@editorjs/image';
 import CodeTool from '@editorjs/code';
 import Underline from '@editorjs/underline';
+import InlineCode from '@editorjs/inline-code';
+import Header from '@editorjs/header'
+
+import List from '@editorjs/list';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
 
@@ -16,56 +20,76 @@ class extendedImageBlock extends ImageTool {
     }
 }
 
-class CreatePost extends Component {
-    state= {
-        editor: {}
-    }
-    componentDidMount() {
-        var editor = new EditorJS({
-            holder: 'editorjs',
-            tools: {
-                code: CodeTool,
-                underline: Underline,
-                image: {
-                    class: extendedImageBlock,
-                    config: {
-                        uploader: {
-                            async uploadByFile(file) {
-                                var storageRef = storage.ref();
-                                var imagesRef = storageRef.child('EditorJS').child('images/'+ file.name);
-                                var metadata = {
-                                    contentType: 'image/jpeg'
-                                };
-                                var uploadTask = await imagesRef.put(file, metadata);
-                                console.log("Uploaded successfully!", uploadTask);
-                                const downloadURL = await uploadTask.ref.getDownloadURL();
-                                console.log(downloadURL);
-                                return {
-                                    success: 1,
-                                    file: {
-                                        url: downloadURL
-                                    }
-                                }
-                            }
+const editorJsTools = {
+    code: CodeTool,
+    underline: Underline,
+    paragraph: {
+        config: {
+          placeholder: 'Tell your story...'
+        }
+    },
+    inlineCode: {
+        class: InlineCode,
+        shortcut: 'CMD+SHIFT+M',
+    },
+    list: {
+        class: List,
+        inlineToolbar: true,
+    },
+    header: Header,
+    image: {
+        class: extendedImageBlock,
+        config: {
+           
+            uploader: {
+                async uploadByFile(file) {
+                    var storageRef = storage.ref();
+                    var imagesRef = storageRef.child('EditorJS').child('images/'+ file.name);
+                    var metadata = {
+                        contentType: 'image/jpeg'
+                    };
+                    var uploadTask = await imagesRef.put(file, metadata);
+                    console.log("Uploaded successfully!", uploadTask);
+                    const downloadURL = await uploadTask.ref.getDownloadURL();
+                    return {
+                        success: 1,
+                        file: {
+                            url: downloadURL
                         }
                     }
                 }
             }
-        });
-       
+        }
+    }
+}
+
+
+class CreatePost extends Component {
+    state= {
+        editor: {},
     }
     
     handleChange = (e) => {
-      this.setState({
-        [e.target.id]: e.target.value,
+      this.setState((state) => {
+          return {
+              [e.target.id]: e.target.value,
+          }
       }, () => {
           console.log(this.state)
       })
     }
-    handleSubmit = (e) => {
+
+    handleSubmit = async (e) => {
+       const {title, subtitle} = this.state
        e.preventDefault()
-       this.props.createPost(this.state)
+
+       const postContentData = await this.state.editor.save();
+       this.props.createPost({title: title || title, subtitle: subtitle || subtitle, postContentData})
+
+
     }
+
+
     render() {
         return (
             <div id='create-post-container'>
@@ -74,17 +98,21 @@ class CreatePost extends Component {
                     <label>Create your own signature</label>
                     </div>
                     <div className="title-field">
-                        <label htmlFor="title">Title:</label>
                         <input style={{fontWeight: "bold" } } type="text" id="title" placeholder="Title" onChange={this.handleChange} />
                     </div>
                     <div className="sub-title">
-                        <label htmlFor="subtitle">Subtitle:</label>
-                        <input type="text" className ="subtitle" id="subtitle" contentEditable data-placeholder="Subtitle" onChange={this.handleChange} />
+                        <input placeholder="Subtitle" type="text" className ="subtitle" id="subtitle" contentEditable data-placeholder="Subtitle" onChange={this.handleChange} />
                     </div>
                     {/* Content */}
                     <div className="content-field">
-                    <label htmlFor="content">Content:</label>
-                    <div id="editorjs"></div>
+                    <EditorJS 
+                        instanceRef={instance => {this.setState({editor: instance})}} 
+                        id="editorjs" 
+                        holder="editorjs"
+                        tools={editorJsTools}
+                    >
+                         <div id="editorjs" />
+                    </EditorJS>
                     </div>
                     <button className="create-post-btn">POST</button>
                     {/* <div className="input-field">

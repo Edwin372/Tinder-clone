@@ -7,10 +7,13 @@ export const createPost = (post) => {
       const firestore = getFirestore();
       firestore.collection('posts').add({
         ...post,
-         createdAt: moment().format() ,
-         author: profile.displayName,
-         userId: userId,
-         deleted: false,
+        likes: 0,
+        view: 0,
+        seriesId: null,
+        createdAt: moment().format() ,
+        author: profile.displayName,
+        userId: userId,
+        deleted: false,
       }).then(() => {
         dispatch({ type: 'CREATE_POST_SUCCESS' });
       }).catch(err => {
