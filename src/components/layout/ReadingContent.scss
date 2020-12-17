@@ -4,6 +4,12 @@
   align-items: center;
   margin: auto;
   font-family: "Castoro";
+  padding-top: 190px;
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
   #reading-content-header {
     display: flex;
     flex-direction: row-reverse;
@@ -19,8 +25,8 @@
       justify-content: space-around;
       width: 200px;
       #author-ava {
-        width: 43px;
-        height: 43px;
+        width: 50px;
+        height: 50px;
         border-radius: 100%;
         object-fit: cover;
         margin-right: 25px;
@@ -35,8 +41,12 @@
           cursor: pointer;
           margin-top: 0px;
           font-weight: bold;
+          font-family: 'Roboto';
+          width: 400px;
         }
         #post-date {
+          width: 400px;
+          font-family: 'Roboto';
           margin-top: 13px;
           margin-bottom: 0px;
         }
@@ -50,6 +60,7 @@
       margin-top: 15px;
       font-family: "Rowdies";
       margin-bottom: 0px;
+      text-align: justify;
       align-self: flex-start;
     }
     #reading-content-subtitle {
@@ -58,33 +69,28 @@
       margin-top: 20px;
       margin-bottom: 25px;
       align-self: flex-start;
+      text-align: justify;
       word-wrap: break-word;
     }
   }
   #reading-content-body {
-    margin-top: 22.57px;
-    width: 1000px;
-    text-align: justify;
-    .reading-content-body-title {
-      font-size: 30px;
-      margin-bottom: 0px;
-      margin-top: 0px;
-      font-weight: bold;
+    img {
+     border-radius: 15px;
     }
-    .reading-content-body-paragraph {
-      margin-top: 10px;
+    .ce-block__content {
+      max-width: 800px;
+      width: 800px;
+      word-wrap: break-word;
       font-size: 20px;
+      font-family: 'Roboto';
+      text-align: justify;
+      margin-left: 60px;
     }
-  }
-  .reading-content-image {
-    margin-top: 6px;
-    width: 90%;
-    align-self: center;
-    border-radius: 5%;
-    margin-bottom: 0px;
-  }
-  .paragraph-image {
-    width: 100%;
+    .image-tool__image-picture{ 
+      border-radius: 15px;
+
+    }
+    
   }
 }
 .visible {

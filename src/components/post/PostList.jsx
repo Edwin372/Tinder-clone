@@ -3,12 +3,18 @@ import PostSummary from './PostSummary'
 import { Link } from 'react-router-dom'
 import './PostList.scss'
 
-const postList = ({posts, style}) => {
+const postList = ({posts, style, profile}) => {
   return (
     <div style={{...style}} className="post-list-container">
       { posts && posts.map(post => {
         return (
-          <Link to={'/post/' + post.id} key={post.id}>
+          <Link to={{
+            pathname: '/post/' + post.id,
+            state: {
+              post,
+              profile
+            }
+            }} key={post.id}>
             <PostSummary post={post} />
           </Link>
         )
