@@ -1,0 +1,170 @@
+#reading-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  font-family: "Castoro";
+  padding-top: 190px;
+  margin-bottom: -249px;
+}
+
+#reading-content-container a {
+  text-decoration: none;
+  color: black;
+}
+
+#reading-content-container #reading-content-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 800px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#reading-content-container #reading-content-header #author-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 200px;
+}
+
+#reading-content-container #reading-content-header #author-info #author-ava {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 25px;
+}
+
+#reading-content-container #reading-content-header #author-info #author-name-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 131.6123046875px;
+  font-size: 20px;
+}
+
+#reading-content-container #reading-content-header #author-info #author-name-date #author-name {
+  cursor: pointer;
+  margin-top: 0px;
+  font-weight: bold;
+  font-family: 'Roboto';
+  width: 400px;
+}
+
+#reading-content-container #reading-content-header #author-info #author-name-date #post-date {
+  width: 400px;
+  font-family: 'Roboto';
+  margin-top: 13px;
+  margin-bottom: 0px;
+}
+
+#reading-content-container #reading-content-preheader {
+  width: 800px;
+}
+
+#reading-content-container #reading-content-preheader #reading-content-title {
+  font-size: 40px;
+  margin-top: 15px;
+  font-family: "Rowdies";
+  margin-bottom: 0px;
+  text-align: justify;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+#reading-content-container #reading-content-preheader #reading-content-subtitle {
+  font-size: 30px;
+  color: #677079;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+#reading-content-container #reading-content-body img {
+  border-radius: 15px;
+}
+
+#reading-content-container #reading-content-body .codex-editor {
+  z-index: 0;
+}
+
+#reading-content-container #reading-content-body .ce-block__content {
+  max-width: 800px;
+  width: 800px;
+  word-wrap: break-word;
+  font-size: 20px;
+  font-family: 'Roboto';
+  text-align: justify;
+  margin-left: 60px;
+}
+
+#reading-content-container #reading-content-body .image-tool__image-picture {
+  border-radius: 15px;
+}
+
+#reading-content-container #reading-content-body .image-tool__caption {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 10px 12px;
+  outline: none;
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-family: 'Roboto Condensed';
+  font-size: 15px;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0s;
+  transition: all 0s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0s;
+  transition: all 0s;
+}
+/*# sourceMappingURL=ReadingContent.css.map */

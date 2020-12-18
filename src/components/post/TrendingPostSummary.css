@@ -1,0 +1,151 @@
+.trend-post-sum-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 71px;
+}
+
+.trend-post-sum-container .top-trending {
+  width: 0;
+  font-family: 'Ruda', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 48px;
+  color: #000000;
+}
+
+.trend-post-sum-container p {
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+.trend-post-sum-container .post-sum-content {
+  width: 290px;
+  margin-left: 50px;
+}
+
+.trend-post-sum-container .post-sum-content .post-author-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.trend-post-sum-container .post-sum-content .post-author-container .post-author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.trend-post-sum-container .post-sum-content .post-author-container .post-author p {
+  font-family: 'Arbutus Slab';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  margin-left: 12px;
+  margin-bottom: 0px;
+}
+
+.trend-post-sum-container .post-sum-content .post-author-container .post-author img {
+  height: 28px;
+  width: 31px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.trend-post-sum-container .post-sum-content .post-author-container .favorite-button {
+  padding: none;
+  margin-right: -10px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.trend-post-sum-container .post-sum-content .title {
+  color: black;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: justify;
+}
+
+.trend-post-sum-container .post-sum-content .subtitle {
+  color: #677079;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 19px;
+}
+
+.trend-post-sum-container .post-sum-content .post-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.trend-post-sum-container .post-sum-content .post-info-container .post-date {
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.trend-post-sum-container .post-sum-content .post-info-container .viewer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.trend-post-sum-container .post-sum-content .post-info-container .viewer-container span, .trend-post-sum-container .post-sum-content .post-info-container .viewer-container p {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+/*# sourceMappingURL=TrendingPostSummary.css.map */

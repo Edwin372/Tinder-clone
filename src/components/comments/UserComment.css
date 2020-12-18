@@ -1,0 +1,145 @@
+.user-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 0px;
+}
+
+.user-comment .like-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: -2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.user-comment .like-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.user-comment .comment-avatar {
+  width: 44px;
+  height: 44px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+}
+
+.user-comment .user-name-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: 5px;
+}
+
+.user-comment .user-name-date .name-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 45px;
+}
+
+.user-comment .user-name-date .name-date .name {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 6px;
+  margin-top: initial;
+}
+
+.user-comment .user-name-date .name-date .date {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  padding-left: 6px;
+  margin-top: -3px;
+}
+
+.user-comment .comment-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 51px;
+}
+
+.user-comment .comment-content-container .comment-content {
+  max-width: 640px;
+  border-radius: 10px;
+  border-color: #ffe8be;
+  padding-left: 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #cfd0d0;
+  word-wrap: break-word;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.user-comment .comment-content-container .comment-content .text-style {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  text-align: justify;
+  margin-right: 10px;
+}
+
+.user-comment .content-and-edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-comment .content-and-edit .user-comment-image:hover + .hide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-comment .content-and-edit .hide {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-comment .content-and-edit .hide:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-comment .comment-img {
+  padding-top: 5px;
+  height: auto;
+  width: auto;
+  max-width: 640px;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=UserComment.css.map */

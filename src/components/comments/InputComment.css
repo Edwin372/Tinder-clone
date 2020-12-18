@@ -1,0 +1,131 @@
+.input-comment {
+  margin-bottom: 24px;
+  width: 813px;
+}
+
+.input-comment .comment-avatar {
+  width: 44px;
+  height: 44px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100%;
+}
+
+.input-comment .line {
+  position: relative;
+  width: 835px;
+  height: 0px;
+  border: 1px solid #000000;
+}
+
+.input-comment .comment-logo {
+  margin-top: 10px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.input-comment .comment-logo .comment-text {
+  width: 110px;
+  font-size: 18px;
+  font-family: "Rowdies";
+}
+
+.input-comment .comment-logo .comment-logo {
+  width: 30px;
+  height: 30px;
+  padding-top: 2px;
+}
+
+.input-comment .input-of-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.input-comment .input-of-user .ava-and-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-bottom: 5px;
+}
+
+.input-comment .input-of-user .ava-and-name p {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 6px;
+  margin-top: initial;
+}
+
+.input-comment .input-of-user .textarea-and-addImageIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-left: 51px;
+  width: 735px;
+  position: relative;
+}
+
+.input-comment .input-of-user .textarea-and-addImageIcon .input-text {
+  resize: none;
+  width: 100%;
+  height: 21px;
+  border-radius: 10px;
+  background-color: #ffe8be;
+  border-color: #ffe8be;
+  font-size: 14px;
+  padding: 10px;
+  padding-right: 50px;
+  font-size: 14px;
+  outline: none;
+  line-height: 21px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+.input-comment .input-of-user .textarea-and-addImageIcon #comment-image-btn {
+  position: absolute;
+  right: 2px;
+  top: 4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.input-comment .input-of-user .preview-img {
+  width: 198px;
+  height: 198px;
+  border-radius: 20px;
+  margin-left: 54px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.input-comment .input-of-user .importedImage {
+  position: relative;
+  width: 135px;
+  height: 125px;
+  margin-top: 3px;
+  border-radius: 10px;
+  margin-left: 51px;
+}
+/*# sourceMappingURL=InputComment.css.map */

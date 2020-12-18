@@ -1,0 +1,117 @@
+.signedin-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  margin-right: 25.5px;
+}
+
+.signedin-container .signin-navbar-button {
+  width: 43px;
+  height: 43px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.signedin-container #dropdown-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffffff;
+  width: 236.22px;
+  height: 188.04px;
+  margin-left: -165px;
+}
+
+.signedin-container #dropdown-grid .dropdown-button {
+  text-decoration: none;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 224.22px;
+  height: 188.04px;
+  font-size: 20px;
+  background: transparent;
+  border: black solid 1px;
+  border-bottom: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  font-family: "Ribeye Marrow";
+  cursor: pointer;
+  padding-left: 11px;
+}
+
+.signedin-container #dropdown-grid #sign-out-button {
+  border-bottom: black solid 1px;
+}
+
+.signedin-container #bell {
+  margin-left: 56.3px;
+  margin-right: 70px;
+}
+
+.signedin-container #avatar-button {
+  margin-right: 25px;
+  margin-left: 0px;
+}
+
+.signedin-container #avatar-button #avatar-image {
+  width: 43px;
+  height: 43px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.signedin-container #displayName {
+  width: 56px;
+  height: 21px;
+  font-family: "Arbutus Slab";
+  font-size: 21px;
+  margin-right: 7px;
+  margin-bottom: 5px;
+  text-align: right;
+  cursor: default;
+}
+
+.signedin-container .dropdown-logo {
+  width: 30px;
+  height: 30px;
+  margin-left: 0px;
+  margin-right: 12px;
+}
+
+.signedin-container #signout-image {
+  margin-left: 3px;
+  margin-right: 9.3px;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+/*# sourceMappingURL=SignedInLinks.css.map */

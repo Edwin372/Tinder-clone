@@ -1,0 +1,29 @@
+.social-account-btn {
+  background: transparent;
+  font-family: Ovo;
+  margin-bottom: 26px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#facebook-btn::before {
+  content: url("../../svg/facebook.svg");
+  display: block;
+}
+
+#google-btn::before {
+  content: url("../../svg/google.svg");
+  display: block;
+}
+
+#the-nerd-btn::before {
+  content: url("../../svg/theNerd.svg");
+  display: block;
+}
+
+#verify-btn::before {
+  content: url("../../svg/verificationBtn.svg");
+  display: block;
+}
+/*# sourceMappingURL=SocialAccountBtn.css.map */
