@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import defaultImage from "../../images/defaultAvatar.png";
+
 import EditorJS from 'react-editor-js'
 import "./ReadingContent.scss";
-import testImage from "../../images/testImage1.jpeg";
 import SaveBtn from '../buttons/SaveButton.jsx'
 import ImageTool from '@editorjs/image';
 import CodeTool from '@editorjs/code';
@@ -13,7 +12,6 @@ import List from '@editorjs/list';
 import defaultAvatar from "../../images/defaultAvatar.png";
 import { connect } from 'react-redux'
 import moment from 'moment';
-import NavBar from './NavBar.jsx'
 const editorJsTools = {
   code: CodeTool,
   underline: Underline,
@@ -38,18 +36,16 @@ const editorJsTools = {
 
 
 const ReadingContent = (props) => {
-  const {  post  } = props.location.state;
+  const {  post  } = props;
   let [save, saveToggle] = useState(false);
   return (
-    <div>
-      <NavBar/>
-      <div id="reading-content-container">
+    <div id="reading-content-container">
       <div id="reading-content-header">
         <SaveBtn save={save} saveToggle={saveToggle}/>
         <div id="author-info">
-          <img id="author-ava" src={props.auth.avatar || defaultAvatar} alt="avatar"></img>
+          <img id="author-ava" src={post.authorAvatar || defaultAvatar} alt="avatar"></img>
           <div id="author-name-date">
-            <a href="" id="author-name">{props.auth.displayName}</a>
+            <a href="" id="author-name">{post.author}</a>
             <p id="post-date">{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
           </div>
         </div>
@@ -58,11 +54,14 @@ const ReadingContent = (props) => {
         <p id="reading-content-title">{post.title}</p>
         <p id="reading-content-subtitle">{post.subtitle}</p>
       </div>
-      <img
-        className="reading-content-image"
-        src={post.titleImage}
-        alt="title"
-      />
+      {post.titleImage
+        ? <img
+          className="reading-content-image"
+          src={post.titleImage}
+          alt="title"
+        />
+        : null
+      }
       <div id="reading-content-body">
           <EditorJS 
             id="editorjs" 
@@ -73,7 +72,6 @@ const ReadingContent = (props) => {
           >
             <div id="editorjs" />
           </EditorJS>
-      </div>
       </div>
     </div>
     

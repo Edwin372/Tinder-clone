@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import TextareaAutosize from "react-autosize-textarea";
 import "./UserComment.scss";
-import likeBtnIcon from "../../svg/likeButton.svg";
-import Dotdotdot from "../../svg/dotdotdot.svg";
 import LikeButton from "../buttons/Likebutton.jsx";
 import DropDownOption from "../buttons/DropDownOption.jsx";
 
@@ -14,7 +11,7 @@ export default function UserComment(props) {
         <img className="comment-avatar" src={props.avatar} alt="avatar"></img>
         <div className="name-date">
           <p className="name"> {props.name} </p>
-          <p className="date"> {props.dateComment} </p>
+          <p className="date"> {props.createdAt} </p>
         </div>
       </div>
       <div className="comment-content-container">
@@ -30,7 +27,7 @@ export default function UserComment(props) {
               </div>
             ) : null}
             {props.commentImage ? (
-              <img src={props.commentImage} className="comment-img"></img>
+              <img src={props.commentImage} className="comment-img" alt="comment"></img>
             ) : null}
           </div>
           <div className="hide">

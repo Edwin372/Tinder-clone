@@ -5,6 +5,7 @@
   margin: auto;
   font-family: "Castoro";
   padding-top: 190px;
+  margin-bottom: -249px;
   
   a {
     text-decoration: none;
@@ -77,6 +78,10 @@
     img {
      border-radius: 15px;
     }
+    
+    .codex-editor {
+      z-index: 0;
+    }
     .ce-block__content {
       max-width: 800px;
       width: 800px;
@@ -89,6 +94,17 @@
     .image-tool__image-picture{ 
       border-radius: 15px;
 
+    }
+    .image-tool__caption {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      padding: 10px 12px;
+      outline: none;
+      width: 100%;
+      border: none;
+      text-align: center;
+      font-family: 'Roboto Condensed';
+      font-size: 15px;
     }
     
   }

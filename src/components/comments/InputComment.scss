@@ -1,4 +1,6 @@
 .input-comment {
+  margin-bottom: 24px;
+  width: 813px;
   .comment-avatar {
     width: 44px;
     height: 44px;
@@ -7,7 +9,7 @@
   }
   .line {
     position: relative;
-    width: 688.4px;
+    width: 835px;
     height: 0px;
     border: 1px solid #000000;
   }
@@ -47,7 +49,7 @@
       display: flex;
       flex-direction: row;
       padding-left: 51px;
-      width: 643px;
+      width: 735px;
       position: relative;
       .input-text {
         resize: none;

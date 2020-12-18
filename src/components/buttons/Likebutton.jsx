@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import likeBtnIcon from "../../svg/likeButton.svg";
 import "./Likebutton.scss";
 import alreadyLike from "../../svg/alreadyLike.svg";

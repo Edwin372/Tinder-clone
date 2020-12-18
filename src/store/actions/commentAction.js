@@ -9,6 +9,7 @@ export const createComment = (newComment) => {
       }).then(() => {
         dispatch({ type: 'CREATE_COMMENT_SUCCESS' });
       }).catch(err => {
+        console.log(err);
         dispatch({ type: 'CREATE_COMMENT_ERROR' }, err);
       });
     }

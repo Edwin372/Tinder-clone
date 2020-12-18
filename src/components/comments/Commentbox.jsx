@@ -1,51 +1,86 @@
 import React, { Component } from "react";
 import InputComment from "./InputComment";
 import UserComment from "./UserComment";
-import testImage from "../../images/testImage3.jpg";
 import moment from "moment";
-import "./Commentbox.scss";
-export default class CommentBoxCommentbox extends Component {
-  state = {
-    user: {
-      name: "chaudeptrai123",
-      avatar: testImage,
-    },
-    comments: [],
-  };
+import { firestoreConnect } from 'react-redux-firebase'
+import { connect } from 'react-redux'
+import {createComment} from '../../store/actions/commentAction'
+import { compose } from 'redux'
+import defaultAvatar from '../../images/defaultAvatar.png'
 
-  handlePostNewComment = (e, image) => {
-    this.setState({
-      comments: [
-        ...this.state.comments,
-        {
-          commentContent: e.target.value,
-          commentImage: image,
-          dateComment: moment().format("MMMM Do, YYYY"),
-        },
-      ],
-    });
+
+import "./Commentbox.scss";
+class Commentbox extends Component {
+  state={
+    comments: []
+  }
+  componentDidMount() {
+    this.fetchData()
+  }
+  fetchData = async () => {
+    const { firestore } = this.props;
+    var comments = await firestore
+    .collection("comments")
+    .orderBy("createdAt", "desc")
+    .where("contentId", "==", this.props.contentId)
+    .get()
+    this.setState({comments: comments.docs})
+  }
+
+  handlePostNewComment = async (e, image) => {
+    await this.props.createComment( {
+      commentContent: e.target.value,
+      commentImage: image || '',
+      createdAt: moment().format(),
+      contentId: this.props.contentId,
+      name: this.props.auth.displayName,
+      userId: this.props.auth.uid,
+      avatar: this.props.auth.avatar || defaultAvatar
+    })
+    this.fetchData()
   };
   render() {
-    const { user, comments } = this.state;
+    const { auth,firebase } = this.props;
     return (
-      <div id="comment-component-container">
+      <div id="comment-component-container" style={{...this.props.style}}>
         <InputComment
-          user={user}
+          firebase={firebase}
+          user={auth}
           handlePostNewComment={this.handlePostNewComment}
         />
         <div id="comment-container">
-          {comments.map((comment, index) => (
+          {this.state.comments && this.state.comments.map((comment, index) => {
+            let commentData = comment.data()
+            return (
             <UserComment
               key={index}
-              name={user.name}
-              avatar={user.avatar}
-              dateComment={comment.dateComment}
-              commentContent={comment.commentContent}
-              commentImage={comment.commentImage}
+              name={commentData.name}
+              avatar={commentData.avatar || defaultAvatar}
+              createdAt={moment(commentData.createdAt).format("MMMM Do, YYYY")}
+              commentContent={commentData.commentContent}
+              commentImage={commentData.commentImage}
             />
-          ))}
+          )})}
         </div>
       </div>
     );
   }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+      auth: state.firebase.auth,
+    }
+  }
+const mapDispatchToProps = dispatch => {
+  return {
+    createComment: (comment) => dispatch(createComment(comment))
+  }
+}
+
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect() 
+)(Commentbox)
