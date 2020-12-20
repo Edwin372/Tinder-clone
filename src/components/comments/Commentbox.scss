@@ -1,6 +1,14 @@
 #comment-component-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   #comment-container {
+    width: 813px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    max-width: 813px;
+    max-height: 600px;
+    overflow: scroll;
   }
 }

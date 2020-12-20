@@ -1,0 +1,234 @@
+#create-post-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+#create-post-container .create-post-form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#create-post-container .create-post-form .create-signature {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 46px;
+}
+
+#create-post-container .create-post-form .title-field {
+  margin-top: 130px;
+}
+
+#create-post-container .create-post-form .title-field label {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+#create-post-container .create-post-form .title-field #title {
+  color: black;
+  font-size: 40px;
+  line-height: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  width: 1030px;
+  border: 0;
+  outline: 0;
+  text-align: justify;
+  text-transform: capitalize;
+  background: transparent;
+}
+
+#create-post-container .create-post-form .title-field #title:focus {
+  border-bottom: 1px solid black;
+}
+
+#create-post-container .create-post-form .sub-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 21px;
+}
+
+#create-post-container .create-post-form .sub-title label {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+#create-post-container .create-post-form .sub-title .subtitle {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  outline: 0;
+  line-height: 21px;
+  resize: none;
+  width: 1030px;
+  color: #677079;
+  font-size: 30px;
+  border: none;
+  background: transparent;
+}
+
+#create-post-container .create-post-form .sub-title .subtitle:focus {
+  border-bottom: 1px solid black;
+}
+
+#create-post-container .create-post-form .sub-title div:empty:before {
+  content: attr(data-placeholder);
+  color: #757677;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+#create-post-container .create-post-form .content-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 41px;
+  width: 1080px;
+}
+
+#create-post-container .create-post-form .content-field label {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+#create-post-container .create-post-form .content-field .codex-editor__redactor {
+  padding-bottom: 58px !important;
+}
+
+#create-post-container .create-post-form .content-field .ce-block:first-of-type {
+  margin-top: -35px;
+}
+
+#create-post-container .create-post-form .content-field .ce-paragraph.cdx-block {
+  margin-left: 27px;
+  line-height: 28px;
+  outline: none;
+  padding: 1px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: justify;
+  width: 1080px;
+}
+
+#create-post-container .create-post-form .content-field .ce-paragraph.cdx-block:focus {
+  border-bottom: 1px solid #7c7c7c;
+}
+
+#create-post-container .create-post-form .content-field .ce-toolbar__content {
+  max-width: 1080px;
+}
+
+#create-post-container .create-post-form .content-field .ce-block__content {
+  max-width: 1080px;
+  margin: 34px auto;
+}
+
+#create-post-container .create-post-form .content-field .codex-editor--narrow .ce-toolbar__plus {
+  left: -50px;
+}
+
+#create-post-container .create-post-form .content-field .codex-editor--narrow .ce-toolbar__actions {
+  right: -30px;
+}
+
+#create-post-container .create-post-form .content-field .ce-toolbar__settings-btn {
+  width: 24px;
+  height: 24px;
+}
+
+#create-post-container .create-post-form .content-field .ce-code__textarea {
+  background-color: beige;
+  color: black;
+  margin-left: 200px;
+  width: 700px;
+  margin-top: -2px;
+  line-height: 1.6em;
+  min-height: 100px;
+  text-align: left !important;
+}
+
+#create-post-container .create-post-form .content-field .codex-editor__redactor.reset-this {
+  padding-bottom: 70px;
+}
+
+#create-post-container .create-post-form .content-field .cdx-button {
+  margin-left: 26px;
+  width: 1080px;
+  height: 17.28px;
+  display: center;
+}
+
+#create-post-container .create-post-form .content-field .ce-header {
+  padding-left: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#create-post-container .create-post-form .content-field .cdx-list {
+  padding-left: 80px;
+}
+
+#create-post-container .create-post-form .content-field .image-tool__image {
+  width: 1080px;
+  margin-left: 15px;
+}
+
+#create-post-container .create-post-form .content-field .image-tool__image-picture {
+  width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border-radius: 5%;
+}
+
+#create-post-container .create-post-form .content-field .image-tool__caption {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 16px;
+}
+
+#create-post-container .create-post-form .content-field .cdx-input {
+  text-align: center;
+}
+
+#create-post-container .create-post-form .content-field ::-moz-selection {
+  background: black;
+  color: white;
+}
+
+#create-post-container .create-post-form .content-field ::selection {
+  background: black;
+  color: white;
+}
+/*# sourceMappingURL=CreatePost.css.map */

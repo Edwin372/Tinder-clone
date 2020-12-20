@@ -1,0 +1,23 @@
+.like-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.like-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: -2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.like-btn img {
+  width: 20px;
+  height: 20px;
+}
+/*# sourceMappingURL=Likebutton.css.map */

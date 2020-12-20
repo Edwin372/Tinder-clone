@@ -13,6 +13,7 @@ export const createPost = (post) => {
         createdAt: moment().format() ,
         author: profile.displayName,
         userId: userId,
+        authorAvatar: profile.avatar,
         deleted: false,
       }).then(() => {
         dispatch({ type: 'CREATE_POST_SUCCESS' });

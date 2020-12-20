@@ -70,6 +70,7 @@ const editorJsTools = {
 
 class CreatePost extends Component {
     state= {
+        postDenied: true,
         editor: {},
     }
     
@@ -77,9 +78,10 @@ class CreatePost extends Component {
       this.setState((state) => {
           return {
               [e.target.id]: e.target.value,
+              postDenied: false,
           }
       }, () => {
-          console.log(this.state)
+         if(!this.state.title) {this.setState({postDenied: true})}
       })
     }
 
@@ -88,7 +90,7 @@ class CreatePost extends Component {
        e.preventDefault()
 
        const postContentData = await this.state.editor.save();
-       this.props.createPost({title: title || title, subtitle: subtitle || subtitle, postContentData})
+       this.props.createPost({title: title, subtitle: subtitle || '', postContentData: postContentData || {}})
     }
 
 
@@ -109,14 +111,14 @@ class CreatePost extends Component {
                     <div className="content-field">
                     <EditorJS 
                         instanceRef={instance => {this.setState({editor: instance})}} 
-                        id="editorjs" 
+                        id="editorjs"
                         holder="editorjs"
                         tools={editorJsTools}
                     >
                          <div id="editorjs" />
                     </EditorJS>
                     </div>
-                    <button className="create-post-btn">POST</button>
+                    <button className="create-post-btn" disabled={this.state.postDenied ? true: false}>POST</button>
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}

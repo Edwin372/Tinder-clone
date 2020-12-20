@@ -10,14 +10,11 @@ import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
 import SearchInput from '../search/SearchInput.jsx'
-// import {NavLink} from 
+import {NavLink} from 'react-router-dom'
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
-  const handleName = (name) => {
-    let finalName = name.split(" ");
-    return finalName[finalName.length - 1];
-  };
+ 
   console.log(props.profile);
   return (
     <div>
@@ -49,7 +46,7 @@ const SignedInLinks = (props) => {
                 boolDropDown ? "visible" : "hidden"
               }`}
             >
-              <button className="dropdown-button" onClick={() => {}}>
+              <NavLink to="/create-post" className="dropdown-button" onClick={() => {}}>
                 <img
                   id="pencil-image"
                   src={pencil}
@@ -57,8 +54,8 @@ const SignedInLinks = (props) => {
                   className="dropdown-logo"
                 />
                 Writing
-              </button>
-              <button className="dropdown-button">
+              </NavLink>
+              <NavLink to="/create-post" className="dropdown-button">
                 <img
                   id="layers-image"
                   src={layers}
@@ -66,8 +63,8 @@ const SignedInLinks = (props) => {
                   className="dropdown-logo"
                 />
                 Series
-              </button>
-              <button className="dropdown-button">
+              </NavLink>
+              <NavLink to="/create-post" className="dropdown-button">
                 <img
                   id="humanLogo-image"
                   src={humanLogo}
@@ -75,8 +72,8 @@ const SignedInLinks = (props) => {
                   className="dropdown-logo"
                 />
                 View profile
-              </button>
-              <button id="sign-out-button" className="dropdown-button"  onClick={props.signOut}>
+              </NavLink>
+              <NavLink to="/" id="sign-out-button" className="dropdown-button"  onClick={props.signOut}>
                 <img
                   id="signout-image"
                   src={signoutIcon}
@@ -85,7 +82,7 @@ const SignedInLinks = (props) => {
                  
                 />
                 Sign out
-              </button>
+              </NavLink>
             </div>
           </div>
         </button>

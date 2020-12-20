@@ -3,11 +3,11 @@ import "./InputComment.scss";
 import TextareaAutosize from "react-autosize-textarea";
 import commentIcon from "../../svg/commentLogo.svg";
 import addImgIcon from "../../svg/addImgaeIcon.svg";
-import defaultimg from "../../images/defaultImage.png";
 import defaultAvatar from "../../images/defaultAvatar.png";
 import ReactFileReader from "react-file-reader";
+import {v4 as uuid} from 'uuid'
 
-export default function InputComment({ user, handlePostNewComment }) {
+export default function InputComment({firebase, user, handlePostNewComment }) {
   const [image, setImage] = useState("");
   function handleEnterPress(e, image) {
     let key = window.event.keyCode;
@@ -19,9 +19,13 @@ export default function InputComment({ user, handlePostNewComment }) {
       setImage("");
     }
   }
-  function handleFiles(files) {
-    console.log(files.base64);
-    setImage(files.base64);
+  async function handleFiles(files) {
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    var imagesRef = storageRef.child('images/'+  uuid());
+    var uploadTask = await imagesRef.putString(files.base64.split(',')[1], 'base64');
+    var downloadURL = await uploadTask.ref.getDownloadURL();
+    setImage(downloadURL);
   }
   return (
     <div className="input-comment">
@@ -37,7 +41,7 @@ export default function InputComment({ user, handlePostNewComment }) {
             src={user.avatar || defaultAvatar}
             alt="avatar"
           ></img>
-          <p>{user.name}</p>
+          <p>{user.displayName}</p>
         </div>
         <div className="textarea-and-addImageIcon">
           <TextareaAutosize
@@ -51,12 +55,12 @@ export default function InputComment({ user, handlePostNewComment }) {
             handleFiles={handleFiles}
           >
             <button className="btn" id="comment-image-btn">
-              <img src={addImgIcon} id="image-btn"></img>
+              <img src={addImgIcon} id="image-btn" alt="button"></img>
             </button>
           </ReactFileReader>
         </div>
         {image ? (
-          <img className="preview-img" src={image} alt="preview-image" />
+          <img className="preview-img" src={image} alt="preview"/>
         ) : null}
       </div>
     </div>

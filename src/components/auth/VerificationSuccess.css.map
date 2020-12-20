@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,+BAA+B,CAAC;EAC5B,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;CAI1B;;AAPD,AAII,+BAJ2B,CAI3B,GAAG,CAAC;EACA,WAAW,EAAE,IACjB;CAAC",
+    "sources": [
+        "VerificationSuccess.scss"
+    ],
+    "names": [],
+    "file": "VerificationSuccess.css"
+}

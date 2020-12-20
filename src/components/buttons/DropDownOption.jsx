@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./DropDownOption.scss";
 import Dotdotdot from "../../svg/dotdotdot.svg";
 
-export default function DeleteBtn(props) {
+export default function ButtonOptions(props) {
   const [boolDropDown, toggleDropDown] = useState(false);
   return (
     <div id="option-container">
@@ -14,8 +14,9 @@ export default function DeleteBtn(props) {
           boolDropDown ? "visible" : "hidden"
         }`}
       >
-        {props.buttons.map((button) => (
+        {props.buttons.map((button, index) => (
           <button
+            key={index}
             className="dropdown-option"
             onClick={() => button.handleClick()}
           >
