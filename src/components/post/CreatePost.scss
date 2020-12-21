@@ -121,10 +121,10 @@
                 margin: 34px auto;
             }
             .codex-editor--narrow .ce-toolbar__plus{ 
-                left: -50px; 
+                left: -40px; 
             }
             .codex-editor--narrow .ce-toolbar__actions{
-               right: -30px;
+               right: -50px;
             }
             .ce-toolbar__settings-btn{
                 width: 24px;
@@ -182,6 +182,9 @@
             }
         }
     }
-    
-    
+}
+h2#swal2-title.swal2-title{
+    height: 350px;
+    font-size: 0.875em;
+    text-align: left !important;
 }
