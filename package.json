@@ -36,11 +36,12 @@
     "redux-firestore": "^0.14.0",
     "redux-thunk": "^2.3.0",
     "storybook": "^6.0.27",
-    "uuid": "^8.3.2",
+    "storybook-react-router": "^1.0.8",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^10.12.5",
     "sweetalert2-react": "^0.8.3",
-    "sweetalert2-react-content": "^3.2.2"
+    "sweetalert2-react-content": "^3.2.2",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

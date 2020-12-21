@@ -35,11 +35,9 @@ export const signIn = (credentials) => {
       ).then(async (resp) => {
         await firebase.auth().currentUser.sendEmailVerification()
         return firestore.collection('users').doc(resp.user.uid).set({
-          dob: newUser.dob,
-          displayName: newUser.username,
+          ...newUser,
           bio: '',
           avatar: '',
-          backgroundImage: ''
         });
       }).then(resp => {
         console.log( firebase.auth().currentUser)

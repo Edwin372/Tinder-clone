@@ -19,12 +19,17 @@ class Commentbox extends Component {
   }
   fetchData = async () => {
     const { firestore } = this.props;
-    var comments = await firestore
+    await firestore
     .collection("comments")
     .orderBy("createdAt", "desc")
     .where("contentId", "==", this.props.contentId)
-    .get()
-    this.setState({comments: comments.docs})
+    .onSnapshot((querySnapshot) => {
+      var comments = [];
+      querySnapshot.forEach(function(doc) {
+        comments.push(doc.data());
+      });
+      this.setState({comments: comments})
+    });
   }
 
   handlePostNewComment = async (e, image) => {
@@ -33,9 +38,9 @@ class Commentbox extends Component {
       commentImage: image || '',
       createdAt: moment().format(),
       contentId: this.props.contentId,
-      name: this.props.auth.displayName,
+      name: this.props.profile.displayName,
       userId: this.props.auth.uid,
-      avatar: this.props.auth.avatar || defaultAvatar
+      avatar: this.props.profile.avatar || defaultAvatar
     })
     this.fetchData()
   };
@@ -50,7 +55,7 @@ class Commentbox extends Component {
         />
         <div id="comment-container">
           {this.state.comments && this.state.comments.map((comment, index) => {
-            let commentData = comment.data()
+            let commentData = comment
             return (
             <UserComment
               key={index}
@@ -71,6 +76,7 @@ class Commentbox extends Component {
 const mapStateToProps = (state) => {
     return {
       auth: state.firebase.auth,
+      profile: state.firebase.profile,
     }
   }
 const mapDispatchToProps = dispatch => {

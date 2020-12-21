@@ -20,13 +20,22 @@ export default function InputComment({firebase, user, handlePostNewComment }) {
     }
   }
   async function handleFiles(files) {
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-    var imagesRef = storageRef.child('images/'+  uuid());
-    var uploadTask = await imagesRef.putString(files.base64.split(',')[1], 'base64');
-    var downloadURL = await uploadTask.ref.getDownloadURL();
+    let storage = firebase.storage();
+    let storageRef = storage.ref();
+    let imagesRef = storageRef.child('images/'+  uuid());
+    let uploadTask = await imagesRef.putString(files.base64.split(',')[1], 'base64');
+    let downloadURL = await uploadTask.ref.getDownloadURL();
     setImage(downloadURL);
   }
+  async function handleDeleteFile(files) {
+    let storage = firebase.storage();
+    let storageRef = storage.ref();
+    let imagesRef = storageRef.child('images/'+  uuid());
+    let uploadTask = await imagesRef.putString(files.base64.split(',')[1], 'base64');
+    let downloadURL = await uploadTask.ref.getDownloadURL();
+    setImage(downloadURL);
+  }
+  
   return (
     <div className="input-comment">
       <div className="line"></div>

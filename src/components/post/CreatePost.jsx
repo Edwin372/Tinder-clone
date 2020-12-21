@@ -97,9 +97,17 @@ class CreatePost extends Component {
             const {title, subtitle, tags, editor} = instance.state
             let tagArr = tags.map(tag => tag.label)
             const postContentData = await editor.save();
-            console.log(instance.state)
-
-            instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
+            return instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
+           
+        }).finally( () => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been uploaded',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(() => {
+                window.location.replace('/')
+            })
         })
     };
 

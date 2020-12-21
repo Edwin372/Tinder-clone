@@ -3,6 +3,7 @@ export const createPost = (post) => {
     return (dispatch, getState, {getFirestore}) => {
       // make async call to database
       const profile = getState().firebase.profile;
+      console.log(profile)
       const userId = getState().firebase.auth.uid;
       const firestore = getFirestore();
       firestore.collection('posts').add({
