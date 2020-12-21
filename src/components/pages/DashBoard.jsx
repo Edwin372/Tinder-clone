@@ -78,14 +78,41 @@ const falseTopTrendingData = [
   }
 ]
 
-function showTop6(falseTopTrendingData){
-  return falseTopTrendingData.trending <= 6;
+function showTop8(falseTopTrendingData){
+  return falseTopTrendingData.trending <= 8;
 }
 
 class Dashboard extends Component {
-  render() {
-    const { posts } = this.props;
+  state = {
+    posts: []
+  }
+  componentDidMount = () => {
+    this.setState({posts: this.props.posts})
+  }
 
+  fetchData = async (selectedOptions) => {
+    if (selectedOptions && selectedOptions.length !== 0) {
+
+      console.log(selectedOptions)
+      let filterArr = selectedOptions.map(tag => tag.label)
+      const { firestore } = this.props;
+      var posts = await firestore
+      .collection("posts")
+      .orderBy("createdAt", "desc")
+      .where('tags', 'array-contains-any',
+      filterArr)
+      .get()
+      let filteredPosts = posts.docs.map((post) => post.data())
+      this.setState({posts: filteredPosts})
+    }
+    else {
+      this.setState({posts: this.props.posts})
+    }
+    
+  }
+
+  render() {
+    const { posts } = this.state;
     return (
       <div id="home">
         <Navbar/>
@@ -94,10 +121,10 @@ class Dashboard extends Component {
               <img src={quote} alt="quote"/>
           </div>
           <div id="posts-section" >
-            <TopTrendingList posts={falseTopTrendingData.filter(showTop6)}/>
+            <TopTrendingList posts={falseTopTrendingData.filter(showTop8)}/>
               <div id="post-list-section">
-                <PostList posts={posts} />
-                <TagDropDown/>
+                <PostList posts={posts || this.props.posts} />
+                <TagDropDown handleChange={(selectedOptions) => {this.fetchData(selectedOptions)}}/>
               </div>
           </div>
         </div>

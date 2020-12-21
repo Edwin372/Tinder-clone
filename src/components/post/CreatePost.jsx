@@ -89,18 +89,17 @@ class CreatePost extends Component {
     }
 
     handleSubmit = async (instance) => {
-       const {title, subtitle, tags} = this.state
-       console.log('got here')
        MySwal.fire(
             <TagDropDown
                 handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
             /> 
         ).then(async () => {
             const {title, subtitle, tags, editor} = instance.state
+            let tagArr = tags.map(tag => tag.label)
             const postContentData = await editor.save();
             console.log(instance.state)
 
-            instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tags || []});
+            instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
         })
     };
 
