@@ -78,7 +78,9 @@ const falseTopTrendingData = [
   }
 ]
 
-
+function showTop6(falseTopTrendingData){
+  return falseTopTrendingData.trending <= 6;
+}
 
 class Dashboard extends Component {
   render() {
@@ -92,7 +94,7 @@ class Dashboard extends Component {
               <img src={quote} alt="quote"/>
           </div>
           <div id="posts-section" >
-              <TopTrendingList posts={falseTopTrendingData}/>
+            <TopTrendingList posts={falseTopTrendingData.filter(showTop6)}/>
               <div id="post-list-section">
                 <PostList posts={posts} />
                 <TagDropDown/>

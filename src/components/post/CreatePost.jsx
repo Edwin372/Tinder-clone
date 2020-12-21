@@ -12,7 +12,9 @@ import Header from '@editorjs/header'
 import List from '@editorjs/list';
 import '../buttons/CreatePostBtn.jsx';
 import {storage} from '../../config/firebaseConfig.js';
-
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+import TagDropDown from '../dropdown/TagDropDown';
 class extendedImageBlock extends ImageTool {
     removed() {
         var deleteRef = storage.refFromURL(this.data.file.url)
@@ -67,11 +69,12 @@ const editorJsTools = {
     }
 }
 
-
+const MySwal = withReactContent(Swal)
 class CreatePost extends Component {
     state= {
         postDenied: true,
         editor: {},
+        tags: []
     }
     
     handleChange = (e) => {
@@ -85,19 +88,26 @@ class CreatePost extends Component {
       })
     }
 
-    handleSubmit = async (e) => {
-       const {title, subtitle} = this.state
-       e.preventDefault()
+    handleSubmit = async (instance) => {
+       const {title, subtitle, tags} = this.state
+       console.log('got here')
+       MySwal.fire(
+            <TagDropDown
+                handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
+            /> 
+        ).then(async () => {
+            const {title, subtitle, tags, editor} = instance.state
+            const postContentData = await editor.save();
+            console.log(instance.state)
 
-       const postContentData = await this.state.editor.save();
-       this.props.createPost({title: title, subtitle: subtitle || '', postContentData: postContentData || {}})
-    }
-
+            instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tags || []});
+        })
+    };
 
     render() {
         return (
             <div id='create-post-container'>
-                <form onSubmit={this.handleSubmit} className="create-post-form">
+                <div className="create-post-form">
                     <div className="create-signature">
                     <label>Create your own signature</label>
                     </div>
@@ -118,11 +128,11 @@ class CreatePost extends Component {
                          <div id="editorjs" />
                     </EditorJS>
                     </div>
-                    <button className="create-post-btn" disabled={this.state.postDenied ? true: false}>POST</button>
+                    <button className="create-post-btn" onClick={() => {this.handleSubmit(this)}}  >POST</button>
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}
-                </form>    
+                </div>    
             </div>
         )
     }

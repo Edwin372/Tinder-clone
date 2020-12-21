@@ -76,6 +76,7 @@ export default class TagDropDown extends Component {
                         isMulti
                         options={options}
                         placeholder=""
+                        onChange={(selectedOption) => {this.props.handleChange(selectedOption)}}
                     />
                 </div>
             </div>
