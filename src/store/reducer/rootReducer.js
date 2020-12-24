@@ -3,7 +3,6 @@ import postReducer from './postReducer'
 import { combineReducers } from 'redux'
 import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase'
-import testReducer from './testReducer'
 import commentReducer from './commentReducer'
 
 const rootReducer = combineReducers({
@@ -11,7 +10,6 @@ const rootReducer = combineReducers({
   post: postReducer,
   firestore: firestoreReducer,
   firebase: firebaseReducer,
-  test: testReducer,
   comment: commentReducer
 });
 

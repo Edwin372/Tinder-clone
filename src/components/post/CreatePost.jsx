@@ -89,11 +89,15 @@ class CreatePost extends Component {
     }
 
     handleSubmit = async (instance) => {
-       MySwal.fire(
+       MySwal.fire({
+           title:    
             <TagDropDown
                 handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
-            /> 
-        ).then(async () => {
+            />,
+            customClass:{
+                title:'custom-title'
+            }
+       }).then(async () => {
             const {title, subtitle, tags, editor} = instance.state
             let tagArr = tags.map(tag => tag.label)
             const postContentData = await editor.save();

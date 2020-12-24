@@ -45,12 +45,12 @@ class Commentbox extends Component {
     this.fetchData()
   };
   render() {
-    const { auth,firebase } = this.props;
+    const { profile, firebase } = this.props;
     return (
       <div id="comment-component-container" style={{...this.props.style}}>
         <InputComment
           firebase={firebase}
-          user={auth}
+          user={profile}
           handlePostNewComment={this.handlePostNewComment}
         />
         <div id="comment-container">
