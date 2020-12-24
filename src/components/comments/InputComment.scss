@@ -1,6 +1,6 @@
 .input-comment {
   margin-bottom: 24px;
-  width: 813px;
+  width: 840px;
   .comment-avatar {
     width: 44px;
     height: 44px;
@@ -18,10 +18,23 @@
     flex-direction: row;
     position: relative;
     display: flex;
+    justify-content: space-between;
     .comment-text {
       width: 110px;
       font-size: 18px;
       font-family: "Rowdies";
+    }
+    #toggle-btn {
+      border: none;
+      outline: none;
+      background: transparent;
+      transition: all 0.5s;
+    }
+    .up{
+      transform: rotate(180deg);
+    }
+    .down{
+      transform: rotate(0deg);
     }
     .comment-logo {
       width: 30px;
@@ -42,7 +55,6 @@
         font-weight: 700;
         font-size: 14px;
         padding-left: 6px;
-        margin-top: initial;
       }
     }
     .textarea-and-addImageIcon {
@@ -93,5 +105,11 @@
       border-radius: 10px;
       margin-left: 51px;
     }
+  }
+  .shown {
+    display: flex;
+  }
+  .hide {
+    display: none;
   }
 }

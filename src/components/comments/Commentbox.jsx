@@ -12,10 +12,14 @@ import defaultAvatar from '../../images/defaultAvatar.png'
 import "./Commentbox.scss";
 class Commentbox extends Component {
   state={
-    comments: []
+    comments: [],
+    isCommentShown: false
   }
   componentDidMount() {
     this.fetchData()
+  }
+  toggleComment = () => {
+    this.setState({isCommentShown: !this.state.isCommentShown})
   }
   fetchData = async () => {
     const { firestore } = this.props;
@@ -52,8 +56,10 @@ class Commentbox extends Component {
           firebase={firebase}
           user={profile}
           handlePostNewComment={this.handlePostNewComment}
+          toggleComment={this.toggleComment}
+          isCommentShown={this.state.isCommentShown}
         />
-        <div id="comment-container">
+        <div id="comment-container" className={this.state.isCommentShown? 'comment-showna': 'comment-hide'}>
           {this.state.comments && this.state.comments.map((comment, index) => {
             let commentData = comment
             return (

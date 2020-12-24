@@ -6,8 +6,9 @@ import addImgIcon from "../../svg/addImgaeIcon.svg";
 import defaultAvatar from "../../images/defaultAvatar.png";
 import ReactFileReader from "react-file-reader";
 import {v4 as uuid} from 'uuid'
+import dropDownBtnIcon from '../../svg/dropdown.svg'
 
-export default function InputComment({firebase, user, handlePostNewComment }) {
+export default function InputComment({firebase, user, handlePostNewComment, toggleComment, isCommentShown }) {
   const [image, setImage] = useState("");
   function handleEnterPress(e, image) {
     let key = window.event.keyCode;
@@ -40,10 +41,16 @@ export default function InputComment({firebase, user, handlePostNewComment }) {
     <div className="input-comment">
       <div className="line"></div>
       <div className="comment-logo">
-        <h1 className="comment-text">Comments</h1>
-        <img src={commentIcon} alt="comment-icon"></img>
+        <div style={{display:'flex'}}>
+          <h1 className="comment-text">Comments</h1>
+          <img src={commentIcon} alt="comment-icon"></img>
+        </div>
+        <button id="toggle-btn" className={isCommentShown ? 'down': 'up'} onClick={() =>{toggleComment()}}>
+           <img src={dropDownBtnIcon} alt="drop down"/>
+        </button>
+        
       </div>
-      <div className="input-of-user">
+      <div className={`input-of-user ${isCommentShown? 'shown': 'hide'}`}>
         <div className="ava-and-name">
           <img
             className="comment-avatar"
