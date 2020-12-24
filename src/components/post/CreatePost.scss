@@ -183,8 +183,9 @@
         }
     }
 }
-h2#swal2-title.swal2-title{
+.custom-title{
     height: 350px;
-    font-size: 0.875em;
+    font-size: 0.875em !important;
     text-align: left !important;
 }
+
