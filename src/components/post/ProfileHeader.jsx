@@ -46,6 +46,9 @@ export default class ProfileHeader extends Component{
                 confirmButtonText: `Yes`,
                 showDenyButton: true,
                 denyButtonText: `No`,
+                customClass:{
+                    image:'custom-image'
+                }
               }).then((result) => {
                 if (result.isConfirmed) {
                     const storageRef = storage.ref();
