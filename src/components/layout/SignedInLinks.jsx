@@ -64,7 +64,7 @@ const SignedInLinks = (props) => {
                 />
                 Series
               </NavLink>
-              <NavLink to="/create-post" className="dropdown-button">
+              <NavLink to={`/profile/${props.auth.uid}`} className="dropdown-button">
                 <img
                   id="humanLogo-image"
                   src={humanLogo}

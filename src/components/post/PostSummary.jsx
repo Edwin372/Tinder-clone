@@ -15,7 +15,7 @@ export default function PostSummary({post}) {
           <div className="post-sum-content">
                <div className="post-author-container">
                     <div className="post-author">
-                       <img src={post.avatar || defaultAvatar} alt="avatar"/>
+                       <img src={post.authorAvatar || defaultAvatar} alt="avatar"/>
                        <p className="">{post.author}</p>
                     </div>
                    <SaveBtn save={save} saveToggle={saveToggle} />

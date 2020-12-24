@@ -10,6 +10,7 @@ import SignUpOptions from './components/auth/SignUpOptions.jsx'
 import VerificationSuccess from './components/auth/VerificationSuccess.jsx'
 import Verification from './components/auth/Verification.jsx'
 import SearchResult from './components/pages/SearchResultPage'
+import ProfilePage from './components/pages/ProfilePage.jsx'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <ProtectedRoute path="/post/:id" component={ReadPostPage}/>
           <ProtectedRoute path="/create-post" component={CreatePost}/>
           <ProtectedRoute path="/search-result" component={SearchResult}/>
+          <ProtectedRoute path="/profile/:id" component={ProfilePage}/>
+
         </Switch>
       </div>
     </BrowserRouter>
