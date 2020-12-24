@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import EditorJS from 'react-editor-js'
 import "./ReadingContent.scss";
@@ -12,6 +12,9 @@ import List from '@editorjs/list';
 import defaultAvatar from "../../images/defaultAvatar.png";
 import { connect } from 'react-redux'
 import moment from 'moment';
+import { compose } from 'redux'
+import { firestoreConnect } from 'react-redux-firebase'
+
 const editorJsTools = {
   code: CodeTool,
   underline: Underline,
@@ -36,14 +39,26 @@ const editorJsTools = {
 
 
 const ReadingContent = (props) => {
-  const {  post  } = props;
-  let [save, saveToggle] = useState(false);
+  const {  post, firestore  } = props;
+  const [save, saveToggle] = useState(false);
+  const [authorProfile, setAuthorProfile] = useState({});
+  useEffect( () => {
+    async function fetchData() {
+      const response = await firestore
+      .collection("users")
+      .doc(post.userId)
+      .get()
+      const profile = response.data()
+      setAuthorProfile(profile)
+    }
+    fetchData();
+  }, []);
   return (
     <div id="reading-content-container">
       <div id="reading-content-header">
         <SaveBtn save={save} saveToggle={saveToggle}/>
         <div id="author-info">
-          <img id="author-ava" src={post.authorAvatar || defaultAvatar} alt="avatar"></img>
+          <img id="author-ava" src={authorProfile.avatar || defaultAvatar} alt="avatar"></img>
           <div id="author-name-date">
             <a href="" id="author-name">{post.author}</a>
             <p id="post-date">{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
@@ -85,4 +100,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ReadingContent)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect() 
+)(ReadingContent)
