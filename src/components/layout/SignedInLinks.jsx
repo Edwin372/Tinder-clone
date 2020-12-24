@@ -36,7 +36,7 @@ const SignedInLinks = (props) => {
           <div>
             <img
               id="avatar-image"
-              src={props.auth.avatar || defaultAvatar}
+              src={props.profile.avatar || defaultAvatar}
               alt="avatar"
               className="dropdown-logo"
             />
@@ -99,7 +99,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    profile: state.firebase.profile
   };
 };
 

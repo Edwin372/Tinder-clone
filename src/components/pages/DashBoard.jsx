@@ -87,7 +87,7 @@ class Dashboard extends Component {
     posts: []
   }
   componentDidMount = () => {
-    this.setState({posts: this.props.posts})
+    this.setState({posts: []})
   }
 
   fetchData = async (selectedOptions) => {
@@ -106,7 +106,7 @@ class Dashboard extends Component {
       this.setState({posts: filteredPosts})
     }
     else {
-      this.setState({posts: this.props.posts})
+      this.setState({posts: []})
     }
     
   }
@@ -123,7 +123,7 @@ class Dashboard extends Component {
           <div id="posts-section" >
             <TopTrendingList posts={falseTopTrendingData.filter(showTop8)}/>
               <div id="post-list-section">
-                <PostList posts={posts || this.props.posts} />
+                <PostList posts={posts.length ? posts : this.props.posts} />
                 <TagDropDown handleChange={(selectedOptions) => {this.fetchData(selectedOptions)}}/>
               </div>
           </div>
