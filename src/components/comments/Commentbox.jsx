@@ -12,19 +12,28 @@ import defaultAvatar from '../../images/defaultAvatar.png'
 import "./Commentbox.scss";
 class Commentbox extends Component {
   state={
-    comments: []
+    comments: [],
+    isCommentShown: false
   }
   componentDidMount() {
     this.fetchData()
   }
+  toggleComment = () => {
+    this.setState({isCommentShown: !this.state.isCommentShown})
+  }
   fetchData = async () => {
     const { firestore } = this.props;
-    var comments = await firestore
+    await firestore
     .collection("comments")
     .orderBy("createdAt", "desc")
     .where("contentId", "==", this.props.contentId)
-    .get()
-    this.setState({comments: comments.docs})
+    .onSnapshot((querySnapshot) => {
+      var comments = [];
+      querySnapshot.forEach(function(doc) {
+        comments.push(doc.data());
+      });
+      this.setState({comments: comments})
+    });
   }
 
   handlePostNewComment = async (e, image) => {
@@ -33,24 +42,26 @@ class Commentbox extends Component {
       commentImage: image || '',
       createdAt: moment().format(),
       contentId: this.props.contentId,
-      name: this.props.auth.displayName,
+      name: this.props.profile.displayName,
       userId: this.props.auth.uid,
-      avatar: this.props.auth.avatar || defaultAvatar
+      avatar: this.props.profile.avatar || defaultAvatar
     })
     this.fetchData()
   };
   render() {
-    const { auth,firebase } = this.props;
+    const { profile, firebase } = this.props;
     return (
       <div id="comment-component-container" style={{...this.props.style}}>
         <InputComment
           firebase={firebase}
-          user={auth}
+          user={profile}
           handlePostNewComment={this.handlePostNewComment}
+          toggleComment={this.toggleComment}
+          isCommentShown={this.state.isCommentShown}
         />
-        <div id="comment-container">
+        <div id="comment-container" className={this.state.isCommentShown? 'comment-showna': 'comment-hide'}>
           {this.state.comments && this.state.comments.map((comment, index) => {
-            let commentData = comment.data()
+            let commentData = comment
             return (
             <UserComment
               key={index}
@@ -71,6 +82,7 @@ class Commentbox extends Component {
 const mapStateToProps = (state) => {
     return {
       auth: state.firebase.auth,
+      profile: state.firebase.profile,
     }
   }
 const mapDispatchToProps = dispatch => {

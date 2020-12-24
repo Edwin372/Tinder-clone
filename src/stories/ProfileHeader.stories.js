@@ -14,7 +14,7 @@ const Template  = (args) => (
 
 export const profileHeader = Template.bind({});
 profileHeader.args = {
-  user: { 
+  profile: { 
     displayName: 'Tùng Trần',
     bio: "Khi bạn có niềm tin vào cuộc sống, thần tài chắc chắn sẽ đến bên bạn, chỉ cần bạn không từ bỏ - Tùng Trần -",
     followers:'116',

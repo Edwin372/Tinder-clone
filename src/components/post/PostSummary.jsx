@@ -1,21 +1,35 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import moment from 'moment'
 import defaultImage from '../../images/defaultImage.jpg'
 import view from '../../svg/view.svg'
 import defaultAvatar from '../../images/defaultAvatar.png'
 import './PostSummary.scss'
 import SaveBtn from '../buttons/SaveButton.jsx'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
-
-export default function PostSummary({post}) {
+function PostSummary({post, firestore}) {
    const [save, saveToggle] = useState(false);
+   const [authorProfile, setAuthorProfile] = useState({});
+   useEffect( () => {
+     async function fetchData() {
+       const response = await firestore
+       .collection("users")
+       .doc(post.userId)
+       .get()
+       const profile = response.data()
+       setAuthorProfile(profile)
+     }
+     fetchData();
+   }, []);
    return (
         <div className="post-sum-container">
            <img src={post.image || defaultImage} alt="cover_image" className="post-img"/>
           <div className="post-sum-content">
                <div className="post-author-container">
                     <div className="post-author">
-                       <img src={post.avatar || defaultAvatar} alt="avatar"/>
+                       <img src={authorProfile.avatar || defaultAvatar} alt="avatar"/>
                        <p className="">{post.author}</p>
                     </div>
                    <SaveBtn save={save} saveToggle={saveToggle} />
@@ -40,3 +54,9 @@ export default function PostSummary({post}) {
         </div>
    )
 }
+
+
+export default compose(
+     connect(),
+     firestoreConnect() 
+)(PostSummary)

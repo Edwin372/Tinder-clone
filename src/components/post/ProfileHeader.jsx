@@ -2,28 +2,19 @@ import React, {Component} from 'react'
 import './ProfileHeader.scss'
 import plusIcon from '../../svg/plusIcon.svg'
 import {storage} from '../../config/firebaseConfig.js'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
+import defaultAvatar from '../../images/defaultAvatar.png'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
 
-export default class ProfileHeader extends Component{
+
+class ProfileHeader extends Component{
     state={
         url: '',
         name: '' 
     }
-    // UploadFile = e =>{
-    //     const file = e.target.files[0];
-    //     const storageRef = storage.ref();
-    //     const fileRef = storageRef.child('profileImage').child('images/'+ file.name);
-    //     fileRef.put(file).then(() => {
-    //         console.log("Uploaded successfully")
-    //     }).then(()=> {
-    //         fileRef.getDownloadURL().then(function(url) {
-    //             document.querySelector('img').src = url;
-    //         }).catch(function(error) {
-    //             console.error(error);
-    //         });
-    //     })
-    // }
-    handleChange = async () => {
+    handleChange = async (instance) => {
         const { value: file } = await Swal.fire({
             title: 'Do you want to save the changes?',
             showCancelButton: true,
@@ -53,18 +44,29 @@ export default class ProfileHeader extends Component{
                     const storageRef = storage.ref();
                     const fileRef = storageRef.child('profileImage').child('images/'+ file.name);
                     const deleteRef = storageRef.child('profileImage').child('images/'+ this.state.name);
-                    deleteRef.delete().then(function() {
+                    deleteRef
+                    .delete()
+                    .then(function() {
                         console.log("Deleted Successful")
-                    }).catch(function(error) {
+                    })
+                    .catch(function(error) {
                         console.error(error);
                     });
-                    fileRef.put(file).then(() => {
+                    fileRef.put(file)
+                    .then(() => {
                         console.log("Uploaded successfully");
                         this.setState({name: file.name });
-                    }).then(()=> {
-                        fileRef.getDownloadURL().then(function(url) {
-                            document.querySelector('img').src = url;
-                        }).catch(function(error) {
+                    })
+                    .then(()=> {
+                        fileRef.getDownloadURL()
+                        .then( async function(url) {
+                            const { firestore } = instance.props;
+                            firestore.collection("users").doc(instance.props.uid).update({
+                                avatar: url
+                            });
+                            document.getElementById('profile-avatar').src = url;
+                        })
+                        .catch(function(error) {
                             console.error(error);
                         });
                     })
@@ -75,21 +77,22 @@ export default class ProfileHeader extends Component{
           }
     }
     render() {
+
         return(
             <div className="profile-container">
-                <img className="image" src={this.state.url || this.props.user.image} alt="default-image"/>
                 
+                <img id="profile-avatar" className="image-avatar" src={this.props.profile.avatar || defaultAvatar} alt="default"/>
                 <div className="label">
-                    <button className="image-container" htmlFor="button" onClick={this.handleChange}>
+                    <button className="image-container" htmlFor="button" onClick={() => {this.handleChange(this)}}>
                         <img className="image2" src={plusIcon} alt="plus-icon"/>
                     </button>
                 </div>
-                <p className="user-name">{this.props.user.displayName}</p>
-                <p className="biography">{this.props.user.bio}</p>
+                <p className="user-name">{this.props.profile.displayName || ''}</p>
+                <p className="biography">{this.props.profile.bio || ''}</p>
                 <div className="follow">
-                    <p className= "followers">{this.props.user.followers}<span> followers</span></p>
+                    <p className= "followers">{this.props.profile.followers || 0}<span> followers</span></p>
                    
-                    <p className= "following">{this.props.user.following}<span> following</span></p>
+                    <p className= "following">{this.props.profile.following || 0}<span> following</span></p>
                 </div>
                 <div className = "btn-container">
                     <button className="profile-btn">Profile</button>
@@ -100,3 +103,9 @@ export default class ProfileHeader extends Component{
         )
     }
 }
+
+
+export default compose(
+    connect(),
+    firestoreConnect() 
+)(ProfileHeader)
