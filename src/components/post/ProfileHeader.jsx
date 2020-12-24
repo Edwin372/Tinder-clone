@@ -71,13 +71,6 @@ export default class ProfileHeader extends Component{
             }
             reader.readAsDataURL(file)
           }
-        // const storageRef = storage.ref();
-        // const fileRef = storageRef.child('profileImage').child('images/'+ file.name);
-        // fileRef.delete().then(function() {
-        //     console.log("Deleted Successful")
-        //   }).catch(function(error) {
-        //     console.error(error);
-        //   });
     }
     render() {
         return(
