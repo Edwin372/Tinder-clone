@@ -5,8 +5,7 @@
     align-items: center;
     justify-content: center;
         .image{
-            width: 119px;
-            height: 111.83px;
+            width: 120px;
             object-fit: cover;
             border-radius: 65px;
             border: 5px solid black;
@@ -17,7 +16,11 @@
         .image-container {
             position: relative;
             top: -25px;
+            background: transparent;
+            border: none;
+            outline: none;
             left: 40px;
+            cursor: pointer;
             .image1 {
             position: relative;
             width: 21.79px;
@@ -26,19 +29,19 @@
             left: 2px;
             }
             .image2 {
-            position: absolute;
-            width: 13.62px;
-            height: 11.65px;
-            margin-left:-15.5px;
-            margin-top:5px;
+                margin-top: -15px;
+                position: absolute;
+                width: 20.62px;
             }
         }
         .user-name{
-            margin-top: -20px;
             font-style: normal;
             font-weight: normal;
             font-size: 24px;
+            font-weight: 400;
+            margin: 0px;
             line-height: 28px;
+            margin-top: 6px;
             font-family: 'Andada', serif;
         }
         .biography{
@@ -46,11 +49,13 @@
             font-family: 'Roboto', sans-serif;
             font-style: italic;
             font-weight: 200;
-            margin-top: 44.69px;
+            margin-top: 26.9px;
             font-size: 20px;
         }
         .follow{
-          display: flex;
+            display: flex;
+            width: 375px;
+            justify-content: space-between;
         }
         .followers{
             font-family: 'Roboto', sans-serif;
@@ -66,7 +71,7 @@
             line-height: 23px;      
             margin-top: 15.8px;
         }
-        p{
+        span{
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             margin-left: 5px;
@@ -138,4 +143,5 @@
     width: 135px;
     border-radius: 150px;
     height: 140px;
+    object-fit: cover;
 }

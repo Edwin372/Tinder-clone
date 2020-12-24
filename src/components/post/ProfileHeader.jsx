@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import './ProfileHeader.scss'
 import plusIcon from '../../svg/plusIcon.svg'
-import circleIcon from '../../svg/circleIcon.svg'
 import {storage} from '../../config/firebaseConfig.js'
 import Swal from 'sweetalert2';
 
@@ -79,24 +78,18 @@ export default class ProfileHeader extends Component{
         return(
             <div className="profile-container">
                 <img className="image" src={this.state.url || this.props.user.image} alt="default-image"/>
-                <button 
-                     type="file"
-                     id="button"
-                     onClick={this.handleChange}
-                />
+                
                 <div className="label">
-                    <label className="image-container" htmlFor="button" >
-                        <img className="image1" src={circleIcon} alt="circle-icon"/>
+                    <button className="image-container" htmlFor="button" onClick={this.handleChange}>
                         <img className="image2" src={plusIcon} alt="plus-icon"/>
-                    </label>
+                    </button>
                 </div>
                 <p className="user-name">{this.props.user.displayName}</p>
                 <p className="biography">{this.props.user.bio}</p>
                 <div className="follow">
-                    <p className= "followers">{this.props.user.followers}</p>
-                    <p>followers</p>
-                    <p className= "following">{this.props.user.following}</p>
-                    <p>following</p>
+                    <p className= "followers">{this.props.user.followers}<span> followers</span></p>
+                   
+                    <p className= "following">{this.props.user.following}<span> following</span></p>
                 </div>
                 <div className = "btn-container">
                     <button className="profile-btn">Profile</button>
