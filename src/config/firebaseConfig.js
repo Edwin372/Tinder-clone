@@ -3,6 +3,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import 'firebase/analytics'
 import 'firebase/storage'
+import 'firebase/messaging'
 const firebaseConfig = {
    apiKey: "AIzaSyBCvK6MqV0DkJ5pfY2px9v6Ybdcew9jPVs",
    authDomain: "the-nerd-ba273.firebaseapp.com",
@@ -17,5 +18,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const storage = firebase.storage();
+// Retrieve Firebase Messaging object.
+const messaging = firebase.messaging();
+messaging.usePublicVapidKey(
+	// Project Settings => Cloud Messaging => Web Push certificates
+ "BELw1HX9Lfh_m_yef5c1qZrC01lDLbTuG4TERaZCF657uHm6Ym9lBDuvOusdhUziM6_NXGN1t1Cgyb08IY_aAIo"
+);
+
 // firebase.firestore().settings({timestampsInSnapshots: true})
-export { storage, firebase as default };
+export { storage, messaging ,firebase as default };

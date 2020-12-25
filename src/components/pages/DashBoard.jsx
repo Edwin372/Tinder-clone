@@ -9,6 +9,7 @@ import quote from '../../svg/quote.svg'
 import TopTrendingList from '../post/TopTrendingList.jsx'
 import testImage5 from '../../images/testImage5.jpg'
 import TagDropDown from '../dropdown/TagDropDown.jsx'
+import { messaging } from "../../config/firebaseConfig";
 import './DashBoard.scss'
 
 const falseTopTrendingData = [
@@ -86,8 +87,17 @@ class Dashboard extends Component {
   state = {
     posts: []
   }
-  componentDidMount = () => {
+
+  async componentDidMount() {
     this.setState({posts: []})
+    messaging.requestPermission()
+      .then(async function() {
+        const token = await messaging.getToken();
+      })
+      .catch(function(err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+    navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
   }
 
   fetchData = async (selectedOptions) => {
