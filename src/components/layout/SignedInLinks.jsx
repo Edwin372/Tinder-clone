@@ -55,7 +55,7 @@ const SignedInLinks = (props) => {
                 />
                 Writing
               </NavLink>
-              <NavLink to="/create-post" className="dropdown-button">
+              <NavLink to="/drafts" className="dropdown-button">
                 <img
                   id="layers-image"
                   src={layers}

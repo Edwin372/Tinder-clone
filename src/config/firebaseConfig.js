@@ -18,6 +18,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const storage = firebase.storage();
+const firestore = firebase.firestore()
 // Retrieve Firebase Messaging object.
 const messaging = firebase.messaging();
 messaging.usePublicVapidKey(
@@ -26,4 +27,4 @@ messaging.usePublicVapidKey(
 );
 
 // firebase.firestore().settings({timestampsInSnapshots: true})
-export { storage, messaging ,firebase as default };
+export { storage, messaging, firestore ,firebase as default };

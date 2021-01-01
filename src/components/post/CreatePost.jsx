@@ -15,6 +15,8 @@ import {storage} from '../../config/firebaseConfig.js';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 import TagDropDown from '../dropdown/TagDropDown';
+import {firestore} from '../../config/firebaseConfig'
+import moment from 'moment'
 class extendedImageBlock extends ImageTool {
     removed() {
         var deleteRef = storage.refFromURL(this.data.file.url)
@@ -27,7 +29,6 @@ class extendedImageBlock extends ImageTool {
 }
 
 const editorJsTools = {
-
     code: CodeTool,
     underline: Underline,
     paragraph: {
@@ -74,7 +75,9 @@ class CreatePost extends Component {
     state= {
         postDenied: true,
         editor: {},
-        tags: []
+        tags: [],
+        title: '',
+        subtitle: ''
     }
     
     handleChange = (e) => {
@@ -89,35 +92,56 @@ class CreatePost extends Component {
     }
 
     handleSubmit = async (instance) => {
-       MySwal.fire({
-           title:    
-            <TagDropDown
-                handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
-            />,
-            customClass:{
-                title:'custom-title'
-            }
-       }).then(async () => {
-            const {title, subtitle, tags, editor} = instance.state
-            let tagArr = tags.map(tag => tag.label)
-            const postContentData = await editor.save();
-            return instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
-           
-        }).finally( () => {
-            Swal.fire({
-                icon: 'success',
-                title: 'Your work has been uploaded',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => {
-                window.location.replace('/')
-            })
-        })
+        if (this.state.title !== "" ) {
+            MySwal.fire({
+                title:    
+                 <TagDropDown
+                     handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
+                 />,
+                 customClass:{
+                     title:'custom-title'
+                 }
+            }).then(async () => {
+                 const {title, subtitle, tags, editor} = instance.state
+                 let tagArr = tags.map(tag => tag.label)
+                 const postContentData = await editor.save();
+                 return instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
+            }).finally( () => {
+                 Swal.fire({
+                     icon: 'success',
+                     title: 'Your work has been uploaded',
+                     showConfirmButton: false,
+                     timer: 1500
+                 }).then(() => {
+                     window.location.replace('/')
+                 })
+             })
+        }
+      
     };
+
+    handleSave = async () => {
+        const {title, subtitle, tags, editor} = this.state
+        const postContentData = await editor.save();
+  
+        await firestore
+        .collection("drafts")
+        .add({
+            userId:this.props.auth.uid,
+            title,
+            subtitle,
+            data: postContentData,
+            tags,
+            createdAt: moment().format()
+        })
+    }
 
     render() {
         return (
             <div id='create-post-container'>
+                <div id="save-btn-container">
+                    <button onClick={() => {this.handleSave()}}>Save</button>
+                </div>
                 <div className="create-post-form">
                     <div className="create-signature">
                     <label>Create your own signature</label>
@@ -135,6 +159,7 @@ class CreatePost extends Component {
                         id="editorjs"
                         holder="editorjs"
                         tools={editorJsTools}
+                        data={this.props.data || []}
                     >
                          <div id="editorjs" />
                     </EditorJS>
@@ -149,18 +174,18 @@ class CreatePost extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//       auth: state.firebase.auth
-//     }
-//   }
+const mapStateToProps = (state) => {
+    return {
+      auth: state.firebase.auth
+    }
+  }
 const mapDispatchToProps = dispatch => {
     return {
       createPost: (post) => dispatch(createPost(post))
     }
   }
   
-  export default connect(null, mapDispatchToProps)(CreatePost)
+  export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
   
   
 
