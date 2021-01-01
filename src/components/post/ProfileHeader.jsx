@@ -7,12 +7,13 @@ import defaultAvatar from '../../images/defaultAvatar.png'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
-
+import ProfilePost from './ProfilePost'
 
 class ProfileHeader extends Component{
     state={
         url: '',
-        name: '' 
+        name: '',
+        isPostShow: false,
     }
     handleChange = async (instance) => {
         const { value: file } = await Swal.fire({
@@ -96,14 +97,27 @@ class ProfileHeader extends Component{
                 </div>
                 <div className = "btn-container">
                     <button className="profile-btn">Profile</button>
-                    <button className="posts-btn">Posts</button>
+                    <button className="posts-btn"onClick={() => {this.setState({isPostShow: !this.state.isPostShow})}}>Posts</button>
                     <button className="series-btn">Series</button>
+                </div>
+                <div id="posts-list-container" className={this.state.isPostShow? 'post-show': 'post-hide'}>
+                    <ProfilePost 
+                    post={{ 
+                        title: 'Title is one checkalabumbum chalaga',
+                        subtitle: 'Subtitle',
+                        view: 12434,
+                        like: 12,
+                        author: this.props.profile.displayName,
+                        postContentData: '',
+                        titleImage: '',
+                        // ava: this.props.profile.avatar
+                    }}
+                    />
                 </div>
             </div>
         )
     }
 }
-
 
 export default compose(
     connect(),
