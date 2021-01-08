@@ -65,7 +65,6 @@ export default class Series extends Component {
     ChangeBio = () => {
         this.setState({changeBio: false, bio: document.getElementById('new-bio').value})
     }
-    
     render() {
         return(
             <div className="profile">
