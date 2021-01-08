@@ -112,7 +112,7 @@ class Dashboard extends Component {
       .where('tags', 'array-contains-any',
       filterArr)
       .get()
-      let filteredPosts = posts.docs.map((post) => post.data())
+      let filteredPosts = posts.docs.map((post) => ({...post.data(), id: post.id}))
       this.setState({posts: filteredPosts})
     }
     else {

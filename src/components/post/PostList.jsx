@@ -3,7 +3,7 @@ import PostSummary from './PostSummary'
 import { Link } from 'react-router-dom'
 import './PostList.scss'
 
-const postList = ({posts, style, profile}) => {
+const postList = ({posts, style, profile, drafts}) => {
   return (
     <div style={{...style}} className="post-list-container">
       { posts && posts.map(post => {
@@ -18,7 +18,7 @@ const postList = ({posts, style, profile}) => {
             <PostSummary post={post} />
           </Link>
         )
-      })}  
+      })} 
     </div>
   )
 }

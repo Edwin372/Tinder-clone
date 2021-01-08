@@ -23,10 +23,10 @@ export default class Series extends Component {
     ChangePassword = () => {
         var password = document.getElementById('new-pass-content').value;
         var confirmPassword = document.getElementById('confirm-pass-content').value;
-        if(password == ""){
+        if(password === ""){
             this.setState({failed: true});
         }
-        else if(password != confirmPassword){
+        else if(password !== confirmPassword){
             this.setState({failed: true});
         }  
         else{
@@ -65,7 +65,7 @@ export default class Series extends Component {
     ChangeBio = () => {
         this.setState({changeBio: false, bio: document.getElementById('new-bio').value})
     }
-
+    
     render() {
         return(
             <div className="profile">

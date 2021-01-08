@@ -21,9 +21,9 @@ const SignedInLinks = (props) => {
     setSearchRedirect(true)
   }
   if (searchRedirect) {
-    return (
-      <Redirect to='/search-result'/>
-    )
+    // return (
+    //   <Redirect to='/search-result'/>
+    // )
   }
   return (
     <div>

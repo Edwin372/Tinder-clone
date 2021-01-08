@@ -143,11 +143,13 @@
             background-color: #A7CBB6;
         }
         #posts-list-container{
+            display: flex;
+            flex-direction: column-reverse;
             padding-top: 28.39px;
             padding-left: 105px;
         }
         .post-hide{
-            display: none;    
+            display: none !important;    
         }
 }
 .custom-image{

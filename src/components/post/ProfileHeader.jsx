@@ -9,12 +9,15 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import ProfilePost from './ProfilePost'
 import swal from 'sweetalert'
+import Profile from './Profile.jsx'
 
 class ProfileHeader extends Component{
     state={
         url: '',
         name: '',
         isPostShow: false,
+        isProfileDetailShown: false,
+        isSeriesShown: false,
         posts: []
     }
     handleChange = async (instance) => {
@@ -22,8 +25,6 @@ class ProfileHeader extends Component{
             title: 'Do you want to save the changes?',
             showCancelButton: true,
             confirmButtonText: `OK`,
-            showCancelButton: true,
-            title: 'Select image',
             input: 'file',
             inputAttributes: {
               'accept': 'image/*',
@@ -111,7 +112,6 @@ class ProfileHeader extends Component{
 
         return(
             <div className="profile-container">
-                
                 <img id="profile-avatar" className="image-avatar" src={this.props.profile.avatar || defaultAvatar} alt="default"/>
                 <div className="label">
                     <button className="image-container" htmlFor="button" onClick={() => {this.handleChange(this)}}>
@@ -126,9 +126,40 @@ class ProfileHeader extends Component{
                     <p className= "following">{this.props.profile.following || 0}<span> following</span></p>
                 </div>
                 <div className = "btn-container">
-                    <button className="profile-btn">Profile</button>
-                    <button className="posts-btn"onClick={() => {this.setState({isPostShow: !this.state.isPostShow})}}>Posts</button>
-                    <button className="series-btn">Series</button>
+                    <button 
+                        className="profile-btn" 
+                        onClick={
+                            () => {
+                                this.setState({
+                                    isProfileDetailShown: true,
+                                    isPostShow: false,
+                                    isSeriesShown: false
+                                })}
+                            }  
+                    >
+                        Profile
+                    </button>
+                    <button 
+                        className="posts-btn"
+                        onClick={
+                            () => {
+                                this.setState({
+                                    isProfileDetailShown: false,
+                                    isPostShow: true,
+                                    isSeriesShown: false
+                                })}
+                            }>Posts
+                    </button>
+                    <button 
+                         className="series-btn"  
+                        onClick={() => {
+                            this.setState({
+                                isProfileDetailShown: false,
+                                isPostShow: false,
+                                isSeriesShown: true
+                            })}
+                            }>Series
+                    </button>
                 </div>
                 <div id="posts-list-container" className={this.state.isPostShow? 'post-show': 'post-hide'}>
                     {
@@ -140,7 +171,22 @@ class ProfileHeader extends Component{
                             />
                         ))
                     }
-                   
+                </div>
+                <div id="posts-list-container" className={this.state.isProfileDetailShown ? 'post-show': 'post-hide'}>
+                    <Profile
+                        profile={this.props.profile}
+                    />
+                </div>
+                <div id="posts-list-container" className={this.state.isSeriesShown? 'post-show': 'post-hide'}>
+                    {
+                        this.state.posts.map(post => (
+                            <ProfilePost 
+                              post={post}
+                              profile={this.props.profile}
+                              fetchData={this.fetchData}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         )

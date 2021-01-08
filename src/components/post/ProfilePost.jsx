@@ -20,7 +20,7 @@ export default class ProfilePost extends Component {
     }
     handleDelete = async (id) => {
             Swal.fire({
-                title: 'Do you want to save the changes?',
+                title: 'Do you want to delete this post?',
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: `Confirm`,

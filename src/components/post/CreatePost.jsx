@@ -17,7 +17,6 @@ import withReactContent from 'sweetalert2-react-content'
 import TagDropDown from '../dropdown/TagDropDown';
 import {firestore} from '../../config/firebaseConfig'
 import moment from 'moment'
-import swal from 'sweetalert'
 class extendedImageBlock extends ImageTool {
     removed() {
         var deleteRef = storage.refFromURL(this.data.file.url)
@@ -81,11 +80,12 @@ class CreatePost extends Component {
         subtitle: '',
         data: {},
         editMode: false,
+        draftMode: false,
         postData: {}
     }
 
     componentDidMount = async () => {
-        const {editingPost} = this.props
+        const {editingPost, draft} = this.props
         if (editingPost) {
             this.setState({
                 editMode: true,
@@ -94,7 +94,14 @@ class CreatePost extends Component {
                 data: editingPost.postContentData,
                 postData: editingPost
             })
-      }
+        } else if (draft) {
+            this.setState({
+                draftMode: true,
+                title: draft.title,
+                subtitle: draft.subtitle,
+                
+            })
+        }
     }
     
     handleChange = (e) => {
@@ -148,6 +155,8 @@ class CreatePost extends Component {
             /* Read more about isConfirmed, isDenied below */
             
             if (result.isConfirmed) {
+             console.log('got here')
+
                 const postContentData = await instace.state.editor.save();
                 await firestore.collection('posts').doc(instace.state.postData.id).set(
                 { 
@@ -171,6 +180,7 @@ class CreatePost extends Component {
         await firestore
         .collection("drafts")
         .add({
+            contentId: null,
             userId:this.props.auth.uid,
             title,
             subtitle,
@@ -180,12 +190,74 @@ class CreatePost extends Component {
         })
     }
 
+    handleSubmitDraft = async (instance, draftId) => {
+        if (this.state.title !== "" ) {
+            MySwal.fire({
+                title:    
+                 <TagDropDown
+                     handleChange={(newTags) => { instance.setState({tags: newTags},() => console.log(instance.state))}}
+                 />,
+                 customClass:{
+                     title:'custom-title'
+                 }
+            }).then(async () => {
+                 const {title, subtitle, tags, editor} = instance.state
+                 let tagArr = tags.map(tag => tag.label)
+                 const postContentData = await editor.save();
+                 await firestore
+                .collection("drafts")
+                .doc(draftId)
+                .delete()
+                await firestore
+                .collection("posts")
+                .add({
+                    title: title || '',
+                    subtitle: subtitle || '',
+                    postContentData: postContentData || '',
+                    tags: tagArr || []
+                })
+            }).finally( () => {
+                 Swal.fire({
+                     icon: 'success',
+                     title: 'Your work has been uploaded',
+                     showConfirmButton: false,
+                     timer: 1500
+                 }).then(() => {
+                     window.location.replace('/')
+                 })
+             })
+        }
+      
+    };
+
+    handleSaveExistedDraft = async (draftId) => {
+        const {title, subtitle, tags, editor} = this.state
+        const postContentData = await editor.save();
+        await firestore
+        .collection("drafts")
+        .doc(draftId)
+        .set({
+
+            ...this.props.draft,
+            title,
+            subtitle,
+            data: postContentData,
+            tags,
+            createdAt: moment().format()
+        })
+    }
+
     render() {
-        const {editingPost} = this.props
+        const {editingPost, draft} = this.props
+        console.log(draft)
         return (
             <div id='create-post-container'>
                 <div id="save-btn-container">
-                    <button onClick={() => {this.handleSave()}}>Save</button>
+                    <button onClick={() => {
+                        this.state.draftMode
+                        ?this.handleSaveExistedDraft(draft.id)
+                        :this.handleSave()
+                    }}>Save</button>
                 </div>
                 <div className="create-post-form">
                     <div className="create-signature">
@@ -204,7 +276,7 @@ class CreatePost extends Component {
                         id="editorjs"
                         holder="editorjs"
                         tools={editorJsTools}
-                        data={editingPost && editingPost.postContentData}
+                        data={(editingPost && editingPost.postContentData) || (draft && draft.data )}
                     >
                          <div id="editorjs" />
                     </EditorJS>
@@ -212,6 +284,8 @@ class CreatePost extends Component {
                     {
                         this.state.editMode 
                         ? <button className="create-post-btn" onClick={() => {this.handleUpdate(this)}}  >UPDATE</button>
+                        : this.state.editMode 
+                        ? <button className="create-post-btn" onClick={() => {this.handleSubmitDraft(this)}}  >POST</button>
                         : <button className="create-post-btn" onClick={() => {this.handleSubmit(this)}}  >POST</button>
                     }
                    

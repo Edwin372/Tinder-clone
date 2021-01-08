@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from '../layout/NavBar.jsx'
 import CreatePost from '../post/CreatePost.jsx'
-import {firestore} from '../../config/firebaseConfig'
 
 export default class EditPostPage extends Component {
     state = {
