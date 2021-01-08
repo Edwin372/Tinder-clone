@@ -17,6 +17,7 @@ import withReactContent from 'sweetalert2-react-content'
 import TagDropDown from '../dropdown/TagDropDown';
 import {firestore} from '../../config/firebaseConfig'
 import moment from 'moment'
+import swal from 'sweetalert'
 class extendedImageBlock extends ImageTool {
     removed() {
         var deleteRef = storage.refFromURL(this.data.file.url)
@@ -77,7 +78,23 @@ class CreatePost extends Component {
         editor: {},
         tags: [],
         title: '',
-        subtitle: ''
+        subtitle: '',
+        data: {},
+        editMode: false,
+        postData: {}
+    }
+
+    componentDidMount = async () => {
+        const {editingPost} = this.props
+        if (editingPost) {
+            this.setState({
+                editMode: true,
+                title: editingPost.title,
+                subtitle: editingPost.subtitle,
+                data: editingPost.postContentData,
+                postData: editingPost
+            })
+      }
     }
     
     handleChange = (e) => {
@@ -120,6 +137,33 @@ class CreatePost extends Component {
       
     };
 
+    handleUpdate = (instace) => {
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: `Save`,
+            denyButtonText: `Don't save`,
+          }).then( async (result) => {
+            /* Read more about isConfirmed, isDenied below */
+            
+            if (result.isConfirmed) {
+                const postContentData = await instace.state.editor.save();
+                await firestore.collection('posts').doc(instace.state.postData.id).set(
+                { 
+                    ...this.state.postData,
+                    title: this.state.title,
+                    subtitle: this.state.subtitle,
+                    postContentData: postContentData
+                    
+                }
+              )
+              Swal.fire('Saved!', '', 'success')
+              window.location.replace('/')
+            } 
+          })
+    }
+
     handleSave = async () => {
         const {title, subtitle, tags, editor} = this.state
         const postContentData = await editor.save();
@@ -137,6 +181,7 @@ class CreatePost extends Component {
     }
 
     render() {
+        const {editingPost} = this.props
         return (
             <div id='create-post-container'>
                 <div id="save-btn-container">
@@ -147,10 +192,10 @@ class CreatePost extends Component {
                     <label>Create your own signature</label>
                     </div>
                     <div className="title-field">
-                        <input style={{fontWeight: "bold" } } type="text" id="title" placeholder="Title" onChange={this.handleChange} />
+                        <input style={{fontWeight: "bold" } } type="text" id="title" placeholder="Title" onChange={this.handleChange} value={this.state.title}/>
                     </div>
                     <div className="sub-title">
-                        <input placeholder="Subtitle" type="text" className ="subtitle" id="subtitle" contentEditable data-placeholder="Subtitle" onChange={this.handleChange} />
+                        <input placeholder="Subtitle" type="text" className ="subtitle" id="subtitle" contentEditable data-placeholder="Subtitle" onChange={this.handleChange} value={this.state.subtitle}/>
                     </div>
                     {/* Content */}
                     <div className="content-field">
@@ -159,12 +204,17 @@ class CreatePost extends Component {
                         id="editorjs"
                         holder="editorjs"
                         tools={editorJsTools}
-                        data={this.props.data || []}
+                        data={editingPost && editingPost.postContentData}
                     >
                          <div id="editorjs" />
                     </EditorJS>
                     </div>
-                    <button className="create-post-btn" onClick={() => {this.handleSubmit(this)}}  >POST</button>
+                    {
+                        this.state.editMode 
+                        ? <button className="create-post-btn" onClick={() => {this.handleUpdate(this)}}  >UPDATE</button>
+                        : <button className="create-post-btn" onClick={() => {this.handleSubmit(this)}}  >POST</button>
+                    }
+                   
                     {/* <div className="input-field">
                         <button  className="btn pink lighten-1 z-depth-0">Publish</button>
                     </div> */}

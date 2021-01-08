@@ -10,19 +10,28 @@ import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
 import SearchInput from '../search/SearchInput.jsx'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Redirect} from 'react-router-dom'
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
+  let [searchRedirect, setSearchRedirect] = useState(false);
  
-  console.log(props.profile);
+  const handleSearch = (value) => {
+    console.log(value);
+    setSearchRedirect(true)
+  }
+  if (searchRedirect) {
+    return (
+      <Redirect to='/search-result'/>
+    )
+  }
   return (
     <div>
       <div className="signedin-container">
-        <SearchInput/>
+        <SearchInput search={props.debounceSearch || handleSearch }/>
         <button
           id="bell"
-         
+          
           className="signin-navbar-button"
         >
           <img src={bell} alt="bell icon" />

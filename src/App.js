@@ -13,6 +13,8 @@ import SearchResult from './components/pages/SearchResultPage'
 import ProfilePage from './components/pages/ProfilePage.jsx'
 import NotFound from './components/pages/NotFoundPage.jsx'
 import DraftsPage from './components/pages/DraftsPages.jsx'
+import EditPostPage from './components/pages/EditPostPage.jsx' 
+
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +32,7 @@ function App() {
           <ProtectedRoute path="/create-post" component={CreatePost}/>
           <ProtectedRoute path="/search-result" component={SearchResult}/>
           <ProtectedRoute path="/profile/:id" component={ProfilePage}/>
+          <ProtectedRoute path="/edit-post/:id" component={EditPostPage}/>
           <Route component={NotFound} />
 
         </Switch>

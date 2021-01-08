@@ -97,6 +97,7 @@
             height: 27.03px;
             border: none;
             outline: 0;
+            cursor: pointer;
         } 
         .profile-btn:hover{
             background-color: #A7CBB6;
@@ -116,6 +117,7 @@
             height: 27.03px;
             border: none;
             outline: 0;
+            cursor: pointer;
         }
         .posts-btn:hover{
             background-color: #A7CBB6;
@@ -135,9 +137,17 @@
             height: 27.03px;
             border: none;
             outline: 0;
+            cursor: pointer;
         }
         .series-btn:hover{
             background-color: #A7CBB6;
+        }
+        #posts-list-container{
+            padding-top: 28.39px;
+            padding-left: 105px;
+        }
+        .post-hide{
+            display: none;    
         }
 }
 .custom-image{

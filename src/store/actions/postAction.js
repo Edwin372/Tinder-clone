@@ -11,7 +11,7 @@ export const createPost = (post) => {
         likes: 0,
         view: 0,
         seriesId: null,
-        createdAt: moment().format() ,
+        createdAt: moment() ,
         author: profile.displayName,
         userId: userId,
         deleted: false,

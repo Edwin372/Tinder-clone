@@ -7,8 +7,11 @@ import navBarLogo from '../../svg/navBarLogo.svg'
 import './NavBar.scss'
 
 const Navbar = (props) => {
-  const { auth, profile } = props;
-  const links = (auth && auth.uid) ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
+  const { auth, profile, debounceSearch } = props;
+  const links = 
+  (auth && auth.uid) 
+  ? <SignedInLinks profile={profile} debounceSearch={debounceSearch || false}/> 
+  : <SignedOutLinks />;
 
   return (
     <nav className="nav-bar">
