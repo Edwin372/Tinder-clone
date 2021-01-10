@@ -9,21 +9,18 @@ const db = admin.firestore()
 //
 
 
-exports.aggregateFollows = functions.firestore
+exports.handleFollow = functions.firestore
     .document('follows/{followId}')
     .onCreate(async (snap, context) => {
         const value = snap.data()
         const {followerId, followedId} = value
-        console.log(followerId)
         const rawDataFollower = await db.collection('users').doc(followerId).get()
         const rawDataFollowed = await db.collection('users').doc(followedId).get()
         const follower = rawDataFollower.data()
         const followed = rawDataFollowed.data()
         const newFollowerCount = follower.following + 1
-        console.log(newFollowerCount)
 
         const newFollowedCount = followed.follower + 1
-        console.log(newFollowerCount)
         await db.collection('users').doc(followerId).set({
           ...follower,
           following: newFollowerCount
@@ -34,8 +31,32 @@ exports.aggregateFollows = functions.firestore
         })
         await db.collection('notifications').add({
           receiverId: rawDataFollowed.id,
-          photo: follower.avatar,
-          message: `${follower.displayName} is following you!`
+          photo: follower.avatar || '',
+          message: `${follower.displayName} is following you!`,
+          link: `/profile/${rawDataFollower.id}`,
+          viewed: false
         })
         
+    })
+
+   exports.handleDeleteFollow = functions.firestore
+    .document('follows/{followId}')
+    .onDelete(async (snap, context) => {
+        const value = snap.data()
+        const {followerId, followedId} = value
+        const rawDataFollower = await db.collection('users').doc(followerId).get()
+        const rawDataFollowed = await db.collection('users').doc(followedId).get()
+        const follower = rawDataFollower.data()
+        const followed = rawDataFollowed.data()
+        const newFollowerCount = follower.following - 1
+
+        const newFollowedCount = followed.follower - 1
+        await db.collection('users').doc(followerId).set({
+          ...follower,
+          following: newFollowerCount
+        })
+        await db.collection('users').doc(followedId).set({
+          ...followed,
+          follower: newFollowedCount
+        })
     })

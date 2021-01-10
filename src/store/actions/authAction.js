@@ -38,6 +38,8 @@ export const signIn = (credentials) => {
           ...newUser,
           bio: '',
           avatar: '',
+          follower: 0,
+          following: 0
         });
       }).then(resp => {
         console.log( firebase.auth().currentUser)
