@@ -139,7 +139,7 @@ class CreatePost extends Component {
                  }).then(() => {
                      window.location.replace('/')
                  })
-             })
+            })
         }
       
     };
@@ -148,7 +148,6 @@ class CreatePost extends Component {
         Swal.fire({
             title: 'Do you want to save the changes?',
             showDenyButton: true,
-            showCancelButton: true,
             confirmButtonText: `Save`,
             denyButtonText: `Don't save`,
           }).then( async (result) => {
@@ -208,14 +207,13 @@ class CreatePost extends Component {
                 .collection("drafts")
                 .doc(draftId)
                 .delete()
-                await firestore
-                .collection("posts")
-                .add({
-                    title: title || '',
-                    subtitle: subtitle || '',
-                    postContentData: postContentData || '',
-                    tags: tagArr || []
+                console.log({
+                        title: title || '',
+                        subtitle: subtitle || '',
+                        postContentData: postContentData || '',
+                        tags: tagArr || []
                 })
+                return instance.props.createPost({title: title || '', subtitle: subtitle || '', postContentData: postContentData || '', tags: tagArr || []});
             }).finally( () => {
                  Swal.fire({
                      icon: 'success',
@@ -237,7 +235,6 @@ class CreatePost extends Component {
         .collection("drafts")
         .doc(draftId)
         .set({
-
             ...this.props.draft,
             title,
             subtitle,
@@ -284,8 +281,8 @@ class CreatePost extends Component {
                     {
                         this.state.editMode 
                         ? <button className="create-post-btn" onClick={() => {this.handleUpdate(this)}}  >UPDATE</button>
-                        : this.state.editMode 
-                        ? <button className="create-post-btn" onClick={() => {this.handleSubmitDraft(this)}}  >POST</button>
+                        : this.state.draftMode 
+                        ? <button className="create-post-btn" onClick={() => {this.handleSubmitDraft(this, this.props.draft.id)}}  >POST</button>
                         : <button className="create-post-btn" onClick={() => {this.handleSubmit(this)}}  >POST</button>
                     }
                    

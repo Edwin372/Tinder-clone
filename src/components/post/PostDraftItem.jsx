@@ -11,7 +11,6 @@ export default class postDraftItem extends Component {
         handleDelete = async (id) => {
             Swal.fire({
                 title: 'Do you want to delete this draft?',
-                showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: `Confirm`,
                 denyButtonText: `Cancel`,

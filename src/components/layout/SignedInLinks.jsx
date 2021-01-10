@@ -71,7 +71,7 @@ const SignedInLinks = (props) => {
                   alt="layers-logo"
                   className="dropdown-logo"
                 />
-                Series
+                Drafts
               </NavLink>
               <NavLink to={`/profile/${props.auth.uid}`} className="dropdown-button">
                 <img

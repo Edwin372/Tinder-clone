@@ -18,9 +18,11 @@ class ProfileHeader extends Component{
         isPostShow: false,
         isProfileDetailShown: false,
         isSeriesShown: false,
-        posts: []
+        posts: [],
+        profile: {},
+        followId: '',
     }
-    handleChange = async (instance) => {
+    handleChangeAvatar = async (instance) => {
         const { value: file } = await Swal.fire({
             title: 'Do you want to save the changes?',
             showCancelButton: true,
@@ -80,50 +82,115 @@ class ProfileHeader extends Component{
             reader.readAsDataURL(file)
           }
     }
-    componentDidMount() {
+    componentWillMount = async () => {
         this.fetchData()
+        this.fetchProfile()
+        this.fetchFollow()
+        
     }
-    handleDeletePost = () => {
-        swal.fire({
-            title: 'Are you sure you want to delete'
-            
-        })
+    fetchFollow = async () =>  {
+        const { firestore } = this.props;
+        console.log(this.props.auth.uid,  this.props.uid)
+        var rawData = await firestore
+        .collection("follows")
+        .where('followerId', '==', this.props.auth.uid)
+        .where('followedId', '==', this.props.uid)
+        .get()
+        rawData.forEach((data) => {this.setState({followId: data.id}) })
+        
     }
-    handleEditPost = () => {
-
+    componentWillReceiveProps=  () => {
+        if (this.props.isUserProfile && this.state.reFetch  ) {
+            this.setState({reFetch: false})
+            window.location.reload()
+        }
+    }
+    fetchProfile = async () => {
+        const { firestore } = this.props;
+        var rawData = await firestore
+        .collection("users")
+        .doc(this.props.uid)
+        .get()
+        
+        this.setState({profile: rawData.data()}) 
     }
     fetchData = async () => {
         const { firestore } = this.props;
-        var posts = await firestore
+        var rawData = await firestore
         .collection("posts")
         // .orderBy("createdAt", "desc")
         .where('userId', '==', this.props.uid)
         .get()
-        let filteredPosts = posts.docs.map((post) => (
+        let posts = rawData.docs.map((post) => (
                 {   id: post.id,
                     ...post.data()
                 }
             )
         )
-        this.setState({posts: filteredPosts})
+        this.setState({posts: posts})
     }
-
+    
+    handleUnfollow = async instance => {
+        const { firestore } = this.props;
+        await firestore
+        .collection("follows")
+        .doc(this.state.followId)
+        .delete()
+        .then(() => {
+            instance.setState({followId: '' })
+        })
+        
+    }
+    handleFollow = async (followerId, followedId, instance) => {
+        const { firestore } = this.props;
+        await firestore
+        .collection("follows")
+        .add({
+            followerId,
+            followedId
+        })
+        .then((data) => {
+            instance.setState({followId: data.id })
+        })
+    }
+   
     render() {
-
+        const {isUserProfile, auth, uid} = this.props
+        const {profile, followId}= this.state
+    
         return(
             <div className="profile-container">
-                <img id="profile-avatar" className="image-avatar" src={this.props.profile.avatar || defaultAvatar} alt="default"/>
-                <div className="label">
-                    <button className="image-container" htmlFor="button" onClick={() => {this.handleChange(this)}}>
-                        <img className="image2" src={plusIcon} alt="plus-icon"/>
+                <img id="profile-avatar" className="image-avatar" src={profile.avatar || defaultAvatar} alt="default"/>
+                {
+                    !isUserProfile
+                    ? <button 
+                        id="follow-btn" 
+                        className={ followId ? 'following-btn' : ''} 
+                        onClick={
+                            () => {
+                                followId 
+                                ? this.handleUnfollow(this)
+                                : this.handleFollow(auth.uid, uid, this)
+                            }
+                        }
+                    >{
+                        followId ? 'Following' : 'Follow'
+                    }
                     </button>
-                </div>
-                <p className="user-name">{this.props.profile.displayName || ''}</p>
-                <p className="biography">{this.props.profile.bio || ''}</p>
+                    
+                    :<div className="label">
+                        <button className="image-container" htmlFor="button" onClick={() => {this.handleChangeAvatar(this)}}>
+                            <img className="image2" src={plusIcon} alt="plus-icon"/>
+                        </button>
+                     </div>
+                }
+                
+                <p className="user-name">{profile.displayName || ''}</p>
+                <p className="biography">{profile.bio || ''}</p>
                 <div className="follow">
-                    <p className= "followers">{this.props.profile.followers || 0}<span> followers</span></p>
+                    <p className= "followers">{profile.followers || 0}<span> followers</span></p>
                    
-                    <p className= "following">{this.props.profile.following || 0}<span> following</span></p>
+                    <p className= "following">{profile.following || 0}<span> following</span></p>
                 </div>
                 <div className = "btn-container">
                     <button 
@@ -163,12 +230,16 @@ class ProfileHeader extends Component{
                 </div>
                 <div id="posts-list-container" className={this.state.isPostShow? 'post-show': 'post-hide'}>
                     {
-                        this.state.posts.map(post => (
-                            <ProfilePost 
-                              post={post}
-                              profile={this.props.profile}
-                              fetchData={this.fetchData}
-                            />
+                        this.state.posts.map((post, index) => (
+                            <div key={index}>
+                                <ProfilePost 
+                                    isUserProfile={isUserProfile}
+                                    post={post}
+                                    profile={this.props.profile}
+                                    fetchData={this.fetchData}
+                                />
+                            </div>
+                          
                         ))
                     }
                 </div>
@@ -179,13 +250,7 @@ class ProfileHeader extends Component{
                 </div>
                 <div id="posts-list-container" className={this.state.isSeriesShown? 'post-show': 'post-hide'}>
                     {
-                        this.state.posts.map(post => (
-                            <ProfilePost 
-                              post={post}
-                              profile={this.props.profile}
-                              fetchData={this.fetchData}
-                            />
-                        ))
+                       
                     }
                 </div>
             </div>
@@ -196,7 +261,6 @@ class ProfileHeader extends Component{
 const mapStateToProps = (state) => {
     return {
       auth: state.firebase.auth,
-      profile: state.firebase.profile
     }
   }
   

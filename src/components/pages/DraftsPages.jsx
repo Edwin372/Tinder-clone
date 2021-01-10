@@ -26,6 +26,7 @@ class DraftsPages extends Component {
                  })
              }
          )
+         console.log()
         this.setState({drafts})
     }
 
