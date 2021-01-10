@@ -1,5 +1,8 @@
 .like-btn-container {
   display: flex;
+  #like-number {
+    line-height: 34px;
+  }
 }
 .like-btn {
   border: none;

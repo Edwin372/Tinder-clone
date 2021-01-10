@@ -7,17 +7,17 @@ export default function LikeButton(props) {
   return (
     <div className="like-btn-container">
       <button className="like-btn" onClick={props.onClick}>
-        {props.like ? 
+        {props.like ? (
           <div className="alreadyLike">
             <img src={alreadyLike} alt="" />
-            <span>{props.likeCount + 1}</span> 
-          </div> : 
+          </div>
+        ) : (
           <div className="likebtn">
             <img src={likeBtnIcon} alt="" />
-            <span>{props.likeCount}</span>
           </div>
-        }
+        )}
       </button>
+      <span id="like-number">{props.likeCount}</span>
     </div>
   );
 }
