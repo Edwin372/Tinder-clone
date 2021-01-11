@@ -1,0 +1,56 @@
+.signin-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  background: #F8F1DD;
+}
+
+.signin-container p {
+  font-family: Rakkas;
+  font-size: 21px;
+  line-height: 31px;
+}
+
+.signin-container p a {
+  color: #41A96C;
+  text-decoration: none;
+}
+
+.signin-container #small-logo {
+  position: absolute;
+  top: 0px;
+  left: 45px;
+}
+
+.signin-container .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.signin-container .form-container form {
+  width: 457px;
+  margin-bottom: 89px;
+}
+
+.signin-container .form-container svg {
+  width: 524px;
+  height: 364px;
+}
+/*# sourceMappingURL=SignIn.css.map */

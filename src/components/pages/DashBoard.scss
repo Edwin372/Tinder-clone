@@ -1,0 +1,25 @@
+#home {
+    #dashboard-container {
+        #quote-container {
+            height: 579px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #DBFFEA;
+        }
+        #posts-section {
+            #post-list-section {
+                padding-left: 108px;
+                padding-right: 108px;
+                display: flex;;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+    
+}
+
+.page-container {
+    padding-top: 80px;
+}

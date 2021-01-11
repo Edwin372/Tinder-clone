@@ -1,0 +1,67 @@
+#verification-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #F8F1DD;
+  padding-bottom: 200px;
+}
+
+#verification-container img {
+  margin: 30px;
+}
+
+#verification-container #verification-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 628px;
+  height: 330px;
+  left: 406px;
+  top: 363.36px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  padding: 50px 58px;
+}
+
+#verification-container #verification-form p {
+  margin-bottom: 5px;
+  text-align: left;
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+#verification-container #verification-form p button {
+  color: #41A96C;
+  font-size: 24px;
+  line-height: 32px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Verification.css.map */

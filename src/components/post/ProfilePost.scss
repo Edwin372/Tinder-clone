@@ -1,0 +1,218 @@
+
+.general{
+    
+    .post-container{
+            display: flex;
+            flex-direction: row;
+        margin-top: 35.88px;
+        text-align: left;
+        .profile-post {
+            width: 688px;
+            height: 98px;   
+            background-color: #F5DF4D;
+            border-radius: 5px;
+            cursor: pointer;
+            p {
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+            .title-profile-post {
+                color: black;
+                font-family: 'Rowdies', cursive;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 30px;
+                padding-top: 5.75px;
+                padding-left: 16px;
+                width: 652.23px;
+                height: 39.14px;
+            }
+            .subtitle-profile-post {
+                color: #677079;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 19px;
+                width: 138px;
+                height: 28px;
+                padding-left: 16px;
+            }
+            .profile-post-info {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: baseline;
+                .profile-post-date {
+                    color: black;
+                    font-family: 'Roboto', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 19px;
+                    width: 138.75px;
+                    height: 14.3px;
+                    padding-left: 16px;
+                }
+                .profile-post-viewer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;  
+                    padding-right: 18.75px;
+                    span{
+                        font-family: 'Roboto', sans-serif;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: black;
+                    }
+                }
+            }
+        }
+        .like-btn-container {
+            margin-left: 48.72px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            .like-btn{   
+                margin-left: 0px;
+                padding: 0px;
+                img{
+                    width: 27.69px;
+                    height: 30px;
+                }
+                span{
+                    font-family: 'Sahitya', serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 33px;
+                    position: fixed;
+                    top: 22px;
+                }
+            }
+        }
+    }
+}
+.detail{
+    .post-detail-container{
+        margin-top: 35.88px;
+    }
+    .post-detail{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: fit-content
+    }
+    #author-ava{
+        width: 40px !important;
+        height: 40px !important;
+    }
+    #post-date{
+        font-size: 14px;
+        line-height: 16px;
+    }
+    #reading-content-container{
+        padding-left: 45px;
+    }
+    #reading-content-title{
+        font-size: 32px !important;
+        line-height: 40px;
+        text-align: left !important;
+    }
+    #reading-content-header {
+        width: 668.23px !important;
+    }
+    #reading-content-preheader {
+        width: 668.23px !important;
+    }
+    #reading-content-subtitle{
+        font-size: 16px !important;
+        line-height: 19px;
+    }
+    .ce-block__content{
+        font-size: 16px !important;
+        line-height: 19px;
+        margin-left: 50px !important;
+        width: 668.23px !important;
+    }
+    .comment-text{
+        line-height: 22px;
+    }
+    .comment-logo{
+        width: 695px;
+        margin-left: 110px
+    }
+    .line{
+        margin-left: 100px;
+        width: 690px;
+    }
+    #reading-content-container{
+        padding-top: 0px;
+        padding-left: 60px;
+    }
+    #save-on-icon{
+        display: none;
+    }
+    #save-icon{
+        display: none;
+    }
+    .input-of-user{
+        margin-left: 110px;
+    }
+    .textarea-and-addImageIcon{
+        width: 640px;
+    }
+    .close-btn{
+        border: none;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+        height: 30px;
+    }
+    #option-container {
+       
+    }
+    #post-date{
+        width: auto !important;
+    }
+    #author-name{
+        width: auto !important;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .like-btn-container {
+        height: 40px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        padding-left: 8px;
+        padding-bottom: 33.64px;
+        .like-btn{   
+            margin-left: 0px;
+            padding: 0px;
+            img{
+                width: 27.69px;
+                height: 30px;
+            }
+            span{
+                font-family: 'Sahitya', serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 33px;
+                position: fixed;
+                top: -7px;
+            }
+        }
+    }
+    .tools-btn{
+        padding-left: 90px;
+    }
+    #comment-component-container{
+        width: 810px;
+        padding-left: 20px;
+    }
+    .textarea-and-addImageIcon{
+        width: 640px !important;
+    }
+    .dropdown-3dot{
+        display: flex;
+    }
+}

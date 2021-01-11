@@ -1,0 +1,95 @@
+.user-comment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  .like-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: fit-content;
+    // margin-top: 5px;
+    margin-left: -2px;
+    padding: 5px;
+    cursor: pointer;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .comment-avatar {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+  .user-name-date {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    .name-date {
+      display: flex;
+      flex-direction: column;
+      height: 45px;
+      .name {
+        font-family: "Roboto";
+        font-weight: 700;
+        font-size: 14px;
+        padding-left: 6px;
+        margin-top: initial;
+      }
+      .date {
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 14px;
+        padding-left: 6px;
+        margin-top: -3px;
+      }
+    }
+  }
+  .comment-content-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 51px;
+    .comment-content {
+      max-width: 640px;
+      border-radius: 10px;
+      border-color: #ffe8be;
+      padding-left: 10px;
+      width: fit-content;
+      background: #cfd0d0;
+      word-wrap: break-word;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      .text-style {
+        font-family: "Roboto";
+        font-weight: 400;
+        font-size: 14px;
+        text-align: justify;
+        margin-right: 10px;
+      }
+    }
+  }
+  .content-and-edit {
+    .user-comment-image:hover + .hide {
+      display: flex;
+    }
+    display: flex;
+    .hide {
+      display: none;
+      align-items: center;
+    }
+    .hide:hover {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .comment-img {
+    padding-top: 5px;
+    height: auto;
+    width: auto;
+    max-width: 640px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}

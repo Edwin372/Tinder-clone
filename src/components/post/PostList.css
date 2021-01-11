@@ -1,0 +1,28 @@
+.post-list-container {
+  overflow-y: scroll;
+  max-height: 850px;
+}
+
+.post-list-container a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/*# sourceMappingURL=PostList.css.map */

@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "./static/css/main.0aa9172f.chunk.css",
+    "main.js": "./main.2ccbe1af165461c54f94.bundle.js",
+    "main.css.map": "./static/css/main.0aa9172f.chunk.css.map",
+    "main.js.map": "./main.2ccbe1af165461c54f94.bundle.js.map",
+    "runtime~main.js": "./runtime~main.2ccbe1af165461c54f94.bundle.js",
+    "runtime~main.js.map": "./runtime~main.2ccbe1af165461c54f94.bundle.js.map",
+    "vendors~main.js": "./vendors~main.2ccbe1af165461c54f94.bundle.js",
+    "vendors~main.js.map": "./vendors~main.2ccbe1af165461c54f94.bundle.js.map",
+    "iframe.html": "./iframe.html",
+    "precache-manifest.2ac13a0b695ca9e33b3e95e061769c84.js": "./precache-manifest.2ac13a0b695ca9e33b3e95e061769c84.js",
+    "service-worker.js": "./service-worker.js",
+    "static/media/code-brackets.svg": "./static/media/code-brackets.d43eb968.svg",
+    "static/media/colors.svg": "./static/media/colors.8104e6f5.svg",
+    "static/media/comments.svg": "./static/media/comments.3f9a1398.svg",
+    "static/media/defaultAvatar.png": "./static/media/defaultAvatar.f927d91b.png",
+    "static/media/direction.svg": "./static/media/direction.d3dc567b.svg",
+    "static/media/favorite.svg": "./static/media/favorite.119dfd21.svg",
+    "static/media/flow.svg": "./static/media/flow.e3812c4f.svg",
+    "static/media/navBarLogo.svg": "./static/media/navBarLogo.39a1938a.svg",
+    "static/media/plugin.svg": "./static/media/plugin.5ba97e9b.svg",
+    "static/media/repo.svg": "./static/media/repo.3452b916.svg",
+    "static/media/stackalt.svg": "./static/media/stackalt.66f4b748.svg",
+    "static/media/testImage.jpg": "./static/media/testImage.cbb08b9f.jpg",
+    "static/media/testImage1.jpeg": "./static/media/testImage1.9ea65da9.jpeg",
+    "static/media/testImage2.jpg": "./static/media/testImage2.224122e4.jpg",
+    "static/media/testImage3.jpg": "./static/media/testImage3.f3d334b3.jpg",
+    "static/media/testImage4.jpg": "./static/media/testImage4.f314c0d3.jpg",
+    "static/media/view.svg": "./static/media/view.7bd3d0ab.svg",
+    "vendors~main.2ccbe1af165461c54f94.bundle.js.LICENSE.txt": "./vendors~main.2ccbe1af165461c54f94.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.2ccbe1af165461c54f94.bundle.js",
+    "vendors~main.2ccbe1af165461c54f94.bundle.js",
+    "static/css/main.0aa9172f.chunk.css",
+    "main.2ccbe1af165461c54f94.bundle.js"
+  ]
+}

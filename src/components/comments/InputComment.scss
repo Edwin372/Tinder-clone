@@ -1,0 +1,115 @@
+.input-comment {
+  margin-bottom: 24px;
+  width: 840px;
+  .comment-avatar {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+  .line {
+    position: relative;
+    width: 835px;
+    height: 0px;
+    border: 1px solid #000000;
+  }
+  .comment-logo {
+    margin-top: 10px;
+    flex-direction: row;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    .comment-text {
+      width: 110px;
+      font-size: 18px;
+      font-family: "Rowdies";
+    }
+    #toggle-btn {
+      border: none;
+      outline: none;
+      background: transparent;
+      transition: all 0.5s;
+    }
+    .up{
+      transform: rotate(180deg);
+    }
+    .down{
+      transform: rotate(0deg);
+    }
+    .comment-logo {
+      width: 30px;
+      height: 30px;
+      padding-top: 2px;
+    }
+  }
+  .input-of-user {
+    display: flex;
+    flex-direction: column;
+    .ava-and-name {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 5px;
+
+      p {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 14px;
+        padding-left: 6px;
+      }
+    }
+    .textarea-and-addImageIcon {
+      display: flex;
+      flex-direction: row;
+      padding-left: 51px;
+      width: 735px;
+      position: relative;
+      .input-text {
+        resize: none;
+        width: 100%;
+        height: 21px;
+        border-radius: 10px;
+        background-color: #ffe8be;
+        border-color: #ffe8be;
+        font-size: 14px;
+        padding: 10px;
+        padding-right: 50px;
+        font-size: 14px;
+        outline: none;
+        line-height: 21px;
+        font-weight: 400;
+        font-family: "Roboto", sans-serif;
+      }
+
+      #comment-image-btn {
+        position: absolute;
+        right: 2px;
+        top: 4px;
+        border: none;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+      }
+    }
+    .preview-img {
+      width: 198px;
+      height: 198px;
+      border-radius: 20px;
+      margin-left: 54px;
+      object-fit: cover;
+    }
+    .importedImage {
+      position: relative;
+      width: 135px;
+      height: 125px;
+      margin-top: 3px;
+      border-radius: 10px;
+      margin-left: 51px;
+    }
+  }
+  .shown {
+    display: flex;
+  }
+  .hide {
+    display: none;
+  }
+}

@@ -1,0 +1,212 @@
+
+#create-post-container {
+    display: flex;
+    width: 100%;
+    #save-btn-container {
+        position: fixed;
+        top: 40%;
+        height: fit-content;
+        margin-left: 40px;
+        button {
+            background-color: white;
+            border: 2px solid #9CC29B;
+            font-family: 'Roboto Slab';
+            font-weight: bold;
+            outline: none;
+            cursor: pointer;
+            color: #9CC29B;
+            border-radius: 5px;
+            width: 110px;
+            height: 44px;
+            font-size: 18px;
+            text-align: center;
+            margin: auto;
+        }
+    }
+    .create-post-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        .create-signature{
+            color: black;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 35px;
+            line-height: 46px;   
+        }
+        .title-field {
+            margin-top: 130px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            #title{
+            color: black;
+            font-size: 40px;
+            line-height: 25px;
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            width : 1030px;
+            border: 0;
+            outline: 0;
+            text-align: justify;
+            text-transform: capitalize;
+            background: transparent;
+            }
+            #title:focus{
+            border-bottom: 1px solid black;
+            }
+        }
+        
+        .sub-title{
+            display: flex;
+            margin-top: 21px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            .subtitle {
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                outline: 0;
+                line-height: 21px;
+                resize: none;
+                width : 1030px;
+                color: #677079;
+                font-size: 30px;
+                border: none;
+                background: transparent;
+                }
+                .subtitle:focus{
+                border-bottom: 1px solid black; 
+                }
+            div:empty:before
+            {
+                content: attr(data-placeholder);
+                color: #757677;
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 21px;
+            }
+        }
+        
+        .content-field{
+            display: flex;
+            margin-top: 41px;
+            width: 1080px;
+            label{
+                color: black;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            .codex-editor__redactor{ 
+                padding-bottom: 58px !important; 
+            }
+            .ce-block:first-of-type{
+                margin-top: -35px;
+            }
+            .ce-paragraph.cdx-block{
+                margin-left: 27px;
+                line-height: 28px;
+                outline: none;
+                padding: 1px ;
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 20px;
+                text-align: justify;
+                width: 1080px;
+            }
+            .ce-paragraph.cdx-block:focus{
+                    border-bottom: 1px solid #7c7c7c; 
+            }
+            .ce-toolbar__content {
+                max-width: 1080px;
+            }
+            .ce-block__content{
+                max-width:1080px;
+                margin: 34px auto;
+            }
+            .codex-editor--narrow .ce-toolbar__plus{ 
+                left: -40px; 
+            }
+            .codex-editor--narrow .ce-toolbar__actions{
+               right: -50px;
+            }
+            .ce-toolbar__settings-btn{
+                width: 24px;
+                height: 24px;
+            }
+            .ce-code__textarea{
+                background-color: beige;
+                color: black;
+                margin-left: 200px;
+                width: 700px;
+                margin-top: -2px;
+                line-height: 1.6em;
+                min-height: 100px;
+                text-align: left!important;
+            }
+                .codex-editor__redactor.reset-this{
+                    padding-bottom: 70px;
+                }
+            .cdx-button{
+                margin-left: 26px;
+                width: 1080px;
+                height: 17.28px;
+                display: center;
+            }
+            .ce-header {
+                padding-left: 25px;
+                font-family: 'Roboto', sans-serif;
+            }
+            .cdx-list {
+                padding-left: 80px;
+            }
+           
+            .image-tool__image{
+                width: 1080px;
+                margin-left: 15px;
+            }
+            .image-tool__image-picture{
+                width: 100%;
+                align-self: center;
+                border-radius: 5%;
+            }
+            .image-tool__caption{
+                font-family: 'Roboto', sans-serif;
+                font-style: normal;
+                font-weight: normal;
+                margin-left: 16px;
+
+            }
+            .cdx-input{
+                text-align: center;
+            }
+            ::selection {
+                background: black; 
+                color: white;
+            }
+        }
+    }
+}
+.custom-title{
+    height: 350px;
+    font-size: 0.875em !important;
+    text-align: left !important;
+}
+

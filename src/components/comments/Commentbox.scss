@@ -1,0 +1,21 @@
+#comment-component-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  #comment-container {
+    width: 813px;
+    display: flex;
+    flex-direction: column;
+    max-width: 813px;
+    max-height: 600px;
+    overflow: scroll;
+    transition: all 1s;
+  }
+  .comment-shown {
+    height: 600px;
+  }
+  .comment-hide {
+    height: 0px;
+  }
+}

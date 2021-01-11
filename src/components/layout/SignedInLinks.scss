@@ -1,0 +1,87 @@
+.signedin-container {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  margin-right: 25.5px;
+  .signin-navbar-button {
+    width: 43px;
+    height: 43px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  #dropdown-grid {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    width: 236.22px;
+    height: 188.04px;
+    margin-left: -165px;
+    .dropdown-button {
+      text-decoration: none;
+      color:black;
+      display: flex;
+      justify-content: flex-start;
+      width: 224.22px;
+      height: 188.04px;
+      font-size: 20px;
+      background: transparent;
+      border: black solid 1px;
+      border-bottom: none;
+      align-items: center;
+      outline: none;
+      font-family: "Ribeye Marrow";
+      cursor: pointer;
+      padding-left: 11px;
+    }
+    #sign-out-button {
+      border-bottom: black solid 1px;
+    }
+  }
+  #bell {
+    margin-left: 56.3px;
+    margin-right: 70px;
+  }
+  #avatar-button {
+    margin-right: 25px;
+    margin-left: 0px;
+    #avatar-image {
+      width: 43px;
+      height: 43px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+  }
+  #displayName {
+    width: 56px;
+    height: 21px;
+    font-family: "Arbutus Slab";
+    font-size: 21px;
+    margin-right: 7px;
+    margin-bottom: 5px;
+    text-align: right;
+    cursor: default;
+  }
+  .dropdown-logo {
+    width: 30px;
+    height: 30px;
+    margin-left: 0px;
+    margin-right: 12px;
+  }
+  #signout-image {
+    margin-left: 3px;
+    margin-right: 9.3px;
+  }
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}

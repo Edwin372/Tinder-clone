@@ -1,0 +1,48 @@
+.trending-on-the-nerd {
+    color: black;
+    text-decoration: none;
+    font-family: 'Arbutus Slab';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    height: 150px;
+    margin-left: 70px;
+    label {
+      margin-left: 10px;
+    }
+}
+.trend-post-list-container {
+    display: flex;
+    margin-left: 0 auto;
+    overflow-y: scroll;
+    max-height: 850px;  
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    a {
+        margin-left: 21px ;
+        text-decoration: none   
+    }
+}
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

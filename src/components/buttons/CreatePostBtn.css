@@ -1,0 +1,19 @@
+.create-post-btn {
+  background-color: #9AC0AB;
+  font-family: 'Roboto Slab';
+  font-weight: bold;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 110px;
+  height: 35px;
+  font-size: 18px;
+  text-align: center;
+  margin: auto;
+}
+
+.create-post-btn:disabled {
+  cursor: default;
+}
+/*# sourceMappingURL=CreatePostBtn.css.map */
