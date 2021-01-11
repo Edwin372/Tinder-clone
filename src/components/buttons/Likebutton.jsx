@@ -8,12 +8,16 @@ export default function LikeButton(props) {
     <div className="like-btn-container">
       <button className="like-btn" onClick={props.onClick}>
         {props.like ? (
-          <img src={alreadyLike} alt="" />
+          <div className="alreadyLike">
+            <img src={alreadyLike} alt="" />
+          </div>
         ) : (
-          <img src={likeBtnIcon} alt="" />
+          <div className="likebtn">
+            <img src={likeBtnIcon} alt="" />
+          </div>
         )}
       </button>
-      {props.like ? <p>{props.likeCount + 1}</p> : <p>{props.likeCount}</p>}
+      <span id="like-number">{props.likeCount}</span>
     </div>
   );
 }

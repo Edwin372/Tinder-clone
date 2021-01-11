@@ -6,6 +6,7 @@ export const createPost = (post) => {
       console.log(profile)
       const userId = getState().firebase.auth.uid;
       const firestore = getFirestore();
+      console.log('got here')
       firestore.collection('posts').add({
         ...post,
         likes: 0,

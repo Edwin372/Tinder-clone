@@ -11,18 +11,28 @@ import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
 import SearchInput from '../search/SearchInput.jsx'
 import {NavLink} from 'react-router-dom'
+import Notifications from '../notifications/NotificationList.jsx'
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
+  let [searchRedirect, setSearchRedirect] = useState(false);
  
-  console.log(props.profile);
+  const handleSearch = (value) => {
+    console.log(value);
+    setSearchRedirect(true)
+  }
+  if (searchRedirect) {
+    // return (
+    //   <Redirect to='/search-result'/>
+    // )
+  }
   return (
     <div>
       <div className="signedin-container">
-        <SearchInput/>
+        <SearchInput search={props.debounceSearch || handleSearch }/>
         <button
           id="bell"
-         
+          
           className="signin-navbar-button"
         >
           <img src={bell} alt="bell icon" />
@@ -55,14 +65,14 @@ const SignedInLinks = (props) => {
                 />
                 Writing
               </NavLink>
-              <NavLink to="/create-post" className="dropdown-button">
+              <NavLink to="/drafts" className="dropdown-button">
                 <img
                   id="layers-image"
                   src={layers}
                   alt="layers-logo"
                   className="dropdown-logo"
                 />
-                Series
+                Drafts
               </NavLink>
               <NavLink to={`/profile/${props.auth.uid}`} className="dropdown-button">
                 <img

@@ -48,7 +48,7 @@ const ReadingContent = (props) => {
       .collection("users")
       .doc(post.userId)
       .get()
-      const profile = response.data()
+      const profile = {...response.data(), id: response.id}
       setAuthorProfile(profile)
     }
     fetchData();
@@ -60,7 +60,7 @@ const ReadingContent = (props) => {
         <div id="author-info">
           <img id="author-ava" src={authorProfile.avatar || defaultAvatar} alt="avatar"></img>
           <div id="author-name-date">
-            <a href="" id="author-name">{post.author}</a>
+            <a href={`/profile/${authorProfile.id}`} id="author-name">{post.author}</a>
             <p id="post-date">{moment(post.createdAt).format('MMMM Do, YYYY')}</p>
           </div>
         </div>

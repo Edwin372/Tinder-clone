@@ -1,0 +1,70 @@
+#draft-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px;
+    #draft-list {
+        display: flex;
+        flex-direction: column-reverse;
+        .post-container {
+            display: flex;
+            margin-top: 40px;
+            flex-direction: row;
+            .profile-post {
+                position: relative;
+                width: 688px;
+                height: 98px;   
+                background-color: #F5DF4D;
+                border-radius: 5px;
+                cursor: pointer;
+                p {
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                }
+                .title-profile-post {
+                    color: black;
+                    font-family: 'Rowdies', cursive;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 24px;
+                    line-height: 30px;
+                    padding-top: 5.75px;
+                    padding-left: 16px;
+                    width: 652.23px;
+                    height: 39.14px;
+                }
+                .subtitle-profile-post {
+                    color: #677079;
+                    font-family: 'Roboto', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 19px;
+                    width: 138px;
+                    height: 28px;
+                    padding-left: 16px;
+                }
+                .profile-post-info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: baseline;
+                    .profile-post-date {
+                        color: black;
+                        font-family: 'Roboto', sans-serif;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 19px;
+                        width: 138.75px;
+                        height: 14.3px;
+                        padding-left: 16px;
+                    }
+                    
+                }
+            }
+        }
+       
+    }
+    
+}

@@ -4,13 +4,15 @@ import Navbar from '../layout/NavBar.jsx'
 import { connect } from "react-redux";
 import './ProfilePage.scss'
 class ProfilePage extends Component {
+
     render() {
-        return (
-            <div id="profile-page">
-                <Navbar/>
-                <ProfileHeader uid ={this.props.location.pathname.split('/')[2]} profile={this.props.profile}/>
-            </div>
-        )
+      const currentId = this.props.location.pathname.split('/')[2]
+      return (
+          <div id="profile-page">
+              <Navbar/>
+              <ProfileHeader uid ={currentId} profile={this.props.profile} isUserProfile={currentId === this.props.auth.uid}/>
+          </div>
+      )
     }
 }
 

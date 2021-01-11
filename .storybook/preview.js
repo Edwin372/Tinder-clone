@@ -83,7 +83,28 @@ addDecorator((story) => (
         rel="stylesheet"
       />
       <link 
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" 
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" 
+        rel="stylesheet"
+      ></link>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" 
+        rel="stylesheet"
+      ></link>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" 
+        rel="stylesheet"
+      ></link>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,400&display=swap" 
+        rel="stylesheet"
+      ></link>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet"></link>
+      <link 
+      href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" 
+      rel="stylesheet"
+      ></link>
+      <link 
+      href="https://fonts.googleapis.com/css2?family=Sahitya&display=swap" 
       rel="stylesheet"
       ></link>
       {story()}
