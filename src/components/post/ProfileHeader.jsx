@@ -10,6 +10,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import ProfilePost from './ProfilePost'
 import swal from 'sweetalert'
 import Profile from './Profile.jsx'
+import Series from './Series.jsx'
 
 class ProfileHeader extends Component{
     state={
@@ -250,7 +251,9 @@ class ProfileHeader extends Component{
                 </div>
                 <div id="posts-list-container" className={this.state.isSeriesShown? 'post-show': 'post-hide'}>
                     {
-                       
+                       <Series
+                            profile={this.props.profile}
+                       />
                     }
                 </div>
             </div>

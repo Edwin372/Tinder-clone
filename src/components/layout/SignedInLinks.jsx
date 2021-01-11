@@ -9,18 +9,18 @@ import pencil from "../../svg/pencil.svg";
 import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
-import SearchInput from '../search/SearchInput.jsx'
-import {NavLink} from 'react-router-dom'
-import Notifications from '../notifications/NotificationList.jsx'
+import SearchInput from "../search/SearchInput.jsx";
+import { NavLink } from "react-router-dom";
+import NotificationDropDown from "../dropdown/NotificationDropDown.jsx";
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
   let [searchRedirect, setSearchRedirect] = useState(false);
- 
+
   const handleSearch = (value) => {
     console.log(value);
-    setSearchRedirect(true)
-  }
+    setSearchRedirect(true);
+  };
   if (searchRedirect) {
     // return (
     //   <Redirect to='/search-result'/>
@@ -29,14 +29,12 @@ const SignedInLinks = (props) => {
   return (
     <div>
       <div className="signedin-container">
-        <SearchInput search={props.debounceSearch || handleSearch }/>
-        <button
-          id="bell"
-          
-          className="signin-navbar-button"
-        >
-          <img src={bell} alt="bell icon" />
-        </button>
+        <SearchInput search={props.debounceSearch || handleSearch} />
+        <NotificationDropDown
+          notificationCounter={props.notifyCounter}
+          notifyContent={props.notifications}
+          notifyNotice={props.notifyNotice}
+        />
         {/* <span id="displayName">{handleName(props.auth.displayName)}</span> */}
         <button
           id="avatar-button"
@@ -56,7 +54,11 @@ const SignedInLinks = (props) => {
                 boolDropDown ? "visible" : "hidden"
               }`}
             >
-              <NavLink to="/create-post" className="dropdown-button" onClick={() => {}}>
+              <NavLink
+                to="/create-post"
+                className="dropdown-button"
+                onClick={() => {}}
+              >
                 <img
                   id="pencil-image"
                   src={pencil}
@@ -74,7 +76,10 @@ const SignedInLinks = (props) => {
                 />
                 Drafts
               </NavLink>
-              <NavLink to={`/profile/${props.auth.uid}`} className="dropdown-button">
+              <NavLink
+                to={`/profile/${props.auth.uid}`}
+                className="dropdown-button"
+              >
                 <img
                   id="humanLogo-image"
                   src={humanLogo}
@@ -83,13 +88,17 @@ const SignedInLinks = (props) => {
                 />
                 View profile
               </NavLink>
-              <NavLink to="/" id="sign-out-button" className="dropdown-button"  onClick={props.signOut}>
+              <NavLink
+                to="/"
+                id="sign-out-button"
+                className="dropdown-button"
+                onClick={props.signOut}
+              >
                 <img
                   id="signout-image"
                   src={signoutIcon}
                   alt="signoutIcon-logo"
                   className="dropdown-logo"
-                 
                 />
                 Sign out
               </NavLink>
@@ -110,7 +119,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    profile: state.firebase.profile
+    profile: state.firebase.profile,
   };
 };
 
