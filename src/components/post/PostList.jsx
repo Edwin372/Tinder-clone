@@ -24,7 +24,6 @@ const postList = ({ posts, style, profile, drafts }) => {
                 pathname: "/post/" + post.id,
                 state: {
                   post,
-                  profile,
                 },
               }}
               key={post.id}
