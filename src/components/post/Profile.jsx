@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './Profile.scss'
 
-export default class Series extends Component {
+export default class Profile extends Component {
     state={
         change: false,
         changeGmail: false,
