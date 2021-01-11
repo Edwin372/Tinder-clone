@@ -12,7 +12,7 @@ export default class NewPost extends Component {
         name: '', 
     }
     setTitle(){
-        return (this.state.newPostTitle.length > 22) ? this.state.newPostTitle.slice(0, 22) + '...' : this.state.newPostTitle;
+        return (this.state.newPostTitle.length > 18) ? this.state.newPostTitle.slice(0, 18) + '...' : this.state.newPostTitle;
     };
     renameTitle = e => {
         if (e.key === 'Enter') {
