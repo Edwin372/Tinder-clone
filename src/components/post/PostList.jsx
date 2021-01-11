@@ -14,6 +14,7 @@ const postList = ({ posts, style, profile, drafts }) => {
         view: post.view + 1,
       });
   };
+  console.log(profile)
   return (
     <div style={{ ...style }} className="post-list-container">
       {posts &&
@@ -24,7 +25,6 @@ const postList = ({ posts, style, profile, drafts }) => {
                 pathname: "/post/" + post.id,
                 state: {
                   post,
-                  profile,
                 },
               }}
               key={post.id}

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.3567f6c3.chunk.css",
-    "main.js": "/static/js/main.7fe03f21.chunk.js",
-    "main.js.map": "/static/js/main.7fe03f21.chunk.js.map",
+    "main.css": "/static/css/main.0e73d86e.chunk.css",
+    "main.js": "/static/js/main.f11d1965.chunk.js",
+    "main.js.map": "/static/js/main.f11d1965.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3122360c.js",
     "runtime-main.js.map": "/static/js/runtime-main.3122360c.js.map",
-    "static/js/2.bfb3e012.chunk.js": "/static/js/2.bfb3e012.chunk.js",
-    "static/js/2.bfb3e012.chunk.js.map": "/static/js/2.bfb3e012.chunk.js.map",
+    "static/js/2.48302f4d.chunk.js": "/static/js/2.48302f4d.chunk.js",
+    "static/js/2.48302f4d.chunk.js.map": "/static/js/2.48302f4d.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.eaa6d8c5c4f9c7bb8beb5b0cb6ffdbac.js": "/precache-manifest.eaa6d8c5c4f9c7bb8beb5b0cb6ffdbac.js",
+    "precache-manifest.be6671a922b0e86e801d8b41ce420c98.js": "/precache-manifest.be6671a922b0e86e801d8b41ce420c98.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.3567f6c3.chunk.css.map": "/static/css/main.3567f6c3.chunk.css.map",
-    "static/js/2.bfb3e012.chunk.js.LICENSE.txt": "/static/js/2.bfb3e012.chunk.js.LICENSE.txt",
+    "static/css/main.0e73d86e.chunk.css.map": "/static/css/main.0e73d86e.chunk.css.map",
+    "static/js/2.48302f4d.chunk.js.LICENSE.txt": "/static/js/2.48302f4d.chunk.js.LICENSE.txt",
     "static/media/addImgaeIcon.svg": "/static/media/addImgaeIcon.136ced35.svg",
     "static/media/alreadyLike.svg": "/static/media/alreadyLike.550a7ab8.svg",
     "static/media/bell.svg": "/static/media/bell.383e0bbd.svg",
@@ -19,6 +19,7 @@
     "static/media/commentLogo.svg": "/static/media/commentLogo.2e6e1c02.svg",
     "static/media/defaultAvatar.png": "/static/media/defaultAvatar.f927d91b.png",
     "static/media/dotdotdot.svg": "/static/media/dotdotdot.a216912a.svg",
+    "static/media/dropdown.svg": "/static/media/dropdown.333a0980.svg",
     "static/media/dropdownIndicator.svg": "/static/media/dropdownIndicator.18236bb4.svg",
     "static/media/dropdownMini.svg": "/static/media/dropdownMini.a499657c.svg",
     "static/media/SocialAccountBtn.scss": "/static/media/verificationBtn.cce87a18.svg",
@@ -28,7 +29,9 @@
     "static/media/likeButton.svg": "/static/media/likeButton.18664171.svg",
     "static/media/logo.svg": "/static/media/logo.fc1e34ab.svg",
     "static/media/navBarLogo.svg": "/static/media/navBarLogo.39a1938a.svg",
+    "static/media/notFoundIcon.svg": "/static/media/notFoundIcon.f6c365db.svg",
     "static/media/pencil.svg": "/static/media/pencil.b5b57ade.svg",
+    "static/media/plusIcon.svg": "/static/media/plusIcon.bae2054d.svg",
     "static/media/quote.svg": "/static/media/quote.640f2002.svg",
     "static/media/save.svg": "/static/media/save.2e53514a.svg",
     "static/media/saveOn.svg": "/static/media/saveOn.95e05756.svg",
@@ -42,8 +45,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.3122360c.js",
-    "static/js/2.bfb3e012.chunk.js",
-    "static/css/main.3567f6c3.chunk.css",
-    "static/js/main.7fe03f21.chunk.js"
+    "static/js/2.48302f4d.chunk.js",
+    "static/css/main.0e73d86e.chunk.css",
+    "static/js/main.f11d1965.chunk.js"
   ]
 }
