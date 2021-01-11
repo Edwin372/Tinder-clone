@@ -18,5 +18,6 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const storage = firebase.storage();
 const firestore = firebase.firestore();
+const messaging = firebase.messaging()
 // firebase.firestore().settings({timestampsInSnapshots: true})
-export { firestore, storage, firebase as default };
+export { messaging, firestore, storage, firebase as default };
