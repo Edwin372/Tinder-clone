@@ -1,0 +1,83 @@
+.notify-dropdown-conatin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .bell{
+        display: flex;
+        flex-direction: row;
+        width: 43px;
+        height: 43px;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        #counter-notify{
+            font-family: 'Yusei Magic', sans-serif;
+            height: 25px;
+            line-height: 25px;
+            border-radius: 50%;
+            font-size: 15px;
+            color: #fff;
+            text-align: center;
+            background: rgb(199, 42, 42);
+            width: 26px;
+            position: absolute;
+            left: 665px;
+            color: black
+        }
+    }
+    .show{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(199, 199, 199);
+        box-shadow: 0px 3px 9px 1px rgb(177, 173, 173);
+        width: 499.5px;
+        border-radius: 10px;
+        background-color: #b6ffe7;
+        margin-right: 370px;
+        #notification{
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 17px;
+            font-style: normal;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .notify-menu{
+            height: 288px;
+            width: 500px;
+            overflow: hidden;
+            a {
+                text-decoration: none;   
+            }
+        }
+        .notify-menu:hover {
+            overflow-y: scroll;
+        }
+    }
+    .hide{
+        display: none;
+    }
+      /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        box-shadow:  grey; 
+        background-color: #acffe3;
+        border-radius: 15px;
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background:linear-gradient(
+            45deg,
+            #06dee1,
+            #79ff6c,
+        );
+        border-radius: 10px;
+      }
+}
