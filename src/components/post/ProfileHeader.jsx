@@ -188,7 +188,7 @@ class ProfileHeader extends Component{
                 <p className="user-name">{profile.displayName || ''}</p>
                 <p className="biography">{profile.bio || ''}</p>
                 <div className="follow">
-                    <p className= "followers">{profile.followers || 0}<span> followers</span></p>
+                    <p className= "followers">{profile.follower || 0}<span> followers</span></p>
                    
                     <p className= "following">{profile.following || 0}<span> following</span></p>
                 </div>

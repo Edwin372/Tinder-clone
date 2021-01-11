@@ -10,7 +10,8 @@ import layers from "../../svg/layers.svg";
 import signoutIcon from "../../svg/signoutIcon.svg";
 import humanLogo from "../../svg/humanLogo.svg";
 import SearchInput from '../search/SearchInput.jsx'
-import {NavLink, Redirect} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+import Notifications from '../notifications/NotificationList.jsx'
 
 const SignedInLinks = (props) => {
   let [boolDropDown, setBoolDropDown] = useState(false);
