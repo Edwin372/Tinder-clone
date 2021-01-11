@@ -32,7 +32,7 @@
         box-shadow: 0px 3px 9px 1px rgb(177, 173, 173);
         width: 499.5px;
         border-radius: 10px;
-        background-color: #ccffee;
+        background-color: hsl(27, 100%, 98%);
         margin-right: 390px;
         #notification{
             font-family: 'Roboto', sans-serif;
@@ -66,16 +66,16 @@
       /* Track */
       ::-webkit-scrollbar-track {
         box-shadow:  grey; 
-        background-color: #ccffee;
+        background-color: hsl(27, 100%, 98%);
         border-radius: 15px;
       }
        
       /* Handle */
       ::-webkit-scrollbar-thumb {
         background:linear-gradient(
-            45deg,
-            #06dee1,
-            #79ff6c,
+            #8f8d8d,
+            hsl(27, 100%, 98%),
+            #8f8d8d,
         );
         border-radius: 10px;
       }

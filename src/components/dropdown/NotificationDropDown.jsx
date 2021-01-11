@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./NotificationDropDown.scss";
 import bell from "../../svg/bell.svg";
-import NotificationMenu from "./NotificationMenu";
+import NotificationItem from "./NotificationItem";
 import { Link } from 'react-router-dom'
 
 
@@ -28,7 +28,7 @@ export default class NotificationDropDown extends Component {
                 { this.props.button && this.props.button.map(box => {
                     return (
                         <Link to={'/box/' + box.id} key={box.id}>
-                            <NotificationMenu box={box} />
+                            <NotificationItem box={box} />
                         </Link>            
                     )
                 })}
