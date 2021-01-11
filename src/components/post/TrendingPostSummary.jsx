@@ -7,8 +7,10 @@ import "./TrendingPostSummary.scss";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
+import SaveBtn from "../buttons/SaveButton.jsx";
 
 function TrendingPostSummary({ post, firestore }) {
+  const [save, saveToggle] = useState(false);
   const [authorProfile, setAuthorProfile] = useState({});
   useEffect(() => {
     async function fetchData() {
@@ -32,9 +34,7 @@ function TrendingPostSummary({ post, firestore }) {
             <img src={authorProfile.avatar || defaultAvatar} alt="avatar" />
             <p className="">{post.author}</p>
           </div>
-          <button className="favorite-button">
-            <img src={favorite} alt="favourite-icon" />
-          </button>
+          <SaveBtn save={save} saveToggle={saveToggle} />
         </div>
         <p className="title">{post.title}</p>
         <p className="subtitle">

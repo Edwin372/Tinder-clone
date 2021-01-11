@@ -59,7 +59,7 @@ const ReadingContent = (props) => {
         .doc(props.post.id)
         .onSnapshot((querySnapshot) => {
           var post = [];
-          setLikeCount(querySnapshot.data().likes);
+          setLikeCount(querySnapshot.data() && querySnapshot.data().likes);
         });
     }
     fetchLike(post.id);
