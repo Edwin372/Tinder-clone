@@ -18,6 +18,12 @@ export default class ProfilePost extends Component {
         viewOnDetail: false,
         redirect: false
     }
+    setTitle(){
+        return (this.props.post.title.length > 49) ? this.props.post.title.slice(0, 49) + '...' : this.props.post.title;
+    };
+    setSubtitle(){
+        return (this.props.post.subtitle.length > 49) ? this.props.post.subtitle.slice(0, 49) + '...' : this.props.post.subtitle;
+    };
     handleDelete = async (id) => {
         Swal.fire({
             title: 'Do you want to delete this post?',
@@ -59,8 +65,8 @@ export default class ProfilePost extends Component {
                         style={{textDecoration: 'none', color: 'black'}}
                     >
                         <div className="profile-post" onClick={() => {this.setState({viewOnDetail: !this.state.viewOnDetail})}}>
-                            <p className="title-profile-post">{this.props.post.title}</p>
-                            <p className="subtitle-profile-post">{this.props.post.subtitle}</p>
+                            <p className="title-profile-post">{this.setTitle()}</p>
+                            <p className="subtitle-profile-post">{this.setSubtitle()}</p>
                             <div className="profile-post-info">
                                 <p className="profile-post-date">{moment(this.props.post.createdAt).calendar()}</p>
                                     <div className="profile-post-viewer">
