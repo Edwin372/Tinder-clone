@@ -30,9 +30,9 @@ const topTrendingList = ({ posts, profile }) => {
                   pathname: "/post/" + post.id,
                   state: {
                     post,
-                    profile,
                   },
                 }}
+                key={post.id}
                 onClick={() => viewEvent(post.id, post)}
               >
                 <TrendingPostSummary post={post} />
