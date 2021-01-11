@@ -3,7 +3,6 @@ import DropDownOption from '../buttons/DropDownOption.jsx'
 import Swal from 'sweetalert2'
 import {storage} from '../../config/firebaseConfig.js'
 import './NewPost.scss'
-import { instance } from 'firebase-functions/lib/providers/database'
 
 export default class NewPost extends Component {
     state = {
@@ -104,7 +103,7 @@ export default class NewPost extends Component {
                                 {
                                     name: "Change background image",
                                     handleClick: () => {
-                                        this.changeBackground();
+                                        this.changeBackground(this);
                                         console.log("Changed");
                                     },
                                 },
