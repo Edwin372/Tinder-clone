@@ -5,7 +5,7 @@
     .bell{
         display: flex;
         flex-direction: row;
-        width: 43px;
+        width: 100px;
         height: 43px;
         background: transparent;
         border: none;
@@ -17,13 +17,12 @@
             line-height: 25px;
             border-radius: 50%;
             font-size: 15px;
-            color: #fff;
             text-align: center;
             background: rgb(199, 42, 42);
             width: 26px;
-            position: absolute;
-            left: 665px;
-            color: black
+            display: inline-block;
+            color: black;
+            margin-left: -20px;
         }
     }
     .show{
@@ -33,14 +32,14 @@
         box-shadow: 0px 3px 9px 1px rgb(177, 173, 173);
         width: 499.5px;
         border-radius: 10px;
-        background-color: #b6ffe7;
-        margin-right: 370px;
+        background-color: #ccffee;
+        margin-right: 390px;
         #notification{
             font-family: 'Roboto', sans-serif;
             font-weight: bold;
             font-size: 17px;
             font-style: normal;
-            padding-left: 10px;
+            padding-left: 20px;
             padding-top: 10px;
             padding-bottom: 10px;
         }
@@ -67,7 +66,7 @@
       /* Track */
       ::-webkit-scrollbar-track {
         box-shadow:  grey; 
-        background-color: #acffe3;
+        background-color: #ccffee;
         border-radius: 15px;
       }
        
