@@ -26,7 +26,7 @@ function PostSummary({ post, firestore }) {
   return (
     <div className="post-sum-container">
       <img
-        src={post.image || defaultImage}
+        src={post.titleImage || defaultImage}
         alt="cover_image"
         className="post-img"
       />

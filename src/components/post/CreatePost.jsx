@@ -87,6 +87,7 @@ class CreatePost extends Component {
     editMode: false,
     draftMode: false,
     postData: {},
+    titleImage: '',
   };
 
   componentDidMount = async () => {
@@ -141,7 +142,7 @@ class CreatePost extends Component {
         },
       })
         .then(async () => {
-          const { title, subtitle, tags, editor } = instance.state;
+          const { title, subtitle, tags, editor, titleImage } = instance.state;
           let tagArr = tags.map((tag) => tag.label);
           const postContentData = await editor.save();
           return instance.props.createPost({
@@ -149,6 +150,7 @@ class CreatePost extends Component {
             subtitle: subtitle || "",
             postContentData: postContentData || "",
             tags: tagArr || [],
+            titleImage: titleImage || '',
           });
         })
         .finally(() => {
@@ -279,7 +281,44 @@ class CreatePost extends Component {
         createdAt: moment().format(),
       });
   };
-
+  handleSetTitleImage = async (instance) => {
+    const { value: file } = await Swal.fire({
+        showCancelButton: true,
+        title: 'Select image',
+        input: 'file',
+        inputAttributes: {
+          'accept': 'image/*',
+          'aria-label': 'Upload your profile picture'
+        }
+      })
+      if (file) {
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          Swal.fire({
+            title: 'Would you like to choose this photo as your title post?',
+            imageUrl: e.target.result,
+            confirmButtonText: `Yes`,
+            showDenyButton: true,
+            denyButtonText: `No`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const storageRef = storage.ref();
+                const fileRef = storageRef.child('profileImage').child('images/'+ file.name);
+                fileRef.put(file).then(() => {
+                    console.log("Uploaded successfully");
+                }).then(()=> {
+                    fileRef.getDownloadURL().then(function(url) {
+                        instance.setState({titleImage: url});
+                    }).catch(function(error) {
+                        console.error(error);
+                    });
+                })
+            }
+          })
+        }
+        reader.readAsDataURL(file)
+      }
+};
   render() {
     const { editingPost, draft } = this.props;
     console.log(draft);
@@ -294,6 +333,11 @@ class CreatePost extends Component {
             }}
           >
             Save
+          </button>
+        </div>
+        <div id="image-title-container">
+          <button onClick={() =>{this.handleSetTitleImage(this)}}>
+              Title Image
           </button>
         </div>
         <div className="create-post-form">
